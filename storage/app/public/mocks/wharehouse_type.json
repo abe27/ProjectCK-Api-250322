@@ -15,6 +15,16 @@
         "prefix_code": "Bonded"
     },
     {
+        "name": "Domestic Warehouse",
+        "description": "คลังสินค้าภายในประเทศ",
+        "prefix_code": "Domestic"
+    },
+    {
+        "name": "Exports Warehouse",
+        "description": "คลังสินค้าส่งออก",
+        "prefix_code": "Exports"
+    },
+    {
         "name": "Distribution Warehouse",
         "description": "ศูนย์กระจายสินค้า",
         "prefix_code": "Distribution"

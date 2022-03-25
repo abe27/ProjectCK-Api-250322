@@ -1,0 +1,22 @@
+[
+    {
+        "name": "-",
+        "description": "-",
+        "prefix_code": "N"
+    },
+    {
+        "name": "Air",
+        "description": "ขนส่งทางอากาศ",
+        "prefix_code": "A"
+    },
+    {
+        "name": "Boat",
+        "description": "ขนส่งทางเรือ",
+        "prefix_code": "B"
+    },
+    {
+        "name": "Truck",
+        "description": "ขนส่งทางบก",
+        "prefix_code": "T"
+    }
+]

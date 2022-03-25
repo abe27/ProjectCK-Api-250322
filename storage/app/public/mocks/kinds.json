@@ -1,0 +1,74 @@
+[
+    {
+        "kinds": "ACAVSS"
+    },
+    {
+        "kinds": "ACAVSSCS"
+    },
+    {
+        "kinds": "ACCAVS"
+    },
+    {
+        "kinds": "ACCAVSAS"
+    },
+    {
+        "kinds": "ACCAVST"
+    },
+    {
+        "kinds": "ACCIVUS"
+    },
+    {
+        "kinds": "ACCIVUSAS-S"
+    },
+    {
+        "kinds": "ACIVSSH"
+    },
+    {
+        "kinds": "AV"
+    },
+    {
+        "kinds": "AVS"
+    },
+    {
+        "kinds": "AVSS"
+    },
+    {
+        "kinds": "AVSSCS"
+    },
+    {
+        "kinds": "AVSSCS-S"
+    },
+    {
+        "kinds": "AVSSH"
+    },
+    {
+        "kinds": "AVSSHCS"
+    },
+    {
+        "kinds": "AVSSHCS-S"
+    },
+    {
+        "kinds": "CAVS"
+    },
+    {
+        "kinds": "CAVSAS"
+    },
+    {
+        "kinds": "CAVSAS-S"
+    },
+    {
+        "kinds": "CIVUS"
+    },
+    {
+        "kinds": "CIVUSAS-S"
+    },
+    {
+        "kinds": "IVSSH"
+    },
+    {
+        "kinds": "IVSSHCS-S"
+    },
+    {
+        "kinds": "-"
+    }
+]

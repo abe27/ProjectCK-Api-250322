@@ -1,0 +1,22 @@
+[
+    {
+        "name": "-",
+        "description": "-"
+    },
+    {
+        "name": "PCS",
+        "description": "ชิ้น"
+    },
+    {
+        "name": "COIL",
+        "description": "ม้วน"
+    },
+    {
+        "name": "BOX",
+        "description": "กล้อง"
+    },
+    {
+        "name": "PLATE",
+        "description": "แผ่น"
+    }
+]

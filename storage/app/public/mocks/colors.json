@@ -1,0 +1,338 @@
+[
+    {
+        "colors": "B"
+    },
+    {
+        "colors": "B(B,W)"
+    },
+    {
+        "colors": "B(R,G)"
+    },
+    {
+        "colors": "B/BR"
+    },
+    {
+        "colors": "B/G"
+    },
+    {
+        "colors": "B/L"
+    },
+    {
+        "colors": "B/O"
+    },
+    {
+        "colors": "B/P"
+    },
+    {
+        "colors": "B/R"
+    },
+    {
+        "colors": "B/V"
+    },
+    {
+        "colors": "B/W"
+    },
+    {
+        "colors": "B/Y"
+    },
+    {
+        "colors": "BE"
+    },
+    {
+        "colors": "BR"
+    },
+    {
+        "colors": "BR/B"
+    },
+    {
+        "colors": "BR/G"
+    },
+    {
+        "colors": "BR/L"
+    },
+    {
+        "colors": "BR/R"
+    },
+    {
+        "colors": "BR/W"
+    },
+    {
+        "colors": "BR/Y"
+    },
+    {
+        "colors": "DGY"
+    },
+    {
+        "colors": "DGY/BR"
+    },
+    {
+        "colors": "DGY/G"
+    },
+    {
+        "colors": "DGY/L"
+    },
+    {
+        "colors": "DGY/O"
+    },
+    {
+        "colors": "DGY/P"
+    },
+    {
+        "colors": "DGY/R"
+    },
+    {
+        "colors": "DGY/V"
+    },
+    {
+        "colors": "DGY/W"
+    },
+    {
+        "colors": "DGY/Y"
+    },
+    {
+        "colors": "G"
+    },
+    {
+        "colors": "G/B"
+    },
+    {
+        "colors": "G/BR"
+    },
+    {
+        "colors": "G/L"
+    },
+    {
+        "colors": "G/O"
+    },
+    {
+        "colors": "G/P"
+    },
+    {
+        "colors": "G/R"
+    },
+    {
+        "colors": "G/W"
+    },
+    {
+        "colors": "G/Y"
+    },
+    {
+        "colors": "GY"
+    },
+    {
+        "colors": "GY/B"
+    },
+    {
+        "colors": "GY/BR"
+    },
+    {
+        "colors": "GY/G"
+    },
+    {
+        "colors": "GY/L"
+    },
+    {
+        "colors": "GY/LG"
+    },
+    {
+        "colors": "GY/O"
+    },
+    {
+        "colors": "GY/P"
+    },
+    {
+        "colors": "GY/R"
+    },
+    {
+        "colors": "GY/SB"
+    },
+    {
+        "colors": "GY/V"
+    },
+    {
+        "colors": "GY/W"
+    },
+    {
+        "colors": "GY/Y"
+    },
+    {
+        "colors": "L"
+    },
+    {
+        "colors": "L/B"
+    },
+    {
+        "colors": "L/G"
+    },
+    {
+        "colors": "L/O"
+    },
+    {
+        "colors": "L/R"
+    },
+    {
+        "colors": "L/W"
+    },
+    {
+        "colors": "L/Y"
+    },
+    {
+        "colors": "LG"
+    },
+    {
+        "colors": "LG/B"
+    },
+    {
+        "colors": "LG/L"
+    },
+    {
+        "colors": "LG/R"
+    },
+    {
+        "colors": "LG/W"
+    },
+    {
+        "colors": "LG/Y"
+    },
+    {
+        "colors": "O"
+    },
+    {
+        "colors": "O/B"
+    },
+    {
+        "colors": "O/G"
+    },
+    {
+        "colors": "O/L"
+    },
+    {
+        "colors": "O/R"
+    },
+    {
+        "colors": "O/W"
+    },
+    {
+        "colors": "P"
+    },
+    {
+        "colors": "P/B"
+    },
+    {
+        "colors": "P/G"
+    },
+    {
+        "colors": "P/L"
+    },
+    {
+        "colors": "P/W"
+    },
+    {
+        "colors": "R"
+    },
+    {
+        "colors": "R/B"
+    },
+    {
+        "colors": "R/G"
+    },
+    {
+        "colors": "R/GY"
+    },
+    {
+        "colors": "R/L"
+    },
+    {
+        "colors": "R/LG"
+    },
+    {
+        "colors": "R/O"
+    },
+    {
+        "colors": "R/W"
+    },
+    {
+        "colors": "R/Y"
+    },
+    {
+        "colors": "SB"
+    },
+    {
+        "colors": "SB/L"
+    },
+    {
+        "colors": "V"
+    },
+    {
+        "colors": "V/B"
+    },
+    {
+        "colors": "V/G"
+    },
+    {
+        "colors": "V/R"
+    },
+    {
+        "colors": "V/W"
+    },
+    {
+        "colors": "V/Y"
+    },
+    {
+        "colors": "W"
+    },
+    {
+        "colors": "W,B"
+    },
+    {
+        "colors": "W/B"
+    },
+    {
+        "colors": "W/BR"
+    },
+    {
+        "colors": "W/G"
+    },
+    {
+        "colors": "W/L"
+    },
+    {
+        "colors": "W/R"
+    },
+    {
+        "colors": "W/V"
+    },
+    {
+        "colors": "W/Y"
+    },
+    {
+        "colors": "Y"
+    },
+    {
+        "colors": "Y/B"
+    },
+    {
+        "colors": "Y/BR"
+    },
+    {
+        "colors": "Y/G"
+    },
+    {
+        "colors": "Y/L"
+    },
+    {
+        "colors": "Y/O"
+    },
+    {
+        "colors": "Y/R"
+    },
+    {
+        "colors": "Y/V"
+    },
+    {
+        "colors": "Y/W"
+    },
+    {
+        "colors": "-"
+    }
+]
