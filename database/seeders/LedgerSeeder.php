@@ -38,7 +38,7 @@ class LedgerSeeder extends Seeder
             $colors = Colors::where('colors', $r->colors)->first();
             $unit = Unit::where('name', $r->unit)->first();
             ### insert
-            $this->command->info($r->part);
+            $this->command->info("insert part: " . $r->part);
             $obj = new Ledger();
             $obj->tagrp_id = $tagrp->id;
             $obj->factory_id = $factory->id;
