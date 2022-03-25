@@ -16,14 +16,14 @@ class UnitSeeder extends Seeder
      */
     public function run()
     {
-        $json = Storage::get('mocks/unit.json');
+        $json = Storage::get('public/mocks/unit.json');
         $data = json_decode($json);
 
         Unit::truncate();
-        foreach ($data as $json) {
+        foreach ($data as $r) {
             $obj = new Unit();
-            $obj->name = $data->name;
-            $obj->description = $data->description;
+            $obj->name = $r->name;
+            $obj->description = $r->description;
             $obj->is_active = true;
             $obj->save();
         }

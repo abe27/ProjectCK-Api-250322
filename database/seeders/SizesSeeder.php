@@ -16,13 +16,13 @@ class SizesSeeder extends Seeder
      */
     public function run()
     {
-        $json = Storage::get('mocks/sizes.json');
+        $json = Storage::get('public/mocks/sizes.json');
         $data = json_decode($json);
 
         Sizes::truncate();
-        foreach ($data as $json) {
+        foreach ($data as $r) {
             $obj = new Sizes();
-            $obj->sizes = $data->sizes;
+            $obj->sizes = $r->sizes;
             $obj->is_active = true;
             $obj->save();
         }

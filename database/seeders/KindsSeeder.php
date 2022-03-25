@@ -16,13 +16,13 @@ class KindsSeeder extends Seeder
      */
     public function run()
     {
-        $json = Storage::get('mocks/kinds.json');
+        $json = Storage::get('public/mocks/kinds.json');
         $data = json_decode($json);
 
         Kinds::truncate();
-        foreach ($data as $json) {
+        foreach ($data as $r) {
             $obj = new Kinds();
-            $obj->kinds = $data->kinds;
+            $obj->kinds = $r->kinds;
             $obj->is_active = true;
             $obj->save();
         }

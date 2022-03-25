@@ -14,9 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::create('warehouse_types', function (Blueprint $table) {
-            $table->char('id', 21)->primary();
+            $table->char('id', 36)->primary();
             $table->string('name')->unique();
-            $table->long('description')->nullable();
+            $table->longText('description')->nullable();
             $table->string('prefix_code')->nullable();
             $table->boolean('is_active')->nullable()->default(false);
             $table->timestamps();

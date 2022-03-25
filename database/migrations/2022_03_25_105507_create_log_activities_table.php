@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('log_activities', function (Blueprint $table) {
-            $table->char('id', 21)->primary();
+            $table->char('id', 36)->primary();
             $table->string('subject');
             $table->string('url');
             $table->string('method');

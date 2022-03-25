@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('parts', function (Blueprint $table) {
-            $table->char('id', 21)->primary();
+            $table->char('id', 36)->primary();
             $table->string('no', 50)->unique();
             $table->string('name', 255);
             $table->boolean('is_active')->nullable()->default(false);

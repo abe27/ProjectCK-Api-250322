@@ -16,14 +16,14 @@ class TagrpSeeder extends Seeder
      */
     public function run()
     {
-        $json = Storage::get('mocks/tagrps.json');
+        $json = Storage::get('public/mocks/tagrps.json');
         $data = json_decode($json);
 
         Tagrp::truncate();
-        foreach ($data as $json) {
+        foreach ($data as $r) {
             $obj = new Tagrp();
-            $obj->name = $data->name;
-            $obj->description = $data->description;
+            $obj->name = $r->name;
+            $obj->description = $r->description;
             $obj->is_active = true;
             $obj->save();
         }

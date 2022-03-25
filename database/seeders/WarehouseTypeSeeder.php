@@ -16,15 +16,15 @@ class WarehouseTypeSeeder extends Seeder
      */
     public function run()
     {
-        $json = Storage::get('mocks/wharehouse_type.json');
+        $json = Storage::get('public/mocks/wharehouse_type.json');
         $data = json_decode($json);
 
         WarehouseType::truncate();
-        foreach ($data as $json) {
+        foreach ($data as $r) {
             $whs = new WarehouseType();
-            $whs->name = $data->name;
-            $whs->description = $data->description;
-            $whs->prefix_code = $data->prefix_code;
+            $whs->name = $r->name;
+            $whs->description = $r->description;
+            $whs->prefix_code = $r->prefix_code;
             $whs->is_active = true;
             $whs->save();
         }

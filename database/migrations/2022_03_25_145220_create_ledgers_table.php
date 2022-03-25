@@ -14,15 +14,15 @@ return new class extends Migration
     public function up()
     {
         Schema::create('ledgers', function (Blueprint $table) {
-            $table->char('id', 21)->primary();
-            $table->char('tagrp_id', 21)->nullable();
-            $table->char('factory_id', 21)->nullable();
-            $table->char('whs_id', 21)->nullable();
-            $table->char('part_id', 21);
-            $table->char('kinds_id', 21)->nullable();
-            $table->char('sizes_id', 21)->nullable();
-            $table->char('colors_id', 21)->nullable();
-            $table->char('unit_id', 21)->nullable();
+            $table->char('id', 36)->primary();
+            $table->char('tagrp_id', 36)->nullable();
+            $table->char('factory_id', 36)->nullable();
+            $table->char('whs_id', 36)->nullable();
+            $table->char('part_id', 36);
+            $table->char('kinds_id', 36)->nullable();
+            $table->char('sizes_id', 36)->nullable();
+            $table->char('colors_id', 36)->nullable();
+            $table->char('unit_id', 36)->nullable();
             $table->boolean('is_active')->nullable()->default(false);
             $table->timestamps();
             $table->foreign('tagrp_id')->references('id')->on('tagrps')->nullOnDelete();

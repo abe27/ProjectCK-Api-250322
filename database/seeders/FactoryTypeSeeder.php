@@ -16,14 +16,14 @@ class FactoryTypeSeeder extends Seeder
      */
     public function run()
     {
-        $json = Storage::get('mocks/factory.json');
+        $json = Storage::get('public/mocks/factory.json');
         $data = json_decode($json);
 
         FactoryType::truncate();
-        foreach ($data as $json) {
+        foreach ($data as $r) {
             $obj = new FactoryType();
-            $obj->name = $data->name;
-            $obj->description = $data->description;
+            $obj->name = $r->name;
+            $obj->description = $r->description;
             $obj->is_active = true;
             $obj->save();
         }

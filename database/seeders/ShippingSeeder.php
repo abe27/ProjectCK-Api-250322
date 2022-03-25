@@ -16,15 +16,15 @@ class ShippingSeeder extends Seeder
      */
     public function run()
     {
-        $json = Storage::get('mocks/shipping.json');
+        $json = Storage::get('public/mocks/shipping.json');
         $data = json_decode($json);
 
         Shipping::truncate();
-        foreach ($data as $json) {
+        foreach ($data as $r) {
             $obj = new Shipping();
-            $obj->name = $data->name;
-            $obj->description = $data->description;
-            $obj->prefix_code = $data->prefix_code;
+            $obj->name = $r->name;
+            $obj->description = $r->description;
+            $obj->prefix_code = $r->prefix_code;
             $obj->is_active = true;
             $obj->save();
         }

@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('kinds', function (Blueprint $table) {
-            $table->char('id', 21)->primary();
+            $table->char('id', 36)->primary();
             $table->string('kinds', 50)->unique();
             $table->longText('description')->nullable();
             $table->boolean('is_active')->nullable()->default(false);

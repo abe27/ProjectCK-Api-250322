@@ -16,8 +16,8 @@ trait Nanoids
         static::creating(function ($model) {
             if (empty($model->{$model->getKeyName()})) {
                 $client = new Client();
-                $key = $client->formattedId($alphabet = '0123456789abcdefghijklmnopqrstuvwxyz', $size = 21);
-                $model->{$model->getKeyName()} = $key->toString();
+                $key = $client->formattedId($alphabet = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', $size = 36);
+                $model->{$model->getKeyName()} = $key;
             }
         });
     }

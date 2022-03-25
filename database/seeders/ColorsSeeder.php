@@ -16,13 +16,13 @@ class ColorsSeeder extends Seeder
      */
     public function run()
     {
-        $json = Storage::get('mocks/colors.json');
+        $json = Storage::get('public/mocks/colors.json');
         $data = json_decode($json);
 
         Colors::truncate();
-        foreach ($data as $json) {
+        foreach ($data as $r) {
             $obj = new Colors();
-            $obj->colors = $data->colors;
+            $obj->colors = $r->colors;
             $obj->is_active = true;
             $obj->save();
         }

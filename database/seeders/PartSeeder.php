@@ -16,14 +16,14 @@ class PartSeeder extends Seeder
      */
     public function run()
     {
-        $json = Storage::get('mocks/parts.json');
+        $json = Storage::get('public/mocks/parts.json');
         $data = json_decode($json);
 
         Part::truncate();
-        foreach ($data as $json) {
+        foreach ($data as $r) {
             $obj = new Part();
-            $obj->no = $data->name;
-            $obj->name = $data->name;
+            $obj->no = $r->no;
+            $obj->name = $r->name;
             $obj->is_active = true;
             $obj->save();
         }
