@@ -1,0 +1,17 @@
+[
+    {
+        "name": "-",
+        "description": "ไม่ระบุ",
+        "is_active": true
+    },
+    {
+        "name": "S-XXX",
+        "description": "พื้นที่รับสินค้า",
+        "is_active": true
+    },
+    {
+        "name": "S-OUT",
+        "description": "พื้นที่ scan out/หรือจัดเตรียม",
+        "is_active": true
+    }
+]

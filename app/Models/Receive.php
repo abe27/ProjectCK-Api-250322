@@ -8,17 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class FileGedi extends Model
+class Receive extends Model
 {
     use HasFactory, HasApiTokens, Nanoids, Notifiable;
 
     protected $fillable = [
-        'whs_id',
-        'file_type',
-        'batch_id',
-        'file_name',
-        'file_size',
-        'is_downloaded',
+        'file_gedi_id',
+        'factory_type_id',
+        'receive_date',
+        'receive_no',
+        'receive_sync',
         'is_active',
     ];
 }

@@ -8,17 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class FileGedi extends Model
+class Shelve extends Model
 {
     use HasFactory, HasApiTokens, Nanoids, Notifiable;
 
     protected $fillable = [
-        'whs_id',
-        'file_type',
-        'batch_id',
-        'file_name',
-        'file_size',
-        'is_downloaded',
+        'carton_id',
+        'location_id',
+        'pallet_no',
+        'is_printed',
         'is_active',
     ];
 }

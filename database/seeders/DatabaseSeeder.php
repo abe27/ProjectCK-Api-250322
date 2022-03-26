@@ -29,6 +29,8 @@ class DatabaseSeeder extends Seeder
         $this->call([SizesSeeder::class]);
         $this->call([TagrpSeeder::class]);
         $this->call([LedgerSeeder::class]);
+        $this->call([StockSeeder::class]);
+        $this->call([LocationSeeder::class]);
         Schema::enableForeignKeyConstraints();
     }
 }

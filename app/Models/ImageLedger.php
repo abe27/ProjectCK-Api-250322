@@ -8,17 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class FileGedi extends Model
+class ImageLedger extends Model
 {
     use HasFactory, HasApiTokens, Nanoids, Notifiable;
 
     protected $fillable = [
-        'whs_id',
-        'file_type',
-        'batch_id',
-        'file_name',
-        'file_size',
-        'is_downloaded',
+        'ledger_id',
+        'image_url',
         'is_active',
     ];
 }

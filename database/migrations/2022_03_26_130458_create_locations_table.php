@@ -13,17 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('file_gedis', function (Blueprint $table) {
+        Schema::create('locations', function (Blueprint $table) {
             $table->char('id', 36)->primary();
-            $table->char('whs_id', 36)->nullable();
-            $table->enum('file_type', ['R', 'O']);
-            $table->string('batch_id')->unique();
-            $table->string('file_name');
-            $table->decimal('file_size', 8, 2)->nullable()->default(0);
-            $table->boolean('is_downloaded')->nullable()->default(false);
+            $table->string('name')->unique();
+            $table->longText('description')->nullable();
             $table->boolean('is_active')->nullable()->default(false);
             $table->timestamps();
-            $table->foreign('whs_id')->references('id')->on('whs')->nullOnDelete();
         });
     }
 
@@ -34,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('file_gedis');
+        Schema::dropIfExists('locations');
     }
 };
