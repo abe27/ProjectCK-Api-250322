@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\CustomerAddress;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Schema;
@@ -31,6 +32,10 @@ class DatabaseSeeder extends Seeder
         $this->call([LedgerSeeder::class]);
         $this->call([StockSeeder::class]);
         $this->call([LocationSeeder::class]);
+        $this->call([AffiliateSeeder::class]);
+        $this->call([CustomerSeeder::class]);
+        $this->call([CustomerAddressSeeder::class]);
+        $this->call([BuyerSeeder::class]);
         Schema::enableForeignKeyConstraints();
     }
 }

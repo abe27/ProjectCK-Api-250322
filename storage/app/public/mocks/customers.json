@@ -1,0 +1,742 @@
+[
+    {
+        "BISHPC": "1200",
+        "CUSTNM": "YC"
+    },
+    {
+        "BISHPC": "32337",
+        "CUSTNM": "ERROR."
+    },
+    {
+        "BISHPC": "32A4",
+        "CUSTNM": "YES"
+    },
+    {
+        "BISHPC": "32A7",
+        "CUSTNM": "ZZY"
+    },
+    {
+        "BISHPC": "32A8",
+        "CUSTNM": "AAPL"
+    },
+    {
+        "BISHPC": "32AF",
+        "CUSTNM": "YHVTB"
+    },
+    {
+        "BISHPC": "32AG",
+        "CUSTNM": "XGY"
+    },
+    {
+        "BISHPC": "32B1",
+        "CUSTNM": "ARNE-M"
+    },
+    {
+        "BISHPC": "32B6",
+        "CUSTNM": "ARNE-M"
+    },
+    {
+        "BISHPC": "32B7",
+        "CUSTNM": "ARNE-M"
+    },
+    {
+        "BISHPC": "32B8",
+        "CUSTNM": "AXA-M"
+    },
+    {
+        "BISHPC": "32BF",
+        "CUSTNM": "TJY"
+    },
+    {
+        "BISHPC": "32BF",
+        "CUSTNM": "TJYCD"
+    },
+    {
+        "BISHPC": "32BG",
+        "CUSTNM": "YYA"
+    },
+    {
+        "BISHPC": "32BOND",
+        "CUSTNM": "ERROR."
+    },
+    {
+        "BISHPC": "32C8",
+        "CUSTNM": "YNA"
+    },
+    {
+        "BISHPC": "32CA",
+        "CUSTNM": "YPY"
+    },
+    {
+        "BISHPC": "32CC",
+        "CUSTNM": "YABCBU"
+    },
+    {
+        "BISHPC": "32CG",
+        "CUSTNM": "ASIACO"
+    },
+    {
+        "BISHPC": "32CH",
+        "CUSTNM": "SAMIJF"
+    },
+    {
+        "BISHPC": "32CJ",
+        "CUSTNM": "YHVQN"
+    },
+    {
+        "BISHPC": "32D1",
+        "CUSTNM": "YOT-K"
+    },
+    {
+        "BISHPC": "32D2",
+        "CUSTNM": "YOT-G"
+    },
+    {
+        "BISHPC": "32D4",
+        "CUSTNM": "YRL"
+    },
+    {
+        "BISHPC": "32D9",
+        "CUSTNM": "HESTO"
+    },
+    {
+        "BISHPC": "32DE",
+        "CUSTNM": "YEV-TV"
+    },
+    {
+        "BISHPC": "32DG",
+        "CUSTNM": "SAIBF"
+    },
+    {
+        "BISHPC": "32DJ",
+        "CUSTNM": "YIPLRB"
+    },
+    {
+        "BISHPC": "32E1",
+        "CUSTNM": "YSE"
+    },
+    {
+        "BISHPC": "32E2",
+        "CUSTNM": "YSE"
+    },
+    {
+        "BISHPC": "32EJ",
+        "CUSTNM": "YKBO"
+    },
+    {
+        "BISHPC": "32G0",
+        "CUSTNM": "TJY"
+    },
+    {
+        "BISHPC": "32G2",
+        "CUSTNM": "SUAI"
+    },
+    {
+        "BISHPC": "32G7",
+        "CUSTNM": "JAI"
+    },
+    {
+        "BISHPC": "32G8",
+        "CUSTNM": "PASI"
+    },
+    {
+        "BISHPC": "32G9",
+        "CUSTNM": "TYC"
+    },
+    {
+        "BISHPC": "32H0",
+        "CUSTNM": "TJY"
+    },
+    {
+        "BISHPC": "32H2",
+        "CUSTNM": "YHV"
+    },
+    {
+        "BISHPC": "32H7",
+        "CUSTNM": "FSY"
+    },
+    {
+        "BISHPC": "32H8",
+        "CUSTNM": "TYC"
+    },
+    {
+        "BISHPC": "32J1",
+        "CUSTNM": "YEL-BL"
+    },
+    {
+        "BISHPC": "32K8",
+        "CUSTNM": "ELCOM"
+    },
+    {
+        "BISHPC": "32M1",
+        "CUSTNM": "YEV"
+    },
+    {
+        "BISHPC": "32M3",
+        "CUSTNM": "SAMI"
+    },
+    {
+        "BISHPC": "32M4",
+        "CUSTNM": "SAI"
+    },
+    {
+        "BISHPC": "32M8",
+        "CUSTNM": "PEMI"
+    },
+    {
+        "BISHPC": "32N1",
+        "CUSTNM": "YIPL"
+    },
+    {
+        "BISHPC": "32N2",
+        "CUSTNM": "YIPLTC"
+    },
+    {
+        "BISHPC": "32N3",
+        "CUSTNM": "YIPL-B"
+    },
+    {
+        "BISHPC": "32P8",
+        "CUSTNM": "YTM"
+    },
+    {
+        "BISHPC": "32PA",
+        "CUSTNM": "YPY"
+    },
+    {
+        "BISHPC": "32Q8",
+        "CUSTNM": "EMI"
+    },
+    {
+        "BISHPC": "32R1",
+        "CUSTNM": "YYA"
+    },
+    {
+        "BISHPC": "32R4",
+        "CUSTNM": "HZY"
+    },
+    {
+        "BISHPC": "32R4",
+        "CUSTNM": "HZYME"
+    },
+    {
+        "BISHPC": "32R7",
+        "CUSTNM": "YCIC"
+    },
+    {
+        "BISHPC": "32R8",
+        "CUSTNM": "TJY"
+    },
+    {
+        "BISHPC": "32R9",
+        "CUSTNM": "SHY"
+    },
+    {
+        "BISHPC": "32U3",
+        "CUSTNM": "YNA-E"
+    },
+    {
+        "BISHPC": "32U5",
+        "CUSTNM": "AMSD"
+    },
+    {
+        "BISHPC": "32U9",
+        "CUSTNM": "YNA-E"
+    },
+    {
+        "BISHPC": "32W2",
+        "CUSTNM": "HNY"
+    },
+    {
+        "BISHPC": "32W4",
+        "CUSTNM": "YHK"
+    },
+    {
+        "BISHPC": "32W4",
+        "CUSTNM": "YHK-J"
+    },
+    {
+        "BISHPC": "32W41",
+        "CUSTNM": "YHK"
+    },
+    {
+        "BISHPC": "32W41",
+        "CUSTNM": "YHK-J"
+    },
+    {
+        "BISHPC": "32W414",
+        "CUSTNM": "YHK"
+    },
+    {
+        "BISHPC": "32W416",
+        "CUSTNM": "YHK"
+    },
+    {
+        "BISHPC": "32W417",
+        "CUSTNM": "YHK"
+    },
+    {
+        "BISHPC": "32W417",
+        "CUSTNM": "YHK-J"
+    },
+    {
+        "BISHPC": "32W418",
+        "CUSTNM": "YHK"
+    },
+    {
+        "BISHPC": "32W419",
+        "CUSTNM": "YHK"
+    },
+    {
+        "BISHPC": "32W42",
+        "CUSTNM": "YHK"
+    },
+    {
+        "BISHPC": "32W42",
+        "CUSTNM": "YHK-J"
+    },
+    {
+        "BISHPC": "32W420",
+        "CUSTNM": "YHK"
+    },
+    {
+        "BISHPC": "32W421",
+        "CUSTNM": "YHK"
+    },
+    {
+        "BISHPC": "32W422",
+        "CUSTNM": "YHK"
+    },
+    {
+        "BISHPC": "32W423",
+        "CUSTNM": "YHK"
+    },
+    {
+        "BISHPC": "32W423",
+        "CUSTNM": "YHK-J"
+    },
+    {
+        "BISHPC": "32W424",
+        "CUSTNM": "YHK"
+    },
+    {
+        "BISHPC": "32W425",
+        "CUSTNM": "YHK"
+    },
+    {
+        "BISHPC": "32W426",
+        "CUSTNM": "YHK"
+    },
+    {
+        "BISHPC": "32W428",
+        "CUSTNM": "YHK"
+    },
+    {
+        "BISHPC": "32W43",
+        "CUSTNM": "YHK"
+    },
+    {
+        "BISHPC": "32W430",
+        "CUSTNM": "YHK"
+    },
+    {
+        "BISHPC": "32W432",
+        "CUSTNM": "YHK"
+    },
+    {
+        "BISHPC": "32W433",
+        "CUSTNM": "YHK"
+    },
+    {
+        "BISHPC": "32W434",
+        "CUSTNM": "YHK"
+    },
+    {
+        "BISHPC": "32W437",
+        "CUSTNM": "YHK"
+    },
+    {
+        "BISHPC": "32W44",
+        "CUSTNM": "YHK"
+    },
+    {
+        "BISHPC": "32W442",
+        "CUSTNM": "YHK"
+    },
+    {
+        "BISHPC": "32W442",
+        "CUSTNM": "YHK-J"
+    },
+    {
+        "BISHPC": "32W446",
+        "CUSTNM": "YHK"
+    },
+    {
+        "BISHPC": "32W448",
+        "CUSTNM": "YHK"
+    },
+    {
+        "BISHPC": "32W449",
+        "CUSTNM": "YHK"
+    },
+    {
+        "BISHPC": "32W45",
+        "CUSTNM": "YHK"
+    },
+    {
+        "BISHPC": "32W451",
+        "CUSTNM": "32W9"
+    },
+    {
+        "BISHPC": "32W451",
+        "CUSTNM": "YHK"
+    },
+    {
+        "BISHPC": "32W451",
+        "CUSTNM": "YHK-J"
+    },
+    {
+        "BISHPC": "32W452",
+        "CUSTNM": "YHK"
+    },
+    {
+        "BISHPC": "32W455",
+        "CUSTNM": "YHK"
+    },
+    {
+        "BISHPC": "32W456",
+        "CUSTNM": "YHK"
+    },
+    {
+        "BISHPC": "32W458",
+        "CUSTNM": "YHK"
+    },
+    {
+        "BISHPC": "32W459",
+        "CUSTNM": "YHK"
+    },
+    {
+        "BISHPC": "32W459",
+        "CUSTNM": "YHK-J"
+    },
+    {
+        "BISHPC": "32W46",
+        "CUSTNM": "YHK"
+    },
+    {
+        "BISHPC": "32W460",
+        "CUSTNM": "YHK"
+    },
+    {
+        "BISHPC": "32W462",
+        "CUSTNM": "YHK"
+    },
+    {
+        "BISHPC": "32W463",
+        "CUSTNM": "YHK"
+    },
+    {
+        "BISHPC": "32W465",
+        "CUSTNM": "YHK"
+    },
+    {
+        "BISHPC": "32W466",
+        "CUSTNM": "YHK"
+    },
+    {
+        "BISHPC": "32W467",
+        "CUSTNM": "YHK"
+    },
+    {
+        "BISHPC": "32W468",
+        "CUSTNM": "YHK"
+    },
+    {
+        "BISHPC": "32W473",
+        "CUSTNM": "YHK-J"
+    },
+    {
+        "BISHPC": "32W475",
+        "CUSTNM": "YHK-J"
+    },
+    {
+        "BISHPC": "32W476",
+        "CUSTNM": "YHK-J"
+    },
+    {
+        "BISHPC": "32W48",
+        "CUSTNM": "YHK"
+    },
+    {
+        "BISHPC": "32W480",
+        "CUSTNM": "YHK-J"
+    },
+    {
+        "BISHPC": "32W481",
+        "CUSTNM": "YHK"
+    },
+    {
+        "BISHPC": "32W483",
+        "CUSTNM": "YHK-J"
+    },
+    {
+        "BISHPC": "32W49",
+        "CUSTNM": "YHK"
+    },
+    {
+        "BISHPC": "32W496",
+        "CUSTNM": "YHK"
+    },
+    {
+        "BISHPC": "32W4A2",
+        "CUSTNM": "YHK"
+    },
+    {
+        "BISHPC": "32W4A2",
+        "CUSTNM": "YHK-J"
+    },
+    {
+        "BISHPC": "32W4A6",
+        "CUSTNM": "YHK-J"
+    },
+    {
+        "BISHPC": "32W4B7",
+        "CUSTNM": "YHK-J"
+    },
+    {
+        "BISHPC": "32W4B9",
+        "CUSTNM": "YHK"
+    },
+    {
+        "BISHPC": "32W4C8",
+        "CUSTNM": "YHK-J"
+    },
+    {
+        "BISHPC": "32W4D3",
+        "CUSTNM": "YHK-J"
+    },
+    {
+        "BISHPC": "32W4D4",
+        "CUSTNM": "YHK-J"
+    },
+    {
+        "BISHPC": "32W4E3",
+        "CUSTNM": "YHK-J"
+    },
+    {
+        "BISHPC": "32W4F3",
+        "CUSTNM": "YHK-J"
+    },
+    {
+        "BISHPC": "32W4G3",
+        "CUSTNM": "YHK-J"
+    },
+    {
+        "BISHPC": "32W4G5",
+        "CUSTNM": "YHK-J"
+    },
+    {
+        "BISHPC": "32W4G7",
+        "CUSTNM": "YHK-J"
+    },
+    {
+        "BISHPC": "32W4G9",
+        "CUSTNM": "YHK-J"
+    },
+    {
+        "BISHPC": "32W4H3",
+        "CUSTNM": "YHK-J"
+    },
+    {
+        "BISHPC": "32W4J2",
+        "CUSTNM": "YHK-J"
+    },
+    {
+        "BISHPC": "32W4J8",
+        "CUSTNM": "YHK-J"
+    },
+    {
+        "BISHPC": "32W4J9",
+        "CUSTNM": "YHK-J"
+    },
+    {
+        "BISHPC": "32W4K6",
+        "CUSTNM": "YHK-J"
+    },
+    {
+        "BISHPC": "32W4K8",
+        "CUSTNM": "YHK"
+    },
+    {
+        "BISHPC": "32W4K8",
+        "CUSTNM": "YHK-J"
+    },
+    {
+        "BISHPC": "32W4K9",
+        "CUSTNM": "YHK-J"
+    },
+    {
+        "BISHPC": "32W4L1",
+        "CUSTNM": "YHK-J"
+    },
+    {
+        "BISHPC": "32W4L3",
+        "CUSTNM": "YHK-J"
+    },
+    {
+        "BISHPC": "32W4L6",
+        "CUSTNM": "YHK"
+    },
+    {
+        "BISHPC": "32W4L6",
+        "CUSTNM": "YHK-K"
+    },
+    {
+        "BISHPC": "32W4L7",
+        "CUSTNM": "YHK-J"
+    },
+    {
+        "BISHPC": "32W4L8",
+        "CUSTNM": "YHK-J"
+    },
+    {
+        "BISHPC": "32W4L9",
+        "CUSTNM": "YHK-J"
+    },
+    {
+        "BISHPC": "32W4M2",
+        "CUSTNM": "YHK-J"
+    },
+    {
+        "BISHPC": "32W4M4",
+        "CUSTNM": "YHK-J"
+    },
+    {
+        "BISHPC": "32W4M5",
+        "CUSTNM": "YHK-J"
+    },
+    {
+        "BISHPC": "32W4M6",
+        "CUSTNM": "YHK-J"
+    },
+    {
+        "BISHPC": "32W4M7",
+        "CUSTNM": "YHK-J"
+    },
+    {
+        "BISHPC": "32W4M9",
+        "CUSTNM": "YHK-J"
+    },
+    {
+        "BISHPC": "32W4N2",
+        "CUSTNM": "YHK-J"
+    },
+    {
+        "BISHPC": "32W4N4",
+        "CUSTNM": "YHK-J"
+    },
+    {
+        "BISHPC": "32W4N6",
+        "CUSTNM": "YHK-J"
+    },
+    {
+        "BISHPC": "32W4N7",
+        "CUSTNM": "YHK-J"
+    },
+    {
+        "BISHPC": "32W4N8",
+        "CUSTNM": "YHK-J"
+    },
+    {
+        "BISHPC": "32W4O1",
+        "CUSTNM": "YHK-J"
+    },
+    {
+        "BISHPC": "32W4O2",
+        "CUSTNM": "YHK-J"
+    },
+    {
+        "BISHPC": "32W4O3",
+        "CUSTNM": "YHK-J"
+    },
+    {
+        "BISHPC": "32W4O6",
+        "CUSTNM": "YHK-J"
+    },
+    {
+        "BISHPC": "32W4O7",
+        "CUSTNM": "YHK-J"
+    },
+    {
+        "BISHPC": "32W4O8",
+        "CUSTNM": "YHK"
+    },
+    {
+        "BISHPC": "32W6",
+        "CUSTNM": "SYA-WJ"
+    },
+    {
+        "BISHPC": "32W7",
+        "CUSTNM": "SYA-CH"
+    },
+    {
+        "BISHPC": "32W8",
+        "CUSTNM": "SYA"
+    },
+    {
+        "BISHPC": "32W9",
+        "CUSTNM": "YHK"
+    },
+    {
+        "BISHPC": "32W910",
+        "CUSTNM": "YHK"
+    },
+    {
+        "BISHPC": "32W915",
+        "CUSTNM": "YHK"
+    },
+    {
+        "BISHPC": "32W917",
+        "CUSTNM": "YHK"
+    },
+    {
+        "BISHPC": "32W93",
+        "CUSTNM": "YHK"
+    },
+    {
+        "BISHPC": "32W94",
+        "CUSTNM": "YHK"
+    },
+    {
+        "BISHPC": "32W95",
+        "CUSTNM": "YHK"
+    },
+    {
+        "BISHPC": "32X5",
+        "CUSTNM": "YNA-E"
+    },
+    {
+        "BISHPC": "32Y1",
+        "CUSTNM": "YAS"
+    },
+    {
+        "BISHPC": "32Y2",
+        "CUSTNM": "YUY"
+    },
+    {
+        "BISHPC": "32Y4",
+        "CUSTNM": "YAB-I"
+    },
+    {
+        "BISHPC": "32Y5",
+        "CUSTNM": "YBL"
+    },
+    {
+        "BISHPC": "32Y6",
+        "CUSTNM": "YBL-S"
+    },
+    {
+        "BISHPC": "32Y8",
+        "CUSTNM": "YCL"
+    }
+]

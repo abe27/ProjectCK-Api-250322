@@ -8,24 +8,20 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class Ledger extends Model
+class Buyer extends Model
 {
     use HasFactory, HasApiTokens, Nanoids, Notifiable;
 
     protected $fillable = [
-        'tagrp_id',
         'factory_id',
-        'whs_id',
-        'part_id',
-        'kinds_id',
-        'sizes_id',
-        'colors_id',
-        'width',
-        'length',
-        'height',
-        'net_weight',
-        'gross_weight',
-        'unit_id',
+        'aff_id',
+        'customer_id',
+        'address_id',
+        'prefix_code',
+        'last_running_no',
+        'group_by',
+        'is_limit_weight',
+        'limit_weight',
         'is_active',
     ];
 }
