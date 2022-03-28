@@ -19,6 +19,7 @@ return new class extends Migration
             $table->char('aff_id', 36);
             $table->char('customer_id', 36);
             $table->char('address_id', 36)->nullable();
+            $table->uuid('responsible_by_id')->nullable();
             $table->string('prefix_code', 5);
             $table->integer('last_running_no')->nullable()->default(1);
             $table->enum('group_by', ['N', 'M', 'E', 'F'])->nullable()->default('N');
@@ -30,6 +31,7 @@ return new class extends Migration
             $table->foreign('aff_id')->references('id')->on('affiliates')->cascadeOnDelete();
             $table->foreign('customer_id')->references('id')->on('customers')->cascadeOnDelete();
             $table->foreign('address_id')->references('id')->on('customer_addresses')->nullOnDelete();
+            $table->foreign('responsible_by_id')->references('id')->on('users')->nullOnDelete();
         });
     }
 
