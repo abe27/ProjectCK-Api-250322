@@ -1,0 +1,21 @@
+[
+    { "note_type": 1, "ship": "N", "bioat": 4, "factory": "INJ", "note": "LOAD AT CK2" },
+    { "note_type": 1, "ship": "N", "bioat": 1, "factory": "AW", "note": "LOAD AT CK2" },
+    { "note_type": 1, "ship": "N", "bioat": 2, "factory": "AW", "note": "LOAD AT NESS" },
+    { "note_type": 1, "ship": "N", "bioat": 2, "factory": "INJ", "note": "LOAD AT NESS" },
+    { "note_type": 1, "ship": "N", "bioat": 3, "factory": "AW", "note": "LOAD AT ICAM" },
+    { "note_type": 1, "ship": "N", "bioat": 3, "factory": "INJ", "note": "LOAD AT ICAM" },
+    { "note_type": 1, "ship": "N", "bioat": 1, "factory": "INJ", "note": "LOAD AT CK1" },
+    { "note_type": 1, "ship": "N", "bioat": 4, "factory": "AW", "note": "LOAD AT CK1" },
+    { "note_type": 2, "ship": "N", "bioat": 1, "factory": "INJ", "note": "DOMESTIC" },
+    { "note_type": 2, "ship": "N", "bioat": 4, "factory": "INJ", "note": "BONDED" },
+    { "note_type": 2, "ship": "N", "bioat": 1, "factory": "AW", "note": "BONDED" },
+    { "note_type": 3, "ship": "B", "bioat": 4, "factory": "INJ", "note": "FCL" },
+    { "note_type": 3, "ship": "B", "bioat": 1, "factory": "AW", "note": "FCL" },
+    { "note_type": 3, "ship": "B", "bioat": 2, "factory": "AW", "note": "LCL" },
+    { "note_type": 3, "ship": "B", "bioat": 3, "factory": "AW", "note": "LCL" },
+    { "note_type": 3, "ship": "B", "bioat": 4, "factory": "AW", "note": "LCL" },
+    { "note_type": 3, "ship": "B", "bioat": 1, "factory": "INJ", "note": "LCL" },
+    { "note_type": 3, "ship": "B", "bioat": 2, "factory": "INJ", "note": "LCL" },
+    { "note_type": 3, "ship": "B", "bioat": 3, "factory": "INJ", "note": "LCL" }
+]

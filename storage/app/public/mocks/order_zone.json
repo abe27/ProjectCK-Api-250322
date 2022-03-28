@@ -1,0 +1,10 @@
+[
+    { "factory": "INJ", "bioat": 1, "zone": "CK1" },
+    { "factory": "INJ", "bioat": 2, "zone": "NESC" },
+    { "factory": "INJ", "bioat": 3, "zone": "ICAM" },
+    { "factory": "INJ", "bioat": 4, "zone": "CK2" },
+    { "factory": "AW", "bioat": 1, "zone": "CK2" },
+    { "factory": "AW", "bioat": 2, "zone": "NESC" },
+    { "factory": "AW", "bioat": 3, "zone": "ICAM" },
+    { "factory": "AW", "bioat": 4, "zone": "CK1" }
+]
