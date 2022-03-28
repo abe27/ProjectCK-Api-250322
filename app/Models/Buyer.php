@@ -22,6 +22,8 @@ class Buyer extends Model
         'group_by',
         'is_limit_weight',
         'limit_weight',
+        'box_only',
+        'max_box',
         'is_active',
     ];
 }

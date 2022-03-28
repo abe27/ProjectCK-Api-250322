@@ -25,6 +25,8 @@ return new class extends Migration
             $table->enum('group_by', ['N', 'M', 'E', 'F'])->nullable()->default('N');
             $table->boolean('is_limit_weight')->nullable()->default(false);
             $table->decimal('limit_weight')->nullable()->default(0);
+            $table->boolean('box_only')->nullable()->default(false);
+            $table->integer('max_box')->nullable()->default(0);
             $table->boolean('is_active')->nullable()->default(false);
             $table->timestamps();
             $table->foreign('factory_id')->references('id')->on('factory_types')->cascadeOnDelete();
