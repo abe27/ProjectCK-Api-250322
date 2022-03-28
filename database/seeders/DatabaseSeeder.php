@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
         Schema::disableForeignKeyConstraints();
+        $this->call([AdminSeeder::class]);
         $this->call([WarehouseTypeSeeder::class]);
         $this->call([ShippingSeeder::class]);
         $this->call([WhsSeeder::class]);
