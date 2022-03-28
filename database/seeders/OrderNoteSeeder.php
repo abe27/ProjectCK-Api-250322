@@ -18,7 +18,7 @@ class OrderNoteSeeder extends Seeder
      */
     public function run()
     {
-        $json = Storage::get('public/mocks/order_zone.json');
+        $json = Storage::get('public/mocks/order_note.json');
         $data = json_decode($json);
 
         OrderNote::truncate();

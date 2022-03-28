@@ -39,6 +39,7 @@ class DatabaseSeeder extends Seeder
         $this->call([BuyerSeeder::class]);
         $this->call([OrderZoneSeeder::class]);
         $this->call([OrderNoteSeeder::class]);
+        $this->call([PlacingOnPalletSeeder::class]);
         Schema::enableForeignKeyConstraints();
     }
 }
