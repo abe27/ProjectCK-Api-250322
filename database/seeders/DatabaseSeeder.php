@@ -36,7 +36,7 @@ class DatabaseSeeder extends Seeder
         $this->call([AffiliateSeeder::class]);
         $this->call([CustomerSeeder::class]);
         $this->call([CustomerAddressSeeder::class]);
-        $this->call([BuyerSeeder::class]);
+        $this->call([ConsigneeSeeder::class]);
         $this->call([OrderZoneSeeder::class]);
         $this->call([OrderNoteSeeder::class]);
         $this->call([PlacingOnPalletSeeder::class]);

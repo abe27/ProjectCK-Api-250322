@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('buyers', function (Blueprint $table) {
+        Schema::create('consignees', function (Blueprint $table) {
             $table->char('id', 36)->primary();
             $table->char('factory_id', 36);
             $table->char('aff_id', 36);
@@ -44,6 +44,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('buyers');
+        Schema::dropIfExists('consignees');
     }
 };

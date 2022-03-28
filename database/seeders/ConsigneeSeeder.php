@@ -2,16 +2,16 @@
 
 namespace Database\Seeders;
 
+use App\Models\Consignee;
+use App\Models\FactoryType;
 use App\Models\Affiliate;
-use App\Models\Buyer;
 use App\Models\Customer;
 use App\Models\CustomerAddress;
-use App\Models\FactoryType;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Storage;
 
-class BuyerSeeder extends Seeder
+class ConsigneeSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -23,14 +23,14 @@ class BuyerSeeder extends Seeder
         $json = Storage::get('public/mocks/buyer.json');
         $data = json_decode($json);
 
-        Buyer::truncate();
+        Consignee::truncate();
         foreach ($data as $r) {
             $factory = FactoryType::where('name', $r->FACTORY)->first();
             $aff = Affiliate::where('aff_code', $r->AFFCODE)->first();
             $customer = Customer::where('cust_code', $r->BISHPC)->first();
             $address = CustomerAddress::where('address', $r->ADDRESS)->first();
 
-            $obj = new Buyer();
+            $obj = new Consignee();
             $obj->factory_id = $factory->id;
             $obj->aff_id = $aff->id;
             $obj->customer_id = $customer->id;

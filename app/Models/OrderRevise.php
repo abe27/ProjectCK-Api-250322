@@ -8,22 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class Buyer extends Model
+class OrderRevise extends Model
 {
     use HasFactory, HasApiTokens, Nanoids, Notifiable;
 
     protected $fillable = [
-        'factory_id',
-        'aff_id',
-        'customer_id',
-        'address_id',
-        'prefix_code',
-        'last_running_no',
-        'group_by',
-        'is_limit_weight',
-        'limit_weight',
-        'box_only',
-        'max_box',
+        'name',
+        'value',
+        'description',
+        'new_or_revise',
         'is_active',
     ];
 }
