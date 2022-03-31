@@ -8,19 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class RequestContainer extends Model
+class ContainerType extends Model
 {
     use HasFactory, HasApiTokens, Nanoids, Notifiable;
 
     protected $fillable = [
-        'region_id',
-        'type_id',
-        'size_id',
-        'eta',
-        'etd',
-        'container_no',
-        'seal_no',
-        'is_released',
+        'name',
+        'description',
         'is_active',
     ];
 }

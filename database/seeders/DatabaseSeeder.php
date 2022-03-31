@@ -42,6 +42,7 @@ class DatabaseSeeder extends Seeder
         $this->call([OrderNoteSeeder::class]);
         $this->call([PlacingOnPalletSeeder::class]);
         $this->call([ContainerSizeSeeder::class]);
+        $this->call([ContainerTypeSeeder::class]);
         Schema::enableForeignKeyConstraints();
     }
 }
