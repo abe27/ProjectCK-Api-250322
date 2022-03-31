@@ -14,5 +14,9 @@
     {
         "name": "PLATE",
         "description": "จาน,แผ่น"
+    },
+    {
+        "name": "SILICONE",
+        "description": "Silicone"
     }
 ]

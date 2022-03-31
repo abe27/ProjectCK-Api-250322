@@ -24,6 +24,7 @@ class PlacingOnPalletSeeder extends Seeder
         foreach ($data as $r) {
             $factory = FactoryType::where('name', $r->factory)->first();
             $obj = new PlacingOnPallet();
+            $obj->placing_type = $r->placing_type;
             $obj->factory_id = $factory->id;
             $obj->name = $r->name;
             $obj->full_place = $r->full_place;

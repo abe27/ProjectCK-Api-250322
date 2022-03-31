@@ -18,5 +18,13 @@
     {
         "name": "CK-2",
         "description": "CK-2"
+    },
+    {
+        "name": "NESC",
+        "description": "CK NESC"
+    },
+    {
+        "name": "ICAM",
+        "description": "CK ICAM"
     }
 ]

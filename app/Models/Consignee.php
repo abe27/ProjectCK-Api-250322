@@ -16,6 +16,7 @@ class Consignee extends Model
         'factory_id',
         'aff_id',
         'customer_id',
+        'region_id',
         'address_id',
         'prefix_code',
         'last_running_no',

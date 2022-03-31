@@ -1,5 +1,6 @@
 [
     {
+        "placing_type": "PALLET",
         "factory": "INJ",
         "name": "ARROW NO.1",
         "full_place": 6,
@@ -13,6 +14,7 @@
         "is_active": true
     },
     {
+        "placing_type": "PALLET",
         "factory": "INJ",
         "name": "ARROW NO.2",
         "full_place": 5,
@@ -26,6 +28,7 @@
         "is_active": true
     },
     {
+        "placing_type": "PALLET",
         "factory": "INJ",
         "name": "ARROW NO.2",
         "full_place": 3,
@@ -39,6 +42,7 @@
         "is_active": true
     },
     {
+        "placing_type": "PALLET",
         "factory": "INJ",
         "name": "ARROW NO.3",
         "full_place": 5,
@@ -52,6 +56,7 @@
         "is_active": true
     },
     {
+        "placing_type": "PALLET",
         "factory": "INJ",
         "name": "ARROW NO.4",
         "full_place": 8,
@@ -65,6 +70,7 @@
         "is_active": true
     },
     {
+        "placing_type": "PALLET",
         "factory": "INJ",
         "name": "ARROW NO.5",
         "full_place": 6,
@@ -78,6 +84,7 @@
         "is_active": true
     },
     {
+        "placing_type": "PALLET",
         "factory": "INJ",
         "name": "ARROW NO.10",
         "full_place": 5,
@@ -91,6 +98,7 @@
         "is_active": true
     },
     {
+        "placing_type": "PALLET",
         "factory": "INJ",
         "name": "SHK144",
         "full_place": 8,
@@ -104,6 +112,7 @@
         "is_active": true
     },
     {
+        "placing_type": "PALLET",
         "factory": "INJ",
         "name": "SHK164",
         "full_place": 8,
@@ -117,6 +126,7 @@
         "is_active": true
     },
     {
+        "placing_type": "PALLET",
         "factory": "INJ",
         "name": "DK-IDP",
         "full_place": 6,
@@ -130,6 +140,7 @@
         "is_active": true
     },
     {
+        "placing_type": "PALLET",
         "factory": "INJ",
         "name": "T2",
         "full_place": 3,
@@ -143,6 +154,7 @@
         "is_active": true
     },
     {
+        "placing_type": "PALLET",
         "factory": "INJ",
         "name": "ตะกร้าเขียว",
         "full_place": 4,

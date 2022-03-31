@@ -8,23 +8,23 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class PlacingOnPallet extends Model
+class Invoice extends Model
 {
     use HasFactory, HasApiTokens, Nanoids, Notifiable;
 
     protected $fillable = [
-        'placing_type',
-        'factory_id',
-        'name',
-        'full_place',
-        'box_width',
-        'box_length',
-        'box_height',
-        'pallet_width',
-        'pallet_length',
-        'pallet_height',
-        'box_per_pallet',
-        'pallet_url',
+        'order_id',
+        'inv_prefix',
+        'running_seq',
+        'ship_date',
+        'ship_from',
+        'ship_via',
+        'ship_der',
+        'title',
+        'loading_area',
+        'privilege',
+        'zone_code',
+        'invoice_status',
         'is_active',
     ];
 }

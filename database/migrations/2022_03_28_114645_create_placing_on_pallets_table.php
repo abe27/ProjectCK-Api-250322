@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('placing_on_pallets', function (Blueprint $table) {
             $table->char('id', 36)->primary();
+            $table->enum('placing_type', ['BOX', 'PALLET']);
             $table->char('factory_id', 36);
             $table->string('name');
             $table->decimal('full_place', 8, 2)->nullable()->default(0);

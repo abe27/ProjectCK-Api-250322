@@ -18,6 +18,7 @@ return new class extends Migration
             $table->char('factory_id', 36);
             $table->char('aff_id', 36);
             $table->char('customer_id', 36);
+            $table->char('region_id', 36)->nullable();
             $table->char('address_id', 36)->nullable();
             $table->uuid('responsible_by_id')->nullable();
             $table->string('prefix_code', 5);
@@ -32,6 +33,7 @@ return new class extends Migration
             $table->foreign('factory_id')->references('id')->on('factory_types')->cascadeOnDelete();
             $table->foreign('aff_id')->references('id')->on('affiliates')->cascadeOnDelete();
             $table->foreign('customer_id')->references('id')->on('customers')->cascadeOnDelete();
+            $table->foreign('region_id')->references('id')->on('regions')->nullOnDelete();
             $table->foreign('address_id')->references('id')->on('customer_addresses')->nullOnDelete();
             $table->foreign('responsible_by_id')->references('id')->on('users')->nullOnDelete();
         });
