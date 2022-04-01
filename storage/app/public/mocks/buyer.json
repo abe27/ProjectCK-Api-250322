@@ -1,5 +1,6 @@
 [
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "1200",
         "BISHPC": "1200",
@@ -7,6 +8,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32A7",
         "BISHPC": "32A7",
@@ -14,6 +16,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32AF",
         "BISHPC": "32AF",
@@ -21,6 +24,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32AG",
         "BISHPC": "32AG",
@@ -28,6 +32,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32B1",
         "BISHPC": "32B1",
@@ -35,6 +40,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32B6",
         "BISHPC": "32B6",
@@ -42,6 +48,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32B7",
         "BISHPC": "32B7",
@@ -49,6 +56,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32BF",
         "BISHPC": "32BF",
@@ -56,6 +64,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32BF",
         "BISHPC": "32BF",
@@ -63,6 +72,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32BF",
         "BISHPC": "32BF",
@@ -70,6 +80,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32BF",
         "BISHPC": "32BF",
@@ -77,6 +88,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32BG",
         "BISHPC": "32BG",
@@ -84,6 +96,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32CA",
         "BISHPC": "32CA",
@@ -91,6 +104,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32CC",
         "BISHPC": "32CC",
@@ -98,6 +112,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32CG",
         "BISHPC": "32CG",
@@ -105,6 +120,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32CH",
         "BISHPC": "32CH",
@@ -112,6 +128,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32CJ",
         "BISHPC": "32CJ",
@@ -119,6 +136,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32D1",
         "BISHPC": "32D1",
@@ -126,6 +144,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32D2",
         "BISHPC": "32D2",
@@ -133,6 +152,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32D4",
         "BISHPC": "32D4",
@@ -140,6 +160,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32D9",
         "BISHPC": "32D9",
@@ -147,6 +168,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32DE",
         "BISHPC": "32DE",
@@ -154,6 +176,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32DG",
         "BISHPC": "32DG",
@@ -161,6 +184,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32DJ",
         "BISHPC": "32DJ",
@@ -168,6 +192,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32E1",
         "BISHPC": "32E1",
@@ -175,6 +200,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32E2",
         "BISHPC": "32E2",
@@ -182,6 +208,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32EJ",
         "BISHPC": "32EJ",
@@ -189,6 +216,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32G0",
         "BISHPC": "32G0",
@@ -196,6 +224,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32G2",
         "BISHPC": "32G2",
@@ -203,6 +232,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32G7",
         "BISHPC": "32G7",
@@ -210,6 +240,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32G8",
         "BISHPC": "32G8",
@@ -217,6 +248,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32G9",
         "BISHPC": "32G9",
@@ -224,6 +256,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32H0",
         "BISHPC": "32H0",
@@ -231,6 +264,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32H2",
         "BISHPC": "32H2",
@@ -238,6 +272,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32H7",
         "BISHPC": "32H7",
@@ -245,6 +280,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32H8",
         "BISHPC": "32H8",
@@ -252,6 +288,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32J1",
         "BISHPC": "32J1",
@@ -259,6 +296,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32M1",
         "BISHPC": "32M1",
@@ -266,6 +304,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32M3",
         "BISHPC": "32M3",
@@ -273,6 +312,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32M4",
         "BISHPC": "32M4",
@@ -280,6 +320,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32M8",
         "BISHPC": "32M8",
@@ -287,6 +328,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32N1",
         "BISHPC": "32N1",
@@ -294,6 +336,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32N2",
         "BISHPC": "32N2",
@@ -301,6 +344,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32N3",
         "BISHPC": "32N3",
@@ -308,6 +352,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32P8",
         "BISHPC": "32P8",
@@ -315,6 +360,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32Q8",
         "BISHPC": "32Q8",
@@ -322,6 +368,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32R4",
         "BISHPC": "32R4",
@@ -329,6 +376,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32R4",
         "BISHPC": "32R4",
@@ -336,6 +384,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32R4",
         "BISHPC": "32R4",
@@ -343,6 +392,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32R4",
         "BISHPC": "32R4",
@@ -350,6 +400,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32R7",
         "BISHPC": "32R7",
@@ -357,6 +408,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32R8",
         "BISHPC": "32R8",
@@ -364,6 +416,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32U5",
         "BISHPC": "32U5",
@@ -371,6 +424,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32U5",
         "BISHPC": "32U5",
@@ -378,6 +432,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32U9",
         "BISHPC": "32U9",
@@ -385,6 +440,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32W2",
         "BISHPC": "32W2",
@@ -392,6 +448,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32W4",
         "BISHPC": "32W4",
@@ -399,6 +456,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32W4",
         "BISHPC": "32W41",
@@ -406,6 +464,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32W4",
         "BISHPC": "32W41",
@@ -413,6 +472,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32W4",
         "BISHPC": "32W41",
@@ -420,6 +480,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32W4",
         "BISHPC": "32W41",
@@ -427,6 +488,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32W4",
         "BISHPC": "32W414",
@@ -434,6 +496,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32W4",
         "BISHPC": "32W416",
@@ -441,6 +504,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32W4",
         "BISHPC": "32W417",
@@ -448,6 +512,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32W4",
         "BISHPC": "32W417",
@@ -455,6 +520,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32W4",
         "BISHPC": "32W419",
@@ -462,6 +528,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32W4",
         "BISHPC": "32W42",
@@ -469,6 +536,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32W4",
         "BISHPC": "32W42",
@@ -476,6 +544,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32W4",
         "BISHPC": "32W42",
@@ -483,6 +552,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32W4",
         "BISHPC": "32W42",
@@ -490,6 +560,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32W4",
         "BISHPC": "32W424",
@@ -497,6 +568,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32W4",
         "BISHPC": "32W428",
@@ -504,6 +576,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32W4",
         "BISHPC": "32W43",
@@ -511,6 +584,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32W4",
         "BISHPC": "32W433",
@@ -518,6 +592,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32W4",
         "BISHPC": "32W437",
@@ -525,6 +600,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32W4",
         "BISHPC": "32W442",
@@ -532,6 +608,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32W4",
         "BISHPC": "32W442",
@@ -539,6 +616,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32W4",
         "BISHPC": "32W446",
@@ -546,6 +624,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32W4",
         "BISHPC": "32W449",
@@ -553,6 +632,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32W4",
         "BISHPC": "32W45",
@@ -560,6 +640,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32W4",
         "BISHPC": "32W451",
@@ -567,6 +648,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32W4",
         "BISHPC": "32W452",
@@ -574,6 +656,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32W4",
         "BISHPC": "32W459",
@@ -581,6 +664,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32W4",
         "BISHPC": "32W459",
@@ -588,6 +672,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32W4",
         "BISHPC": "32W459",
@@ -595,6 +680,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32W4",
         "BISHPC": "32W459",
@@ -602,6 +688,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32W4",
         "BISHPC": "32W465",
@@ -609,6 +696,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32W4",
         "BISHPC": "32W466",
@@ -616,6 +704,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32W4",
         "BISHPC": "32W48",
@@ -623,6 +712,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32W4",
         "BISHPC": "32W480",
@@ -630,6 +720,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32W4",
         "BISHPC": "32W49",
@@ -637,6 +728,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32W4",
         "BISHPC": "32W4A2",
@@ -644,6 +736,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32W4",
         "BISHPC": "32W4G7",
@@ -651,6 +744,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32W4",
         "BISHPC": "32W4G9",
@@ -658,6 +752,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32W4",
         "BISHPC": "32W4K8",
@@ -665,6 +760,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32W4",
         "BISHPC": "32W4L7",
@@ -672,6 +768,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32W4",
         "BISHPC": "32W4L8",
@@ -679,6 +776,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32W4",
         "BISHPC": "32W4N8",
@@ -686,6 +784,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32W4",
         "BISHPC": "32W4O2",
@@ -693,6 +792,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32W4",
         "BISHPC": "32W4O6",
@@ -700,6 +800,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32W6",
         "BISHPC": "32W6",
@@ -707,6 +808,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32W7",
         "BISHPC": "32W7",
@@ -714,6 +816,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32W4",
         "BISHPC": "32W9",
@@ -721,6 +824,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32W9",
         "BISHPC": "32W9",
@@ -728,6 +832,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32W9",
         "BISHPC": "32W93",
@@ -735,6 +840,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32X5",
         "BISHPC": "32X5",
@@ -742,6 +848,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32Y1",
         "BISHPC": "32Y1",
@@ -749,6 +856,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32Y2",
         "BISHPC": "32Y2",
@@ -756,6 +864,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32Y4",
         "BISHPC": "32Y4",
@@ -763,6 +872,7 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32Y5",
         "BISHPC": "32Y5",
@@ -770,877 +880,1168 @@
         "ADDRESS": "-"
     },
     {
+        "PLACING_TYPE": "PALLET",
         "FACTORY": "AW",
         "AFFCODE": "32Y6",
         "BISHPC": "32Y6",
         "PREFIX": "BS",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "1200",
         "BISHPC": "1200",
         "PREFIX": "YC",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32A7",
         "BISHPC": "32A7",
         "PREFIX": "ZZ",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32AF",
         "BISHPC": "32AF",
         "PREFIX": "HB",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32AG",
         "BISHPC": "32AG",
         "PREFIX": "XG",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32B1",
         "BISHPC": "32B1",
         "PREFIX": "AX",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32B6",
         "BISHPC": "32B6",
         "PREFIX": "AX",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32B7",
         "BISHPC": "32B7",
         "PREFIX": "AX",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32BF",
         "BISHPC": "32BF",
         "PREFIX": "TT",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32BF",
         "BISHPC": "32BF",
         "PREFIX": "TT",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32BF",
         "BISHPC": "32BF",
         "PREFIX": "TT",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32BF",
         "BISHPC": "32BF",
         "PREFIX": "TT",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32BG",
         "BISHPC": "32BG",
         "PREFIX": "YG",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32C8",
         "BISHPC": "32C8",
         "PREFIX": "NA",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32CA",
         "BISHPC": "32CA",
         "PREFIX": "YP",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32CC",
         "BISHPC": "32CC",
         "PREFIX": "BI",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32CG",
         "BISHPC": "32CG",
         "PREFIX": "AS",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32CH",
         "BISHPC": "32CH",
         "PREFIX": "SJ",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32CJ",
         "BISHPC": "32CJ",
         "PREFIX": "QN",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32D1",
         "BISHPC": "32D1",
         "PREFIX": "TO",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32D2",
         "BISHPC": "32D2",
         "PREFIX": "TG",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32D4",
         "BISHPC": "32D4",
         "PREFIX": "YR",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32D9",
         "BISHPC": "32D9",
         "PREFIX": "UE",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32DE",
         "BISHPC": "32DE",
         "PREFIX": "TV",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32DG",
         "BISHPC": "32DG",
         "PREFIX": "BF",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32DJ",
         "BISHPC": "32DJ",
         "PREFIX": "RB",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32E1",
         "BISHPC": "32E1",
         "PREFIX": "SP",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32E2",
         "BISHPC": "32E2",
         "PREFIX": "SP",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32EJ",
         "BISHPC": "32EJ",
         "PREFIX": "EJ",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32G0",
         "BISHPC": "32G0",
         "PREFIX": "TT",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32G2",
         "BISHPC": "32G2",
         "PREFIX": "AI",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32G7",
         "BISHPC": "32G7",
         "PREFIX": "JI",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32G8",
         "BISHPC": "32G8",
         "PREFIX": "PS",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32G9",
         "BISHPC": "32G9",
         "PREFIX": "TY",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32H0",
         "BISHPC": "32H0",
         "PREFIX": "TT",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32H2",
         "BISHPC": "32H2",
         "PREFIX": "HV",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32H7",
         "BISHPC": "32H7",
         "PREFIX": "FY",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32H8",
         "BISHPC": "32H8",
         "PREFIX": "TY",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32J1",
         "BISHPC": "32J1",
         "PREFIX": "UK",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32K8",
         "BISHPC": "32K8",
         "PREFIX": "EL",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32M1",
         "BISHPC": "32M1",
         "PREFIX": "VN",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32M3",
         "BISHPC": "32M3",
         "PREFIX": "SA",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32M4",
         "BISHPC": "32M4",
         "PREFIX": "SI",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32M8",
         "BISHPC": "32M8",
         "PREFIX": "PM",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32N1",
         "BISHPC": "32N1",
         "PREFIX": "TA",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32N2",
         "BISHPC": "32N2",
         "PREFIX": "YW",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32N3",
         "BISHPC": "32N3",
         "PREFIX": "AB",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32P8",
         "BISHPC": "32P8",
         "PREFIX": "YI",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32Q8",
         "BISHPC": "32Q8",
         "PREFIX": "EM",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32R4",
         "BISHPC": "32R4",
         "PREFIX": "HY",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32R4",
         "BISHPC": "32R4",
         "PREFIX": "HZ",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32R4",
         "BISHPC": "32R4",
         "PREFIX": "HY",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32R4",
         "BISHPC": "32R4",
         "PREFIX": "HZ",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32R7",
         "BISHPC": "32R7",
         "PREFIX": "IV",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32R8",
         "BISHPC": "32R8",
         "PREFIX": "TT",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32U5",
         "BISHPC": "32U5",
         "PREFIX": "AM",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32U5",
         "BISHPC": "32U5",
         "PREFIX": "AS",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32U9",
         "BISHPC": "32U9",
         "PREFIX": "YN",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32W2",
         "BISHPC": "32W2",
         "PREFIX": "HN",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32W4",
         "BISHPC": "32W4",
         "PREFIX": "HJ",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32W4",
         "BISHPC": "32W4",
         "PREFIX": "HJ",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32W4",
         "BISHPC": "32W41",
         "PREFIX": "HJ",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32W4",
         "BISHPC": "32W41",
         "PREFIX": "HJ",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32W4",
         "BISHPC": "32W414",
         "PREFIX": "HJ",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32W4",
         "BISHPC": "32W416",
         "PREFIX": "HJ",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32W4",
         "BISHPC": "32W417",
         "PREFIX": "HJ",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32W4",
         "BISHPC": "32W417",
         "PREFIX": "HJ",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32W4",
         "BISHPC": "32W418",
         "PREFIX": "HJ",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32W4",
         "BISHPC": "32W419",
         "PREFIX": "HJ",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32W4",
         "BISHPC": "32W42",
         "PREFIX": "HJ",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32W4",
         "BISHPC": "32W42",
         "PREFIX": "HJ",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32W4",
         "BISHPC": "32W420",
         "PREFIX": "HJ",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32W4",
         "BISHPC": "32W424",
         "PREFIX": "HJ",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32W4",
         "BISHPC": "32W426",
         "PREFIX": "HJ",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32W4",
         "BISHPC": "32W428",
         "PREFIX": "HJ",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32W4",
         "BISHPC": "32W43",
         "PREFIX": "HJ",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32W4",
         "BISHPC": "32W432",
         "PREFIX": "HJ",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32W4",
         "BISHPC": "32W433",
         "PREFIX": "HJ",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32W4",
         "BISHPC": "32W434",
         "PREFIX": "HJ",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32W4",
         "BISHPC": "32W437",
         "PREFIX": "HJ",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32W4",
         "BISHPC": "32W44",
         "PREFIX": "HJ",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32W4",
         "BISHPC": "32W442",
         "PREFIX": "HJ",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32W4",
         "BISHPC": "32W442",
         "PREFIX": "HJ",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32W4",
         "BISHPC": "32W446",
         "PREFIX": "HJ",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32W4",
         "BISHPC": "32W449",
         "PREFIX": "HJ",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32W4",
         "BISHPC": "32W45",
         "PREFIX": "HJ",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32W4",
         "BISHPC": "32W451",
         "PREFIX": "HJ",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32W4",
         "BISHPC": "32W451",
         "PREFIX": "HJ",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32W4",
         "BISHPC": "32W451",
         "PREFIX": "HJ",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32W4",
         "BISHPC": "32W452",
         "PREFIX": "HJ",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32W4",
         "BISHPC": "32W456",
         "PREFIX": "HJ",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32W4",
         "BISHPC": "32W459",
         "PREFIX": "HJ",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32W4",
         "BISHPC": "32W459",
         "PREFIX": "HJ",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32W4",
         "BISHPC": "32W46",
         "PREFIX": "HJ",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32W4",
         "BISHPC": "32W460",
         "PREFIX": "HJ",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32W4",
         "BISHPC": "32W465",
         "PREFIX": "HJ",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32W4",
         "BISHPC": "32W466",
         "PREFIX": "HJ",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32W4",
         "BISHPC": "32W473",
         "PREFIX": "HJ",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32W4",
         "BISHPC": "32W475",
         "PREFIX": "HJ",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32W4",
         "BISHPC": "32W476",
         "PREFIX": "HJ",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32W4",
         "BISHPC": "32W48",
         "PREFIX": "HJ",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32W4",
         "BISHPC": "32W480",
         "PREFIX": "HJ",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32W4",
         "BISHPC": "32W49",
         "PREFIX": "HJ",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32W4",
         "BISHPC": "32W4A2",
         "PREFIX": "HJ",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32W4",
         "BISHPC": "32W4B7",
         "PREFIX": "HJ",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32W4",
         "BISHPC": "32W4D3",
         "PREFIX": "HJ",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32W4",
         "BISHPC": "32W4D4",
         "PREFIX": "HJ",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32W4",
         "BISHPC": "32W4G3",
         "PREFIX": "HJ",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32W4",
         "BISHPC": "32W4G7",
         "PREFIX": "HJ",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32W4",
         "BISHPC": "32W4G9",
         "PREFIX": "HJ",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32W4",
         "BISHPC": "32W4H3",
         "PREFIX": "HJ",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32W4",
         "BISHPC": "32W4J2",
         "PREFIX": "HJ",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32W4",
         "BISHPC": "32W4K8",
         "PREFIX": "HJ",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32W4",
         "BISHPC": "32W4L6",
         "PREFIX": "HJ",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32W4",
         "BISHPC": "32W4L6",
         "PREFIX": "HJ",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32W4",
         "BISHPC": "32W4L7",
         "PREFIX": "HJ",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32W4",
         "BISHPC": "32W4L8",
         "PREFIX": "HJ",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32W4",
         "BISHPC": "32W4L9",
         "PREFIX": "HJ",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32W4",
         "BISHPC": "32W4M4",
         "PREFIX": "HJ",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32W4",
         "BISHPC": "32W4M5",
         "PREFIX": "HJ",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32W4",
         "BISHPC": "32W4M6",
         "PREFIX": "HJ",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32W4",
         "BISHPC": "32W4M9",
         "PREFIX": "HJ",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32W4",
         "BISHPC": "32W4N2",
         "PREFIX": "-",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32W4",
         "BISHPC": "32W4N2",
         "PREFIX": "HJ",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32W4",
         "BISHPC": "32W4N6",
         "PREFIX": "HJ",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32W4",
         "BISHPC": "32W4N8",
         "PREFIX": "HJ",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32W4",
         "BISHPC": "32W4O1",
         "PREFIX": "HJ",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32W4",
         "BISHPC": "32W4O2",
         "PREFIX": "HJ",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32W4",
         "BISHPC": "32W4O3",
         "PREFIX": "HJ",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32W4",
         "BISHPC": "32W4O6",
         "PREFIX": "HJ",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32W4",
         "BISHPC": "32W4O7",
         "PREFIX": "H",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32W4",
         "BISHPC": "32W4O8",
         "PREFIX": "HJ",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32W6",
         "BISHPC": "32W6",
         "PREFIX": "SY",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32W7",
         "BISHPC": "32W7",
         "PREFIX": "SY",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32W4",
         "BISHPC": "32W9",
         "PREFIX": "HK",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32W9",
         "BISHPC": "32W9",
         "PREFIX": "HK",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32W4",
         "BISHPC": "32W915",
         "PREFIX": "HJ",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32W4",
         "BISHPC": "32W917",
         "PREFIX": "HJ",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32W9",
         "BISHPC": "32W93",
         "PREFIX": "HK",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32X5",
         "BISHPC": "32X5",
         "PREFIX": "EP",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32Y1",
         "BISHPC": "32Y1",
         "PREFIX": "YA",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32Y2",
         "BISHPC": "32Y2",
         "PREFIX": "YU",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32Y4",
         "BISHPC": "32Y4",
         "PREFIX": "BI",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32Y5",
         "BISHPC": "32Y5",
         "PREFIX": "BZ",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32Y6",
         "BISHPC": "32Y6",
         "PREFIX": "BS",
         "ADDRESS": "-"
     },
-    { "placing_type": "PALLET","factory": "INJ",
+    {
+        "PLACING_TYPE": "PALLET",
+        "FACTORY": "INJ",
         "AFFCODE": "32Y8",
         "BISHPC": "32Y8",
         "PREFIX": "CL",

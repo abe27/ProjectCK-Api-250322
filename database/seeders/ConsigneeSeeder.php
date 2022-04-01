@@ -25,6 +25,7 @@ class ConsigneeSeeder extends Seeder
 
         Consignee::truncate();
         foreach ($data as $r) {
+            // $this->command->info($r->FACTORY);
             $factory = FactoryType::where('name', $r->FACTORY)->first();
             $aff = Affiliate::where('aff_code', $r->AFFCODE)->first();
             $customer = Customer::where('cust_code', $r->BISHPC)->first();
