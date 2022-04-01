@@ -1,0 +1,34 @@
+[
+    {
+        "name": "-",
+        "description": "-"
+    },
+    {
+        "name": "LCL",
+        "description": "LCL"
+    },
+    {
+        "name": "LCL",
+        "description": "LCL"
+    },
+    {
+        "name": "MIX LOAD",
+        "description": "MIX LOAD"
+    },
+    {
+        "name": "CK-1",
+        "description": "CK-1"
+    },
+    {
+        "name": "CK-2",
+        "description": "CK-2"
+    },
+    {
+        "name": "NESC",
+        "description": "CK NESC"
+    },
+    {
+        "name": "ICAM",
+        "description": "CK ICAM"
+    }
+]

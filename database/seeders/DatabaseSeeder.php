@@ -43,6 +43,8 @@ class DatabaseSeeder extends Seeder
         $this->call([PlacingOnPalletSeeder::class]);
         $this->call([ContainerSizeSeeder::class]);
         $this->call([ContainerTypeSeeder::class]);
+        $this->call([ZoneTypeSeeder::class]);
+        $this->call([TerritorySeeder::class]);
         Schema::enableForeignKeyConstraints();
     }
 }
