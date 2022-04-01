@@ -4,12 +4,12 @@
         "description": "-"
     },
     {
-        "name": "LCL",
-        "description": "LCL"
+        "name": "FCL",
+        "description": "Full Container Load"
     },
     {
         "name": "LCL",
-        "description": "LCL"
+        "description": "Less than Container Load"
     },
     {
         "name": "MIX LOAD",
