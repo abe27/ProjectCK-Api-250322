@@ -24,8 +24,8 @@ class AdminSeeder extends Seeder
 
         User::truncate();
         $user = new User();
-        $user->name = "Taweechai Yuenyang";
-        $user->empcode = "30006";
+        $user->name = "Administrator";
+        $user->empcode = "30000";
         $user->email = "krumii.it@gmail.com";
         $user->password = $hashed;
         $user->is_admin = true;
