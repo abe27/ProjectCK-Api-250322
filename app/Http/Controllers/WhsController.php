@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\LogActivity;
 use App\Models\Whs;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class WhsController extends Controller
 {
@@ -12,9 +14,16 @@ class WhsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($active=1)
     {
-        //
+        $data = Whs::orderBy('name')->where('is_active', $active)->paginate();
+
+        LogActivity::addToLog('ดึงข้อมูล whs');
+        return response()->json([
+            'success' => true,
+            'message' => 'get data',
+            'data' => $data
+        ]);
     }
 
     /**
@@ -35,7 +44,33 @@ class WhsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $v = Validator::make($request->all(), [
+            'name' => ['required', 'string', 'min:3', 'max:50', 'unique:whs'],
+            'description' => ['required', 'string'],
+            'active' => ['required', 'boolean']
+        ]);
+
+        if ($v->fails()) {
+            return response()->json([
+                'success' => false,
+                'message' => $v->getMessageBag(),
+                'data' => []
+            ]);
+        }
+
+        $whs = new Whs();
+        $whs->name = $request->name;
+        $whs->description = $request->description;
+        $whs->is_active = $request->active;
+        $whs->save();
+
+        LogActivity::addToLog('สร้างข้อมูล whs('.$whs->id.')');
+
+        return response()->json([
+            'success' => true,
+            'message' => 'บันทึกข้อมูลใหม่',
+            'data' => $whs
+        ]);
     }
 
     /**
@@ -46,7 +81,12 @@ class WhsController extends Controller
      */
     public function show(Whs $whs)
     {
-        //
+        LogActivity::addToLog('แสดงข้อมูล whs('.$whs->id.')');
+        return response()->json([
+            'success' => true,
+            'message' => '',
+            'data' => $whs
+        ]);
     }
 
     /**
@@ -69,7 +109,30 @@ class WhsController extends Controller
      */
     public function update(Request $request, Whs $whs)
     {
-        //
+        $v = Validator::make($request->all(), [
+            'description' => ['required', 'string'],
+            'active' => ['required', 'boolean'],
+        ]);
+
+        if ($v->fails()) {
+            return response()->json([
+                'success' => false,
+                'message' => $v->getMessageBag(),
+                'data' => []
+            ]);
+        }
+
+        $whs->description = $request->description;
+        $whs->is_active = $request->active;
+        $whs->save();
+
+        LogActivity::addToLog('อัพเดทข้อมูล whs(' . $whs->id . ') เรียบร้อยแล้ว');
+
+        return response()->json([
+            'success' => true,
+            'message' => 'อัพเดทข้อมูล ' . $whs->id . ' เรียบร้อยแล้ว',
+            'data' => $whs
+        ]);
     }
 
     /**
@@ -80,6 +143,12 @@ class WhsController extends Controller
      */
     public function destroy(Whs $whs)
     {
-        //
+        $id = $whs->id;
+        LogActivity::addToLog('ลบข้อมูล whs(' . $id . ') เรียบร้อยแล้ว');
+        return response()->json([
+            'success' => $whs->delete(),
+            'message' => 'ลบข้อมูล ' . $id . ' เรียบร้อยแล้ว',
+            'data' => []
+        ]);
     }
 }
