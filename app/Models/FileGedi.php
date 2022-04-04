@@ -18,7 +18,12 @@ class FileGedi extends Model
         'batch_id',
         'file_name',
         'file_size',
+        'file_path',
         'is_downloaded',
         'is_active',
     ];
+
+    public function whs() {
+        return $this->hasOne(Whs::class, 'id', 'whs_id');
+    }
 }
