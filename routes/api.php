@@ -3,6 +3,8 @@
 use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\FileGediController;
 use App\Http\Controllers\LogActivitiesController;
+use App\Http\Controllers\ShippingController;
+use App\Http\Controllers\WarehouseTypeController;
 use App\Http\Controllers\WhsController;
 use Illuminate\Support\Facades\Route;
 
@@ -34,6 +36,22 @@ Route::prefix('/gedi')->middleware('auth:sanctum')->group(function () {
 
 Route::prefix('/log')->middleware('auth:sanctum')->group(function () {
     Route::get('/index', [LogActivitiesController::class, 'index'])->name('api.log.index');
+});
+
+Route::prefix('/warehouse_type')->middleware('auth:sanctum')->group(function () {
+    Route::get('/index/{active?}', [WarehouseTypeController::class, 'index'])->name('api.warehouse_type.index');
+    Route::post('/store', [WarehouseTypeController::class, 'store'])->name('api.warehouse_type.store');
+    Route::get('/show/{warehouseType}', [WarehouseTypeController::class, 'show'])->name('api.warehouse_type.show');
+    Route::put('/update/{warehouseType}', [WarehouseTypeController::class, 'update'])->name('api.warehouse_type.put');
+    Route::delete('/delete/{warehouseType}', [WarehouseTypeController::class, 'destroy'])->name('api.warehouse_type.destroy');
+});
+
+Route::prefix('/shipping')->middleware('auth:sanctum')->group(function () {
+    Route::get('/index/{active?}', [ShippingController::class, 'index'])->name('api.shipping.index');
+    Route::post('/store', [ShippingController::class, 'store'])->name('api.shipping.store');
+    Route::get('/show/{shipping}', [ShippingController::class, 'show'])->name('api.shipping.show');
+    Route::put('/update/{shipping}', [ShippingController::class, 'update'])->name('api.shipping.put');
+    Route::delete('/delete/{shipping}', [ShippingController::class, 'destroy'])->name('api.shipping.destroy');
 });
 
 Route::prefix('/whs')->middleware('auth:sanctum')->group(function () {
