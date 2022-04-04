@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthenticationController;
+use App\Http\Controllers\FactoryTypeController;
 use App\Http\Controllers\FileGediController;
 use App\Http\Controllers\LogActivitiesController;
 use App\Http\Controllers\ShippingController;
@@ -60,4 +61,12 @@ Route::prefix('/whs')->middleware('auth:sanctum')->group(function () {
     Route::get('/show/{whs}', [WhsController::class, 'show'])->name('api.whs.show');
     Route::put('/update/{whs}', [WhsController::class, 'update'])->name('api.whs.put');
     Route::delete('/delete/{whs}', [WhsController::class, 'destroy'])->name('api.whs.destroy');
+});
+
+Route::prefix('/factory')->middleware('auth:sanctum')->group(function () {
+    Route::get('/index/{active?}', [FactoryTypeController::class, 'index'])->name('api.factory.index');
+    Route::post('/store', [FactoryTypeController::class, 'store'])->name('api.factory.store');
+    Route::get('/show/{factoryType}', [FactoryTypeController::class, 'show'])->name('api.factory.show');
+    Route::put('/update/{factoryType}', [FactoryTypeController::class, 'update'])->name('api.factory.put');
+    Route::delete('/delete/{factoryType}', [FactoryTypeController::class, 'destroy'])->name('api.factory.destroy');
 });
