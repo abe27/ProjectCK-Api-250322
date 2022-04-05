@@ -28,4 +28,37 @@ class Ledger extends Model
         'unit_id',
         'is_active',
     ];
+
+    public function tagrp() {
+        return $this->hasOne(Tagrp::class, 'id', 'tagrp_id');
+    }
+
+    public function factory() {
+        return $this->hasOne(FactoryType::class, 'id', 'factory_id');
+    }
+
+    public function whs() {
+        return $this->hasOne(Whs::class, 'id', 'whs_id');
+    }
+
+    public function part() {
+        return $this->hasOne(Part::class, 'id', 'part_id');
+    }
+
+    public function kinds() {
+        return $this->hasOne(Kinds::class, 'id', 'kinds_id');
+    }
+
+    public function sizes() {
+        return $this->hasOne(Sizes::class, 'id', 'sizes_id');
+    }
+
+    public function colors() {
+        return $this->hasOne(Colors::class, 'id', 'colors_id');
+    }
+
+    public function unit() {
+        return $this->hasOne(Unit::class, 'id', 'unit_id');
+    }
+
 }

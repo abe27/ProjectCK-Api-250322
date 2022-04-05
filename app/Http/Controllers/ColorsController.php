@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\LogActivity;
 use App\Models\Colors;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class ColorsController extends Controller
 {
@@ -12,9 +14,15 @@ class ColorsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($active=1)
     {
-        //
+        $data = Colors::orderBy('colors')->where('is_active', $active)->paginate();
+        LogActivity::addToLog('ดึงข้อมูล colors');
+        return response()->json([
+            'success' => true,
+            'message' => 'get data',
+            'data' => $data
+        ]);
     }
 
     /**
@@ -35,7 +43,35 @@ class ColorsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $v = Validator::make($request->all(), [
+            'colors' => ['required', 'string', 'min:3', 'max:50', 'unique:colors'],
+            'description' => ['required', 'string'],
+            'hex_code' => ['required', 'string'],
+            'active' => ['required', 'boolean']
+        ]);
+
+        if ($v->fails()) {
+            return response()->json([
+                'success' => false,
+                'message' => $v->getMessageBag(),
+                'data' => []
+            ]);
+        }
+
+        $obj = new Colors();
+        $obj->colors = $request->colors;
+        $obj->description = $request->description;
+        $obj->hex_code = $request->hex_code;
+        $obj->is_active = $request->active;
+        $obj->save();
+
+        LogActivity::addToLog('สร้างข้อมูล colors('.$obj->id.')');
+
+        return response()->json([
+            'success' => true,
+            'message' => 'บันทึกข้อมูลใหม่',
+            'data' => $obj
+        ]);
     }
 
     /**
@@ -57,7 +93,12 @@ class ColorsController extends Controller
      */
     public function edit(Colors $colors)
     {
-        //
+        LogActivity::addToLog('แสดงข้อมูล colors('.$colors->id.')');
+        return response()->json([
+            'success' => true,
+            'message' => '',
+            'data' => $colors
+        ]);
     }
 
     /**
@@ -69,7 +110,32 @@ class ColorsController extends Controller
      */
     public function update(Request $request, Colors $colors)
     {
-        //
+        $v = Validator::make($request->all(), [
+            'description' => ['required', 'string'],
+            'hex_code' => ['required', 'string'],
+            'active' => ['required', 'boolean'],
+        ]);
+
+        if ($v->fails()) {
+            return response()->json([
+                'success' => false,
+                'message' => $v->getMessageBag(),
+                'data' => []
+            ]);
+        }
+
+        $colors->description = $request->description;
+        $colors->hex_code = $request->hex_code;
+        $colors->is_active = $request->active;
+        $colors->save();
+
+        LogActivity::addToLog('อัพเดทข้อมูล colors(' . $colors->id . ') เรียบร้อยแล้ว');
+
+        return response()->json([
+            'success' => true,
+            'message' => 'อัพเดทข้อมูล ' . $colors->id . ' เรียบร้อยแล้ว',
+            'data' => $colors
+        ]);
     }
 
     /**
@@ -80,6 +146,12 @@ class ColorsController extends Controller
      */
     public function destroy(Colors $colors)
     {
-        //
+        $id = $colors->id;
+        LogActivity::addToLog('ลบข้อมูล colors(' . $id . ') เรียบร้อยแล้ว');
+        return response()->json([
+            'success' => $colors->delete(),
+            'message' => 'ลบข้อมูล ' . $id . ' เรียบร้อยแล้ว',
+            'data' => []
+        ]);
     }
 }

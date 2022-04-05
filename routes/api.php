@@ -1,10 +1,19 @@
 <?php
 
 use App\Http\Controllers\AuthenticationController;
+use App\Http\Controllers\ColorsController;
 use App\Http\Controllers\FactoryTypeController;
 use App\Http\Controllers\FileGediController;
+use App\Http\Controllers\ImageLedgerController;
+use App\Http\Controllers\KindsController;
+use App\Http\Controllers\LedgerController;
 use App\Http\Controllers\LogActivitiesController;
+use App\Http\Controllers\PartController;
+use App\Http\Controllers\PartTypeController;
 use App\Http\Controllers\ShippingController;
+use App\Http\Controllers\SizesController;
+use App\Http\Controllers\TagrpController;
+use App\Http\Controllers\UnitController;
 use App\Http\Controllers\WarehouseTypeController;
 use App\Http\Controllers\WhsController;
 use Illuminate\Support\Facades\Route;
@@ -69,4 +78,76 @@ Route::prefix('/factory')->middleware('auth:sanctum')->group(function () {
     Route::get('/show/{factoryType}', [FactoryTypeController::class, 'show'])->name('api.factory.show');
     Route::put('/update/{factoryType}', [FactoryTypeController::class, 'update'])->name('api.factory.put');
     Route::delete('/delete/{factoryType}', [FactoryTypeController::class, 'destroy'])->name('api.factory.destroy');
+});
+
+Route::prefix('/part_type')->middleware('auth:sanctum')->group(function () {
+    Route::get('/index/{active?}', [PartTypeController::class, 'index'])->name('api.part_type.index');
+    Route::post('/store', [PartTypeController::class, 'store'])->name('api.part_type.store');
+    Route::get('/show/{partType}', [PartTypeController::class, 'show'])->name('api.part_type.show');
+    Route::put('/update/{partType}', [PartTypeController::class, 'update'])->name('api.part_type.put');
+    Route::delete('/delete/{partType}', [PartTypeController::class, 'destroy'])->name('api.part_type.destroy');
+});
+
+Route::prefix('/unit')->middleware('auth:sanctum')->group(function () {
+    Route::get('/index/{active?}', [UnitController::class, 'index'])->name('api.unit.index');
+    Route::post('/store', [UnitController::class, 'store'])->name('api.unit.store');
+    Route::get('/show/{unit}', [UnitController::class, 'show'])->name('api.unit.show');
+    Route::put('/update/{unit}', [UnitController::class, 'update'])->name('api.unit.put');
+    Route::delete('/delete/{unit}', [UnitController::class, 'destroy'])->name('api.unit.destroy');
+});
+
+Route::prefix('/part')->middleware('auth:sanctum')->group(function () {
+    Route::get('/index/{active?}', [PartController::class, 'index'])->name('api.part.index');
+    Route::post('/store', [PartController::class, 'store'])->name('api.part.store');
+    Route::get('/show/{part}', [PartController::class, 'show'])->name('api.part.show');
+    Route::put('/update/{part}', [PartController::class, 'update'])->name('api.part.put');
+    Route::delete('/delete/{part}', [PartController::class, 'destroy'])->name('api.part.destroy');
+});
+
+Route::prefix('/kind')->middleware('auth:sanctum')->group(function () {
+    Route::get('/index/{active?}', [KindsController::class, 'index'])->name('api.kind.index');
+    Route::post('/store', [KindsController::class, 'store'])->name('api.kind.store');
+    Route::get('/show/{kinds}', [KindsController::class, 'show'])->name('api.kind.show');
+    Route::put('/update/{kinds}', [KindsController::class, 'update'])->name('api.kind.put');
+    Route::delete('/delete/{kinds}', [KindsController::class, 'destroy'])->name('api.kind.destroy');
+});
+
+Route::prefix('/size')->middleware('auth:sanctum')->group(function () {
+    Route::get('/index/{active?}', [SizesController::class, 'index'])->name('api.size.index');
+    Route::post('/store', [SizesController::class, 'store'])->name('api.size.store');
+    Route::get('/show/{sizes}', [SizesController::class, 'show'])->name('api.size.show');
+    Route::put('/update/{sizes}', [SizesController::class, 'update'])->name('api.size.put');
+    Route::delete('/delete/{sizes}', [SizesController::class, 'destroy'])->name('api.size.destroy');
+});
+
+Route::prefix('/colors')->middleware('auth:sanctum')->group(function () {
+    Route::get('/index/{active?}', [ColorsController::class, 'index'])->name('api.colors.index');
+    Route::post('/store', [ColorsController::class, 'store'])->name('api.colors.store');
+    Route::get('/show/{colors}', [ColorsController::class, 'show'])->name('api.colors.show');
+    Route::put('/update/{colors}', [ColorsController::class, 'update'])->name('api.colors.put');
+    Route::delete('/delete/{colors}', [ColorsController::class, 'destroy'])->name('api.colors.destroy');
+});
+
+Route::prefix('/tagrp')->middleware('auth:sanctum')->group(function () {
+    Route::get('/index/{active?}', [TagrpController::class, 'index'])->name('api.tagrp.index');
+    Route::post('/store', [TagrpController::class, 'store'])->name('api.tagrp.store');
+    Route::get('/show/{tagrp}', [TagrpController::class, 'show'])->name('api.tagrp.show');
+    Route::put('/update/{tagrp}', [TagrpController::class, 'update'])->name('api.tagrp.put');
+    Route::delete('/delete/{tagrp}', [TagrpController::class, 'destroy'])->name('api.tagrp.destroy');
+});
+
+Route::prefix('/ledger')->middleware('auth:sanctum')->group(function () {
+    Route::get('/index/{active?}', [LedgerController::class, 'index'])->name('api.ledger.index');
+    Route::post('/store', [LedgerController::class, 'store'])->name('api.ledger.store');
+    Route::get('/show/{ledger}', [LedgerController::class, 'show'])->name('api.ledger.show');
+    Route::put('/update/{ledger}', [LedgerController::class, 'update'])->name('api.ledger.put');
+    Route::delete('/delete/{ledger}', [LedgerController::class, 'destroy'])->name('api.ledger.destroy');
+});
+
+Route::prefix('/image_ledgers')->middleware('auth:sanctum')->group(function () {
+    Route::get('/index/{active?}', [ImageLedgerController::class, 'index'])->name('api.image_ledgers.index');
+    Route::post('/store', [ImageLedgerController::class, 'store'])->name('api.image_ledgers.store');
+    Route::get('/show/{imageLedger}', [ImageLedgerController::class, 'show'])->name('api.image_ledgers.show');
+    Route::put('/update/{imageLedger}', [ImageLedgerController::class, 'update'])->name('api.image_ledgers.put');
+    Route::delete('/delete/{imageLedger}', [ImageLedgerController::class, 'destroy'])->name('api.image_ledgers.destroy');
 });
