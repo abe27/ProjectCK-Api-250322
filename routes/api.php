@@ -14,6 +14,7 @@ use App\Http\Controllers\KindsController;
 use App\Http\Controllers\LedgerController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\LogActivitiesController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\OrderPlanController;
 use App\Http\Controllers\PartController;
 use App\Http\Controllers\PartTypeController;
@@ -263,5 +264,13 @@ Route::prefix('/order')->group(function () {
         Route::get('/show/{orderPlan}', [OrderPlanController::class, 'show'])->name('api.order.plan.show');
         Route::put('/update/{orderPlan}', [OrderPlanController::class, 'update'])->name('api.order.plan.put');
         Route::delete('/delete/{orderPlan}', [OrderPlanController::class, 'destroy'])->name('api.order.plan.destroy');
+    });
+
+    Route::prefix('/header')->group(function () {
+        Route::get('/index/{active?}', [OrderController::class, 'index'])->name('api.order.header.index');
+        Route::post('/store', [OrderController::class, 'store'])->name('api.order.header.store');
+        Route::get('/show/{order}', [OrderController::class, 'show'])->name('api.order.header.show');
+        Route::put('/update/{order}', [OrderController::class, 'update'])->name('api.order.header.put');
+        Route::delete('/delete/{order}', [OrderController::class, 'destroy'])->name('api.order.header.destroy');
     });
 });
