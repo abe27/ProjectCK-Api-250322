@@ -19,4 +19,13 @@ class Shelve extends Model
         'is_printed',
         'is_active',
     ];
+
+    public function carton() {
+        return $this->hasOne(Carton::class, 'id', 'carton_id');
+    }
+
+    public function location() {
+        return $this->hasOne(Location::class, 'id', 'location_id');
+    }
+
 }

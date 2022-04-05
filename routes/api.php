@@ -1,18 +1,24 @@
 <?php
 
+use App\Http\Controllers\AffiliateController;
 use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\CartonController;
 use App\Http\Controllers\ColorsController;
+use App\Http\Controllers\CustomerAddressController;
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\FactoryTypeController;
 use App\Http\Controllers\FileGediController;
 use App\Http\Controllers\ImageLedgerController;
 use App\Http\Controllers\KindsController;
 use App\Http\Controllers\LedgerController;
+use App\Http\Controllers\LocationController;
 use App\Http\Controllers\LogActivitiesController;
 use App\Http\Controllers\PartController;
 use App\Http\Controllers\PartTypeController;
 use App\Http\Controllers\ReceiveController;
 use App\Http\Controllers\ReceiveDetailController;
+use App\Http\Controllers\RegionController;
+use App\Http\Controllers\ShelveController;
 use App\Http\Controllers\ShippingController;
 use App\Http\Controllers\SizesController;
 use App\Http\Controllers\StockController;
@@ -188,4 +194,54 @@ Route::prefix('/cartons')->group(function () {
     Route::get('/show/{carton}', [CartonController::class, 'show'])->name('api.cartons.show');
     Route::put('/update/{carton}', [CartonController::class, 'update'])->name('api.cartons.put');
     Route::delete('/delete/{carton}', [CartonController::class, 'destroy'])->name('api.cartons.destroy');
+});
+
+Route::prefix('/location')->group(function () {
+    Route::get('/index/{active?}', [LocationController::class, 'index'])->name('api.location.index');
+    Route::post('/store', [LocationController::class, 'store'])->name('api.location.store');
+    Route::get('/show/{location}', [LocationController::class, 'show'])->name('api.location.show');
+    Route::put('/update/{location}', [LocationController::class, 'update'])->name('api.location.put');
+    Route::delete('/delete/{location}', [LocationController::class, 'destroy'])->name('api.location.destroy');
+});
+
+Route::prefix('/shelve')->group(function () {
+    Route::get('/index/{active?}', [ShelveController::class, 'index'])->name('api.shelve.index');
+    Route::post('/store', [ShelveController::class, 'store'])->name('api.shelve.store');
+    Route::get('/show/{shelve}', [ShelveController::class, 'show'])->name('api.shelve.show');
+    Route::put('/update/{shelve}', [ShelveController::class, 'update'])->name('api.shelve.put');
+    Route::delete('/delete/{shelve}', [ShelveController::class, 'destroy'])->name('api.shelve.destroy');
+});
+
+Route::prefix('/regions')->group(function () {
+    Route::get('/index/{active?}', [RegionController::class, 'index'])->name('api.regions.index');
+    Route::post('/store', [RegionController::class, 'store'])->name('api.regions.store');
+    Route::get('/show/{region}', [RegionController::class, 'show'])->name('api.regions.show');
+    Route::put('/update/{region}', [RegionController::class, 'update'])->name('api.regions.put');
+    Route::delete('/delete/{region}', [RegionController::class, 'destroy'])->name('api.regions.destroy');
+});
+
+Route::prefix('/affiliates')->group(function () {
+    Route::get('/index/{active?}', [AffiliateController::class, 'index'])->name('api.affiliates.index');
+    Route::post('/store', [AffiliateController::class, 'store'])->name('api.affiliates.store');
+    Route::get('/show/{affiliate}', [AffiliateController::class, 'show'])->name('api.affiliates.show');
+    Route::put('/update/{affiliate}', [AffiliateController::class, 'update'])->name('api.affiliates.put');
+    Route::delete('/delete/{affiliate}', [AffiliateController::class, 'destroy'])->name('api.affiliates.destroy');
+});
+
+Route::prefix('/customers')->group(function () {
+    Route::prefix('/name')->group(function () {
+        Route::get('/index/{active?}', [CustomerController::class, 'index'])->name('api.customers.index');
+        Route::post('/store', [CustomerController::class, 'store'])->name('api.customers.store');
+        Route::get('/show/{customer}', [CustomerController::class, 'show'])->name('api.customers.show');
+        Route::put('/update/{customer}', [CustomerController::class, 'update'])->name('api.customers.put');
+        Route::delete('/delete/{customer}', [CustomerController::class, 'destroy'])->name('api.customers.destroy');
+    });
+
+    Route::prefix('/address')->group(function () {
+        Route::get('/index/{active?}', [CustomerAddressController::class, 'index'])->name('api.customers.address.index');
+        Route::post('/store', [CustomerAddressController::class, 'store'])->name('api.customers.address.store');
+        Route::get('/show/{customerAddress}', [CustomerAddressController::class, 'show'])->name('api.customers.address.show');
+        Route::put('/update/{customerAddress}', [CustomerAddressController::class, 'update'])->name('api.customers.address.put');
+        Route::delete('/delete/{customerAddress}', [CustomerAddressController::class, 'destroy'])->name('api.customers.address.destroy');
+    });
 });

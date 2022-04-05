@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Affiliate;
+use App\Helpers\LogActivity;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 
 class AffiliateController extends Controller
@@ -12,9 +14,15 @@ class AffiliateController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($active = 1)
     {
-        //
+        $data = Affiliate::orderBy('aff_code')->where('is_active', $active)->paginate();
+        LogActivity::addToLog('ดึงข้อมูล Affiliate');
+        return response()->json([
+            'success' => true,
+            'message' => 'get data',
+            'data' => $data
+        ]);
     }
 
     /**
@@ -35,7 +43,33 @@ class AffiliateController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $v = Validator::make($request->all(), [
+            'aff_code' => ['required', 'string', 'min:3', 'unique:affiliates'],
+            'description' => ['required', 'string', 'min:1'],
+            'active' => ['required', 'boolean'],
+        ]);
+
+        if ($v->fails()) {
+            return response()->json([
+                'success' => false,
+                'message' => $v->getMessageBag(),
+                'data' => []
+            ]);
+        }
+
+        $obj = new Affiliate();
+        $obj->aff_code = $request->aff_code;
+        $obj->description = $request->description;
+        $obj->is_active = $request->active;
+        $obj->save();
+
+        LogActivity::addToLog('สร้างข้อมูล Affiliate(' . $obj->id . ')');
+
+        return response()->json([
+            'success' => true,
+            'message' => 'บันทึกข้อมูลใหม่',
+            'data' => $obj
+        ]);
     }
 
     /**
@@ -46,7 +80,12 @@ class AffiliateController extends Controller
      */
     public function show(Affiliate $affiliate)
     {
-        //
+        LogActivity::addToLog('แสดงข้อมูล affiliate(' . $affiliate->id . ')');
+        return response()->json([
+            'success' => true,
+            'message' => '',
+            'data' => $affiliate
+        ]);
     }
 
     /**
@@ -69,7 +108,32 @@ class AffiliateController extends Controller
      */
     public function update(Request $request, Affiliate $affiliate)
     {
-        //
+        $v = Validator::make($request->all(), [
+            'aff_code' => ['required', 'string', 'min:3', 'unique:affiliates'],
+            'description' => ['required', 'string', 'min:1'],
+            'active' => ['required', 'boolean'],
+        ]);
+
+        if ($v->fails()) {
+            return response()->json([
+                'success' => false,
+                'message' => $v->getMessageBag(),
+                'data' => []
+            ]);
+        }
+
+        $affiliate->aff_code = $request->aff_code;
+        $affiliate->description = $request->description;
+        $affiliate->is_active = $request->active;
+        $affiliate->save();
+
+        LogActivity::addToLog('อัพเดทข้อมูล Affiliate(' . $affiliate->id . ')');
+
+        return response()->json([
+            'success' => true,
+            'message' => 'บันทึกข้อมูลใหม่',
+            'data' => $affiliate
+        ]);
     }
 
     /**
@@ -80,6 +144,12 @@ class AffiliateController extends Controller
      */
     public function destroy(Affiliate $affiliate)
     {
-        //
+        $id = $affiliate->id;
+        LogActivity::addToLog('ลบข้อมูล affiliate(' . $id . ') เรียบร้อยแล้ว');
+        return response()->json([
+            'success' => $affiliate->delete(),
+            'message' => 'ลบข้อมูล ' . $id . ' เรียบร้อยแล้ว',
+            'data' => []
+        ]);
     }
 }
