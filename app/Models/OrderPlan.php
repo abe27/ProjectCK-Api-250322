@@ -24,9 +24,7 @@ class OrderPlan extends Model
         'sortg2', // );// "sortg2": sortg2,
         'sortg3', // );// "sortg3": sortg3,
         'plantype', // );// "plantype": plantype,
-        'orderid', // );// "orderid": str(self.__trimtxt(line[13 : (13 + 15)])),
         'pono', // );// "pono": str(self.__returnutfpono(self, line[13 : (13 + 15)])),
-        'recid', // );// "recid": str(self.__trimtxt(line[0:4])),
         'biac', // );// "biac": str(self.__trimtxt(line[5 : (5 + 8)])),
         'shiptype', // );// "shiptype": str(self.__trimtxt(line[4 : (4 + 1)])),
         'etdtap', // "etdtap": datetime.strptime
@@ -72,4 +70,8 @@ class OrderPlan extends Model
         'is_sync', // )->default(false);
         'is_active', // )->default(false);
     ];
+
+    public function file_gedi() {
+        return $this->hasOne(FileGedi::class, 'id', 'file_gedi_id');
+    }
 }

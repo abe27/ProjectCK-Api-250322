@@ -14,7 +14,7 @@ class ColorsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($active=1)
+    public function index($active = 1)
     {
         $data = Colors::orderBy('colors')->where('is_active', $active)->paginate();
         LogActivity::addToLog('ดึงข้อมูล colors');
@@ -65,7 +65,7 @@ class ColorsController extends Controller
         $obj->is_active = $request->active;
         $obj->save();
 
-        LogActivity::addToLog('สร้างข้อมูล colors('.$obj->id.')');
+        LogActivity::addToLog('สร้างข้อมูล colors(' . $obj->id . ')');
 
         return response()->json([
             'success' => true,
@@ -93,7 +93,7 @@ class ColorsController extends Controller
      */
     public function edit(Colors $colors)
     {
-        LogActivity::addToLog('แสดงข้อมูล colors('.$colors->id.')');
+        LogActivity::addToLog('แสดงข้อมูล colors(' . $colors->id . ')');
         return response()->json([
             'success' => true,
             'message' => '',

@@ -27,4 +27,25 @@ class Consignee extends Model
         'max_box',
         'is_active',
     ];
+
+    public function factory() {
+        return $this->hasOne(FactoryType::class, 'id', 'factory_id');
+    }
+
+    public function aff() {
+        return $this->hasOne(Affiliate::class, 'id', 'aff_id');
+    }
+
+    public function customer() {
+        return $this->hasOne(Customer::class, 'id', 'customer_id');
+    }
+
+    public function region() {
+        return $this->hasOne(Region::class, 'id', 'region_id');
+    }
+
+    public function address() {
+        return $this->hasOne(CustomerAddress::class, 'id', 'address_id');
+    }
+
 }

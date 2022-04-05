@@ -4,6 +4,7 @@ use App\Http\Controllers\AffiliateController;
 use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\CartonController;
 use App\Http\Controllers\ColorsController;
+use App\Http\Controllers\ConsigneeController;
 use App\Http\Controllers\CustomerAddressController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\FactoryTypeController;
@@ -13,6 +14,7 @@ use App\Http\Controllers\KindsController;
 use App\Http\Controllers\LedgerController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\LogActivitiesController;
+use App\Http\Controllers\OrderPlanController;
 use App\Http\Controllers\PartController;
 use App\Http\Controllers\PartTypeController;
 use App\Http\Controllers\ReceiveController;
@@ -243,5 +245,23 @@ Route::prefix('/customers')->group(function () {
         Route::get('/show/{customerAddress}', [CustomerAddressController::class, 'show'])->name('api.customers.address.show');
         Route::put('/update/{customerAddress}', [CustomerAddressController::class, 'update'])->name('api.customers.address.put');
         Route::delete('/delete/{customerAddress}', [CustomerAddressController::class, 'destroy'])->name('api.customers.address.destroy');
+    });
+});
+
+Route::prefix('/consignees')->group(function () {
+    Route::get('/index/{active?}', [ConsigneeController::class, 'index'])->name('api.consignees.index');
+    Route::post('/store', [ConsigneeController::class, 'store'])->name('api.consignees.store');
+    Route::get('/show/{consignee}', [ConsigneeController::class, 'show'])->name('api.consignees.show');
+    Route::put('/update/{consignee}', [ConsigneeController::class, 'update'])->name('api.consignees.put');
+    Route::delete('/delete/{consignee}', [ConsigneeController::class, 'destroy'])->name('api.consignees.destroy');
+});
+
+Route::prefix('/order')->group(function () {
+    Route::prefix('/plan')->group(function () {
+        Route::get('/index/{active?}', [OrderPlanController::class, 'index'])->name('api.order.plan.index');
+        Route::post('/store', [OrderPlanController::class, 'store'])->name('api.order.plan.store');
+        Route::get('/show/{orderPlan}', [OrderPlanController::class, 'show'])->name('api.order.plan.show');
+        Route::put('/update/{orderPlan}', [OrderPlanController::class, 'update'])->name('api.order.plan.put');
+        Route::delete('/delete/{orderPlan}', [OrderPlanController::class, 'destroy'])->name('api.order.plan.destroy');
     });
 });

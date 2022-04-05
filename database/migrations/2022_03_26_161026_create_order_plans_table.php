@@ -26,9 +26,7 @@ return new class extends Migration
             $table->string('sortg2')->nullable();// "sortg2": sortg2,
             $table->string('sortg3')->nullable();// "sortg3": sortg3,
             $table->string('plantype')->nullable();// "plantype": plantype,
-            $table->string('orderid')->nullable();// "orderid": str(self.__trimtxt(line[13 : (13 + 15)])),
             $table->string('pono')->nullable();// "pono": str(self.__returnutfpono(self, line[13 : (13 + 15)])),
-            $table->string('recid')->nullable();// "recid": str(self.__trimtxt(line[0:4])),
             $table->string('biac')->nullable();// "biac": str(self.__trimtxt(line[5 : (5 + 8)])),
             $table->string('shiptype')->nullable();// "shiptype": str(self.__trimtxt(line[4 : (4 + 1)])),
             $table->date('etdtap');// "etdtap": datetime.strptime
