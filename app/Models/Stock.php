@@ -18,4 +18,8 @@ class Stock extends Model
         'ctn',
         'is_active',
     ];
+
+    public function ledger() {
+        return $this->hasOne(Ledger::class, 'id', 'ledger_id');
+    }
 }

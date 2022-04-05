@@ -21,7 +21,7 @@ class WarehouseTypeController extends Controller
         LogActivity::addToLog('ดึงข้อมูล warehouseType');
         return response()->json([
             'success' => true,
-            'message' => 'get data shipping',
+            'message' => 'get data warehouseType',
             'data' => $data
         ]);
     }

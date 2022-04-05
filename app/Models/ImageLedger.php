@@ -17,4 +17,8 @@ class ImageLedger extends Model
         'image_url',
         'is_active',
     ];
+
+    public function ledger() {
+        return $this->hasOne(Ledger::class, 'id', 'ledger_id');
+    }
 }

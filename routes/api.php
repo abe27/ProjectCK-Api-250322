@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthenticationController;
+use App\Http\Controllers\CartonController;
 use App\Http\Controllers\ColorsController;
 use App\Http\Controllers\FactoryTypeController;
 use App\Http\Controllers\FileGediController;
@@ -10,8 +11,11 @@ use App\Http\Controllers\LedgerController;
 use App\Http\Controllers\LogActivitiesController;
 use App\Http\Controllers\PartController;
 use App\Http\Controllers\PartTypeController;
+use App\Http\Controllers\ReceiveController;
+use App\Http\Controllers\ReceiveDetailController;
 use App\Http\Controllers\ShippingController;
 use App\Http\Controllers\SizesController;
+use App\Http\Controllers\StockController;
 use App\Http\Controllers\TagrpController;
 use App\Http\Controllers\UnitController;
 use App\Http\Controllers\WarehouseTypeController;
@@ -148,6 +152,40 @@ Route::prefix('/image_ledgers')->middleware('auth:sanctum')->group(function () {
     Route::get('/index/{active?}', [ImageLedgerController::class, 'index'])->name('api.image_ledgers.index');
     Route::post('/store', [ImageLedgerController::class, 'store'])->name('api.image_ledgers.store');
     Route::get('/show/{imageLedger}', [ImageLedgerController::class, 'show'])->name('api.image_ledgers.show');
-    Route::put('/update/{imageLedger}', [ImageLedgerController::class, 'update'])->name('api.image_ledgers.put');
+    // Route::put('/update/{imageLedger}', [ImageLedgerController::class, 'update'])->name('api.image_ledgers.put');
     Route::delete('/delete/{imageLedger}', [ImageLedgerController::class, 'destroy'])->name('api.image_ledgers.destroy');
+});
+
+Route::prefix('/stock')->middleware('auth:sanctum')->group(function () {
+    Route::get('/index/{active?}', [StockController::class, 'index'])->name('api.stock.index');
+    Route::post('/store', [StockController::class, 'store'])->name('api.stock.store');
+    Route::get('/show/{stock}', [StockController::class, 'show'])->name('api.stock.show');
+    Route::put('/update/{stock}', [StockController::class, 'update'])->name('api.stock.put');
+    Route::delete('/delete/{stock}', [StockController::class, 'destroy'])->name('api.stock.destroy');
+});
+
+Route::prefix('/receive')->middleware('auth:sanctum')->group(function () {
+    Route::prefix('/header')->group(function () {
+        Route::get('/index/{active?}', [ReceiveController::class, 'index'])->name('api.receive.header.index');
+        Route::post('/store', [ReceiveController::class, 'store'])->name('api.receive.header.store');
+        Route::get('/show/{receive}', [ReceiveController::class, 'show'])->name('api.receive.header.show');
+        Route::put('/update/{receive}', [ReceiveController::class, 'update'])->name('api.receive.header.put');
+        Route::delete('/delete/{receive}', [ReceiveController::class, 'destroy'])->name('api.receive.header.destroy');
+    });
+
+    Route::prefix('/body')->group(function () {
+        Route::get('/index/{active?}/{receive}', [ReceiveDetailController::class, 'index'])->name('api.receive.body.index');
+        Route::post('/store', [ReceiveDetailController::class, 'store'])->name('api.receive.body.store');
+        Route::get('/show/{receiveDetail}', [ReceiveDetailController::class, 'show'])->name('api.receive.body.show');
+        Route::put('/update/{receiveDetail}', [ReceiveDetailController::class, 'update'])->name('api.receive.body.put');
+        Route::delete('/delete/{receiveDetail}', [ReceiveDetailController::class, 'destroy'])->name('api.receive.body.destroy');
+    });
+});
+
+Route::prefix('/cartons')->group(function () {
+    Route::get('/index/{active?}', [CartonController::class, 'index'])->name('api.cartons.index');
+    Route::post('/store', [CartonController::class, 'store'])->name('api.cartons.store');
+    Route::get('/show/{carton}', [CartonController::class, 'show'])->name('api.cartons.show');
+    Route::put('/update/{carton}', [CartonController::class, 'update'])->name('api.cartons.put');
+    Route::delete('/delete/{carton}', [CartonController::class, 'destroy'])->name('api.cartons.destroy');
 });

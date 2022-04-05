@@ -21,4 +21,8 @@ class Carton extends Model
         'qty',
         'is_active',
     ];
+
+    public function receive_detail() {
+        return $this->hasOne(ReceiveDetail::class, 'id', 'receive_detail_id');
+    }
 }

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Stock;
+use App\Helpers\LogActivity;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 
 class StockController extends Controller
@@ -12,9 +14,15 @@ class StockController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($active=1)
     {
-        //
+        $data = Stock::with('ledger')->where('is_active', $active)->paginate();
+        LogActivity::addToLog('ดึงข้อมูล stock');
+        return response()->json([
+            'success' => true,
+            'message' => 'get data stock',
+            'data' => $data
+        ]);
     }
 
     /**
@@ -35,7 +43,35 @@ class StockController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $v = Validator::make($request->all(), [
+            'ledger_id' => ['required', 'string', 'unique:stocks'],
+            'per_qty' => ['required', 'numeric'],
+            'ctn' => ['required', 'numeric'],
+            'active' => ['required', 'boolean']
+        ]);
+
+        if ($v->fails()) {
+            return response()->json([
+                'success' => false,
+                'message' => $v->getMessageBag(),
+                'data' => []
+            ]);
+        }
+
+        $obj = new Stock();
+        $obj->ledger_id = $request->ledger_id;
+        $obj->per_qty = $request->per_qty;
+        $obj->ctn = $request->ctn;
+        $obj->is_active = $request->active;
+        $obj->save();
+
+        LogActivity::addToLog('สร้างข้อมูล stock('.$obj->id.')');
+
+        return response()->json([
+            'success' => true,
+            'message' => 'บันทึกข้อมูลใหม่',
+            'data' => $obj
+        ]);
     }
 
     /**
@@ -46,7 +82,13 @@ class StockController extends Controller
      */
     public function show(Stock $stock)
     {
-        //
+        $data = Stock::with('ledger')->where('id', $stock->id)->paginate();
+        LogActivity::addToLog('แสดงข้อมูล stock('.$stock->id.')');
+        return response()->json([
+            'success' => true,
+            'message' => 'แสดงข้อมูล stock('.$stock->id.')',
+            'data' => $data
+        ]);
     }
 
     /**
@@ -69,7 +111,32 @@ class StockController extends Controller
      */
     public function update(Request $request, Stock $stock)
     {
-        //
+        $v = Validator::make($request->all(), [
+            'per_qty' => ['required', 'numeric'],
+            'ctn' => ['required', 'numeric'],
+            'active' => ['required', 'boolean']
+        ]);
+
+        if ($v->fails()) {
+            return response()->json([
+                'success' => false,
+                'message' => $v->getMessageBag(),
+                'data' => []
+            ]);
+        }
+
+        $stock->per_qty = $request->per_qty;
+        $stock->ctn = $request->ctn;
+        $stock->is_active = $request->active;
+        $stock->save();
+
+        LogActivity::addToLog('อัพเดทข้อมูล stock('.$stock->id.')');
+        $data = Stock::with('ledger')->where('id', $stock->id)->paginate();
+        return response()->json([
+            'success' => true,
+            'message' => 'อัพเดทข้อมูล stock('.$stock->id.')',
+            'data' => $data
+        ]);
     }
 
     /**
@@ -80,6 +147,12 @@ class StockController extends Controller
      */
     public function destroy(Stock $stock)
     {
-        //
+        $id = $stock->id;
+        LogActivity::addToLog('ลบข้อมูล stock('.$stock->id.') เรียบร้อยแล้ว');
+        return response()->json([
+            'success' => $stock->delete(),
+            'message' => 'ลบข้อมูล stock('.$id.') เรียบร้อยแล้ว',
+            'data' => []
+        ]);
     }
 }

@@ -20,4 +20,12 @@ class Receive extends Model
         'receive_sync',
         'is_active',
     ];
+
+    public function file_gedi() {
+        return $this->hasOne(FileGedi::class, 'id', 'file_gedi_id');
+    }
+
+    public function factory_type() {
+        return $this->hasOne(FactoryType::class, 'id', 'factory_type_id');
+    }
 }

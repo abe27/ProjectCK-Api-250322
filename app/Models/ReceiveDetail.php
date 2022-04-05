@@ -21,4 +21,13 @@ class ReceiveDetail extends Model
         'plan_ctn',
         'is_active',
     ];
+
+    public function receive() {
+        return $this->hasOne(Receive::class, 'id', 'receive_id');
+    }
+
+    public function ledger() {
+        return $this->hasOne(Ledger::class, 'id', 'ledger_id');
+    }
+
 }
