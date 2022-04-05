@@ -5,30 +5,40 @@ use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\CartonController;
 use App\Http\Controllers\ColorsController;
 use App\Http\Controllers\ConsigneeController;
+use App\Http\Controllers\ContainerDetailController;
+use App\Http\Controllers\ContainerSizeController;
+use App\Http\Controllers\ContainerTypeController;
 use App\Http\Controllers\CustomerAddressController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\FactoryTypeController;
 use App\Http\Controllers\FileGediController;
 use App\Http\Controllers\ImageLedgerController;
+use App\Http\Controllers\InvoiceController;
+use App\Http\Controllers\InvoicePalletDetailController;
 use App\Http\Controllers\KindsController;
 use App\Http\Controllers\LedgerController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\LogActivitiesController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\OrderDetailController;
 use App\Http\Controllers\OrderPlanController;
 use App\Http\Controllers\PartController;
+use App\Http\Controllers\PartShortController;
 use App\Http\Controllers\PartTypeController;
 use App\Http\Controllers\ReceiveController;
 use App\Http\Controllers\ReceiveDetailController;
 use App\Http\Controllers\RegionController;
+use App\Http\Controllers\RequestContainerController;
 use App\Http\Controllers\ShelveController;
 use App\Http\Controllers\ShippingController;
 use App\Http\Controllers\SizesController;
 use App\Http\Controllers\StockController;
 use App\Http\Controllers\TagrpController;
+use App\Http\Controllers\TerritoryController;
 use App\Http\Controllers\UnitController;
 use App\Http\Controllers\WarehouseTypeController;
 use App\Http\Controllers\WhsController;
+use App\Http\Controllers\ZoneTypeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -182,7 +192,7 @@ Route::prefix('/receive')->middleware('auth:sanctum')->group(function () {
         Route::delete('/delete/{receive}', [ReceiveController::class, 'destroy'])->name('api.receive.header.destroy');
     });
 
-    Route::prefix('/body')->group(function () {
+    Route::prefix('/body')->middleware('auth:sanctum')->group(function () {
         Route::get('/index/{active?}/{receive}', [ReceiveDetailController::class, 'index'])->name('api.receive.body.index');
         Route::post('/store', [ReceiveDetailController::class, 'store'])->name('api.receive.body.store');
         Route::get('/show/{receiveDetail}', [ReceiveDetailController::class, 'show'])->name('api.receive.body.show');
@@ -191,7 +201,7 @@ Route::prefix('/receive')->middleware('auth:sanctum')->group(function () {
     });
 });
 
-Route::prefix('/cartons')->group(function () {
+Route::prefix('/cartons')->middleware('auth:sanctum')->group(function () {
     Route::get('/index/{active?}', [CartonController::class, 'index'])->name('api.cartons.index');
     Route::post('/store', [CartonController::class, 'store'])->name('api.cartons.store');
     Route::get('/show/{carton}', [CartonController::class, 'show'])->name('api.cartons.show');
@@ -199,7 +209,7 @@ Route::prefix('/cartons')->group(function () {
     Route::delete('/delete/{carton}', [CartonController::class, 'destroy'])->name('api.cartons.destroy');
 });
 
-Route::prefix('/location')->group(function () {
+Route::prefix('/location')->middleware('auth:sanctum')->group(function () {
     Route::get('/index/{active?}', [LocationController::class, 'index'])->name('api.location.index');
     Route::post('/store', [LocationController::class, 'store'])->name('api.location.store');
     Route::get('/show/{location}', [LocationController::class, 'show'])->name('api.location.show');
@@ -207,7 +217,7 @@ Route::prefix('/location')->group(function () {
     Route::delete('/delete/{location}', [LocationController::class, 'destroy'])->name('api.location.destroy');
 });
 
-Route::prefix('/shelve')->group(function () {
+Route::prefix('/shelve')->middleware('auth:sanctum')->group(function () {
     Route::get('/index/{active?}', [ShelveController::class, 'index'])->name('api.shelve.index');
     Route::post('/store', [ShelveController::class, 'store'])->name('api.shelve.store');
     Route::get('/show/{shelve}', [ShelveController::class, 'show'])->name('api.shelve.show');
@@ -215,7 +225,7 @@ Route::prefix('/shelve')->group(function () {
     Route::delete('/delete/{shelve}', [ShelveController::class, 'destroy'])->name('api.shelve.destroy');
 });
 
-Route::prefix('/regions')->group(function () {
+Route::prefix('/regions')->middleware('auth:sanctum')->group(function () {
     Route::get('/index/{active?}', [RegionController::class, 'index'])->name('api.regions.index');
     Route::post('/store', [RegionController::class, 'store'])->name('api.regions.store');
     Route::get('/show/{region}', [RegionController::class, 'show'])->name('api.regions.show');
@@ -223,7 +233,7 @@ Route::prefix('/regions')->group(function () {
     Route::delete('/delete/{region}', [RegionController::class, 'destroy'])->name('api.regions.destroy');
 });
 
-Route::prefix('/affiliates')->group(function () {
+Route::prefix('/affiliates')->middleware('auth:sanctum')->group(function () {
     Route::get('/index/{active?}', [AffiliateController::class, 'index'])->name('api.affiliates.index');
     Route::post('/store', [AffiliateController::class, 'store'])->name('api.affiliates.store');
     Route::get('/show/{affiliate}', [AffiliateController::class, 'show'])->name('api.affiliates.show');
@@ -231,7 +241,7 @@ Route::prefix('/affiliates')->group(function () {
     Route::delete('/delete/{affiliate}', [AffiliateController::class, 'destroy'])->name('api.affiliates.destroy');
 });
 
-Route::prefix('/customers')->group(function () {
+Route::prefix('/customers')->middleware('auth:sanctum')->group(function () {
     Route::prefix('/name')->group(function () {
         Route::get('/index/{active?}', [CustomerController::class, 'index'])->name('api.customers.index');
         Route::post('/store', [CustomerController::class, 'store'])->name('api.customers.store');
@@ -249,7 +259,7 @@ Route::prefix('/customers')->group(function () {
     });
 });
 
-Route::prefix('/consignees')->group(function () {
+Route::prefix('/consignees')->middleware('auth:sanctum')->group(function () {
     Route::get('/index/{active?}', [ConsigneeController::class, 'index'])->name('api.consignees.index');
     Route::post('/store', [ConsigneeController::class, 'store'])->name('api.consignees.store');
     Route::get('/show/{consignee}', [ConsigneeController::class, 'show'])->name('api.consignees.show');
@@ -257,7 +267,7 @@ Route::prefix('/consignees')->group(function () {
     Route::delete('/delete/{consignee}', [ConsigneeController::class, 'destroy'])->name('api.consignees.destroy');
 });
 
-Route::prefix('/order')->group(function () {
+Route::prefix('/order')->middleware('auth:sanctum')->group(function () {
     Route::prefix('/plan')->group(function () {
         Route::get('/index/{active?}', [OrderPlanController::class, 'index'])->name('api.order.plan.index');
         Route::post('/store', [OrderPlanController::class, 'store'])->name('api.order.plan.store');
@@ -273,4 +283,96 @@ Route::prefix('/order')->group(function () {
         Route::put('/update/{order}', [OrderController::class, 'update'])->name('api.order.header.put');
         Route::delete('/delete/{order}', [OrderController::class, 'destroy'])->name('api.order.header.destroy');
     });
+
+    Route::prefix('/body')->group(function () {
+        Route::get('/index/{active?}', [OrderDetailController::class, 'index'])->name('api.order.body.index');
+        Route::post('/store', [OrderDetailController::class, 'store'])->name('api.order.body.store');
+        Route::get('/show/{orderDetail}', [OrderDetailController::class, 'show'])->name('api.order.body.show');
+        Route::put('/update/{orderDetail}', [OrderDetailController::class, 'update'])->name('api.order.body.put');
+        Route::delete('/delete/{orderDetail}', [OrderDetailController::class, 'destroy'])->name('api.order.body.destroy');
+    });
+});
+
+Route::prefix('/invoice')->middleware('auth:sanctum')->group(function () {
+    Route::prefix('/header')->group(function () {
+        Route::get('/index/{active?}', [InvoiceController::class, 'index'])->name('api.invoice.header.index');
+        Route::post('/store', [InvoiceController::class, 'store'])->name('api.invoice.header.store');
+        Route::get('/show/{invoice}', [InvoiceController::class, 'show'])->name('api.invoice.header.show');
+        Route::put('/update/{invoice}', [InvoiceController::class, 'update'])->name('api.invoice.header.put');
+        Route::delete('/delete/{invoice}', [InvoiceController::class, 'destroy'])->name('api.invoice.header.destroy');
+    });
+
+    Route::prefix('/pallet')->group(function () {
+        Route::get('/index/{active?}', [InvoicePalletController::class, 'index'])->name('api.invoice.pallet.index');
+        Route::post('/store', [InvoicePalletController::class, 'store'])->name('api.invoice.pallet.store');
+        Route::get('/show/{invoicePallet}', [InvoicePalletController::class, 'show'])->name('api.invoice.pallet.show');
+        Route::put('/update/{invoicePallet}', [InvoicePalletController::class, 'update'])->name('api.invoice.pallet.put');
+        Route::delete('/delete/{invoicePallet}', [InvoicePalletController::class, 'destroy'])->name('api.invoice.pallet.destroy');
+    });
+
+    Route::prefix('/pallet_detail')->group(function () {
+        Route::get('/index/{active?}', [InvoicePalletDetailController::class, 'index'])->name('api.invoice.pallet_detail.index');
+        Route::post('/store', [InvoicePalletDetailController::class, 'store'])->name('api.invoice.pallet_detail.store');
+        Route::get('/show/{invoicePalletDetail}', [InvoicePalletDetailController::class, 'show'])->name('api.invoice.pallet_detail.show');
+        Route::put('/update/{invoicePalletDetail}', [InvoicePalletDetailController::class, 'update'])->name('api.invoice.pallet_detail.put');
+        Route::delete('/delete/{invoicePalletDetail}', [InvoicePalletDetailController::class, 'destroy'])->name('api.invoice.pallet_detail.destroy');
+    });
+});
+
+Route::prefix('/container')->middleware('auth:sanctum')->group(function () {
+    Route::prefix('/type')->group(function () {
+        Route::get('/index/{active?}', [ContainerTypeController::class, 'index'])->name('api.container.type.index');
+        Route::post('/store', [ContainerTypeController::class, 'store'])->name('api.container.type.store');
+        Route::get('/show/{containerType}', [ContainerTypeController::class, 'show'])->name('api.container.type.show');
+        Route::put('/update/{containerType}', [ContainerTypeController::class, 'update'])->name('api.container.type.put');
+        Route::delete('/delete/{containerType}', [ContainerTypeController::class, 'destroy'])->name('api.container.type.destroy');
+    });
+
+    Route::prefix('/size')->group(function () {
+        Route::get('/index/{active?}', [ContainerSizeController::class, 'index'])->name('api.container.size.index');
+        Route::post('/store', [ContainerSizeController::class, 'store'])->name('api.container.size.store');
+        Route::get('/show/{containerSize}', [ContainerSizeController::class, 'show'])->name('api.container.size.show');
+        Route::put('/update/{containerSize}', [ContainerSizeController::class, 'update'])->name('api.container.size.put');
+        Route::delete('/delete/{containerSize}', [ContainerSizeController::class, 'destroy'])->name('api.container.size.destroy');
+    });
+
+    Route::prefix('/request')->group(function () {
+        Route::get('/index/{active?}', [RequestContainerController::class, 'index'])->name('api.container.request.index');
+        Route::post('/store', [RequestContainerController::class, 'store'])->name('api.container.request.store');
+        Route::get('/show/{requestContainer}', [RequestContainerController::class, 'show'])->name('api.container.request.show');
+        Route::put('/update/{requestContainer}', [RequestContainerController::class, 'update'])->name('api.container.request.put');
+        Route::delete('/delete/{requestContainer}', [RequestContainerController::class, 'destroy'])->name('api.container.request.destroy');
+    });
+
+    Route::prefix('/detail')->group(function () {
+        Route::get('/index/{active?}', [ContainerDetailController::class, 'index'])->name('api.container.detail.index');
+        Route::post('/store', [ContainerDetailController::class, 'store'])->name('api.container.detail.store');
+        Route::get('/show/{containerDetail}', [ContainerDetailController::class, 'show'])->name('api.container.detail.show');
+        Route::put('/update/{containerDetail}', [ContainerDetailController::class, 'update'])->name('api.container.detail.put');
+        Route::delete('/delete/{containerDetail}', [ContainerDetailController::class, 'destroy'])->name('api.container.detail.destroy');
+    });
+});
+
+Route::prefix('/part_short')->middleware('auth:sanctum')->group(function () {
+    Route::get('/index/{active?}', [PartShortController::class, 'index'])->name('api.part_short.index');
+    Route::post('/store', [PartShortController::class, 'store'])->name('api.part_short.store');
+    Route::get('/show/{partShort}', [PartShortController::class, 'show'])->name('api.part_short.show');
+    Route::put('/update/{partShort}', [PartShortController::class, 'update'])->name('api.part_short.put');
+    Route::delete('/delete/{partShort}', [PartShortController::class, 'destroy'])->name('api.part_short.destroy');
+});
+
+Route::prefix('/zone_type')->middleware('auth:sanctum')->group(function () {
+    Route::get('/index/{active?}', [ZoneTypeController::class, 'index'])->name('api.zone_type.index');
+    Route::post('/store', [ZoneTypeController::class, 'store'])->name('api.zone_type.store');
+    Route::get('/show/{zoneType}', [ZoneTypeController::class, 'show'])->name('api.zone_type.show');
+    Route::put('/update/{zoneType}', [ZoneTypeController::class, 'update'])->name('api.zone_type.put');
+    Route::delete('/delete/{zoneType}', [ZoneTypeController::class, 'destroy'])->name('api.zone_type.destroy');
+});
+
+Route::prefix('/territories')->middleware('auth:sanctum')->group(function () {
+    Route::get('/index/{active?}', [TerritoryController::class, 'index'])->name('api.territories.index');
+    Route::post('/store', [TerritoryController::class, 'store'])->name('api.territories.store');
+    Route::get('/show/{territory}', [TerritoryController::class, 'show'])->name('api.territories.show');
+    Route::put('/update/{territory}', [TerritoryController::class, 'update'])->name('api.territories.put');
+    Route::delete('/delete/{territory}', [TerritoryController::class, 'destroy'])->name('api.territories.destroy');
 });
