@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\OrderZone;
+use App\Helpers\LogActivity;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 
 class OrderZoneController extends Controller
@@ -12,9 +14,15 @@ class OrderZoneController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($active = 1)
     {
-        //
+        $data = OrderZone::where('is_active', $active)->paginate();
+        LogActivity::addToLog('ดึงข้อมูล Order Zone');
+        return response()->json([
+            'success' => true,
+            'message' => 'Get Order Zone Successfully',
+            'data' => $data
+        ]);
     }
 
     /**
@@ -35,7 +43,37 @@ class OrderZoneController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $v = Validator::make($request->all(), [
+            'factory_id' => ['required', 'string', 'min:36', 'max:36'],
+            'bioat' => ['required', 'numeric'],
+            'zone' => ['required', 'string'],
+            'description' => ['required', 'string'],
+            'active' => ['required', 'boolean'],
+        ]);
+
+        if ($v->fails()) {
+            return response()->json([
+                'success' => false,
+                'message' => $v->getMessageBag(),
+                'data' => []
+            ]);
+        }
+
+        $obj = new OrderZone();
+        $obj->factory_id = $request->factory_id;
+        $obj->bioat = $request->bioat;
+        $obj->zone = $request->zone;
+        $obj->description = $request->description;
+        $obj->is_active = $request->active;
+        $obj->save();
+
+        LogActivity::addToLog('สร้างข้อมูล order zone(' . $obj->id . ')');
+
+        return response()->json([
+            'success' => true,
+            'message' => 'บันทึกข้อมูลใหม่',
+            'data' => $obj
+        ]);
     }
 
     /**
@@ -46,7 +84,12 @@ class OrderZoneController extends Controller
      */
     public function show(OrderZone $orderZone)
     {
-        //
+        LogActivity::addToLog('แสดงข้อมูล Order Zone(' . $orderZone->id . ')');
+        return response()->json([
+            'success' => true,
+            'message' => 'แสดงข้อมูล Order Zone(' . $orderZone->id . ')',
+            'data' => $orderZone
+        ]);
     }
 
     /**
@@ -69,7 +112,36 @@ class OrderZoneController extends Controller
      */
     public function update(Request $request, OrderZone $orderZone)
     {
-        //
+        $v = Validator::make($request->all(), [
+            'factory_id' => ['required', 'string', 'min:36', 'max:36'],
+            'bioat' => ['required', 'numeric'],
+            'zone' => ['required', 'string'],
+            'description' => ['required', 'string'],
+            'active' => ['required', 'boolean'],
+        ]);
+
+        if ($v->fails()) {
+            return response()->json([
+                'success' => false,
+                'message' => $v->getMessageBag(),
+                'data' => []
+            ]);
+        }
+
+        $orderZone->factory_id = $request->factory_id;
+        $orderZone->bioat = $request->bioat;
+        $orderZone->zone = $request->zone;
+        $orderZone->description = $request->description;
+        $orderZone->is_active = $request->active;
+        $orderZone->save();
+
+        LogActivity::addToLog('อัพเดทข้อมูล order zone(' . $orderZone->id . ')');
+
+        return response()->json([
+            'success' => true,
+            'message' => 'อัพเดทข้อมูล order zone(' . $orderZone->id . ')',
+            'data' => $orderZone
+        ]);
     }
 
     /**
@@ -80,6 +152,12 @@ class OrderZoneController extends Controller
      */
     public function destroy(OrderZone $orderZone)
     {
-        //
+        $id = $orderZone->id;
+        LogActivity::addToLog('ลบข้อมูล Order Zone(' . $id . ')');
+        return response()->json([
+            'success' => $orderZone->delete(),
+            'message' => 'ลบข้อมูล Order Zone(' . $id . ')',
+            'data' => []
+        ]);
     }
 }

@@ -19,4 +19,8 @@ class OrderZone extends Model
         'description',
         'is_active',
     ];
+
+    public function factory() {
+        return $this->hasOne(FactoryType::class, 'id', 'factory_id');
+    }
 }

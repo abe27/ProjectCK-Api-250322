@@ -21,4 +21,12 @@ class OrderNote extends Model
         'description',
         'is_active',
     ];
+
+    public function ship_type() {
+        return $this->hasOne(ShipType::class, 'id', 'ship_type_id');
+    }
+
+    public function factory() {
+        return $this->hasOne(FactoryType::class, 'id', 'factory_id');
+    }
 }

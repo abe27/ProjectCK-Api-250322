@@ -25,4 +25,13 @@ class Order extends Model
         'sync',
         'is_active',
     ];
+
+    public function consignee() {
+        return $this->hasOne(Consignee::class, 'id', 'consignee_id');
+    }
+
+    public function shipping() {
+        return $this->hasOne(Shipping::class, 'id', 'shipping_id');
+    }
+
 }

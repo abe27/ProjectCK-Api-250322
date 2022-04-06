@@ -35,4 +35,21 @@ class OrderDetail extends Model
         'poupd_flg',
         'is_active',
     ];
+
+    public function order() {
+        return $this->hasOne(Order::class, 'id', 'order_id');
+    }
+
+    public function order_plan() {
+        return $this->hasOne(OrderPlan::class, 'id', 'order_plan_id');
+    }
+
+    public function revise() {
+        return $this->hasOne(OrderRevise::class, 'id', 'revise_id');
+    }
+
+    public function ledger() {
+        return $this->hasOne(Ledger::class, 'id', 'ledger_id');
+    }
+
 }

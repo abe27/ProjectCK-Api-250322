@@ -20,4 +20,13 @@ class InvoicePalletDetail extends Model
         'is_printed',
         'is_active',
     ];
+
+    public function invoice_pallet() {
+        return $this->hasOne(InvoicePallet::class, 'id', 'invoice_pallet_id');
+    }
+
+    public function carton() {
+        return $this->hasOne(Carton::class, 'id', 'carton_id');
+    }
+
 }
