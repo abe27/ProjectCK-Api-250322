@@ -47,6 +47,7 @@ class ZoneTypeController extends Controller
             'prefix' => ['required', 'string'],
             'name' => ['required', 'string'],
             'description' => ['required', 'string'],
+            'active' => ['required', 'boolean'],
         ]);
 
         if ($v->fails()) {
@@ -112,6 +113,7 @@ class ZoneTypeController extends Controller
             'prefix' => ['required', 'string'],
             'name' => ['required', 'string'],
             'description' => ['required', 'string'],
+            'active' => ['required', 'boolean'],
         ]);
 
         if ($v->fails()) {
