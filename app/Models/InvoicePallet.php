@@ -22,4 +22,21 @@ class InvoicePallet extends Model
         'pallet_total',
         'is_active',
     ];
+
+    public function invoice() {
+        return $this->hasOne(Invoice::class, ['id' => 'invoice_id']);
+    }
+
+    public function placing() {
+        return $this->hasOne(PlacingOnPallet::class, ['id' => 'placing_id']);
+    }
+
+    public function part() {
+        return $this->hasOne(OrderDetail::class, ['id' => 'part_id']);
+    }
+
+    public function location() {
+        return $this->hasOne(Location::class, ['id' => 'location_id']);
+    }
+
 }

@@ -18,4 +18,13 @@ class ContainerDetail extends Model
         'is_status',
         'is_active',
     ];
+
+    public function container() {
+        return $this->hasOne(Container::class, 'id', 'container_id');
+    }
+
+    public function invoice_pallet() {
+        return $this->hasOne(Container::class, 'id', 'invoice_pallet_id');
+    }
+
 }

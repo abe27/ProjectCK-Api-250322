@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\InvoicePallet;
+use App\Helpers\LogActivity;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 
 class InvoicePalletController extends Controller
@@ -14,7 +16,18 @@ class InvoicePalletController extends Controller
      */
     public function index($active = 1)
     {
-        //
+        $data = InvoicePallet::with(
+            'invoice',
+            'placing',
+            'part',
+            'location'
+        )->where('is_active', $active)->paginate();
+        LogActivity::addToLog('ดึงข้อมูล Invoice Pallet');
+        return response()->json([
+            'success' => true,
+            'message' => 'get data',
+            'data' => $data
+        ]);
     }
 
     /**
@@ -35,7 +48,43 @@ class InvoicePalletController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $v = Validator::make($request->all(), [
+            'invoice_id' => ['required', 'string', 'min:36', 'max:36'],
+            'placing_id' => ['required', 'string', 'min:36', 'max:36'],
+            'part_id' => ['required', 'string', 'min:36', 'max:36'],
+            'location_id' => ['required', 'string', 'min:36', 'max:36'],
+            'pallet_no' => ['required', 'string', 'min:1', 'max:25'],
+            'spl_pallet_no' => ['required', 'string', 'min:1', 'max:25'],
+            'pallet_total' => ['required', 'numeric'],
+            'active' => ['required', 'boolean'],
+        ]);
+
+        if ($v->fails()) {
+            return response()->json([
+                'success' => false,
+                'message' => $v->getMessageBag(),
+                'data' => []
+            ]);
+        }
+
+        $obj = new InvoicePallet();
+        $obj->invoice_id = $request->invoice_id;
+        $obj->placing_id = $request->placing_id;
+        $obj->part_id = $request->part_id;
+        $obj->location_id = $request->location_id;
+        $obj->pallet_no = $request->pallet_no;
+        $obj->spl_pallet_no = $request->spl_pallet_no;
+        $obj->pallet_total = $request->pallet_total;
+        $obj->is_active = $request->active;
+        $obj->save();
+
+        LogActivity::addToLog('สร้างข้อมูล invoice pallet(' . $obj->id . ')');
+
+        return response()->json([
+            'success' => true,
+            'message' => 'บันทึกข้อมูลใหม่',
+            'data' => $obj
+        ]);
     }
 
     /**
@@ -46,7 +95,18 @@ class InvoicePalletController extends Controller
      */
     public function show(InvoicePallet $invoicePallet)
     {
-        //
+        $data = InvoicePallet::with(
+            'invoice',
+            'placing',
+            'part',
+            'location'
+        )->where('id', $invoicePallet->id)->paginate();
+        LogActivity::addToLog('แสดงข้อมูล Invoice Pallet(' . $invoicePallet->id .')');
+        return response()->json([
+            'success' => true,
+            'message' => 'แสดงข้อมูล Invoice Pallet(' . $invoicePallet->id .')',
+            'data' => $data
+        ]);
     }
 
     /**
@@ -69,7 +129,42 @@ class InvoicePalletController extends Controller
      */
     public function update(Request $request, InvoicePallet $invoicePallet)
     {
-        //
+        $v = Validator::make($request->all(), [
+            'invoice_id' => ['required', 'string', 'min:36', 'max:36'],
+            'placing_id' => ['required', 'string', 'min:36', 'max:36'],
+            'part_id' => ['required', 'string', 'min:36', 'max:36'],
+            'location_id' => ['required', 'string', 'min:36', 'max:36'],
+            'pallet_no' => ['required', 'string', 'min:1', 'max:25'],
+            'spl_pallet_no' => ['required', 'string', 'min:1', 'max:25'],
+            'pallet_total' => ['required', 'numeric'],
+            'active' => ['required', 'boolean'],
+        ]);
+
+        if ($v->fails()) {
+            return response()->json([
+                'success' => false,
+                'message' => $v->getMessageBag(),
+                'data' => []
+            ]);
+        }
+
+        $invoicePallet->invoice_id = $request->invoice_id;
+        $invoicePallet->placing_id = $request->placing_id;
+        $invoicePallet->part_id = $request->part_id;
+        $invoicePallet->location_id = $request->location_id;
+        $invoicePallet->pallet_no = $request->pallet_no;
+        $invoicePallet->spl_pallet_no = $request->spl_pallet_no;
+        $invoicePallet->pallet_total = $request->pallet_total;
+        $invoicePallet->is_active = $request->active;
+        $invoicePallet->save();
+
+        LogActivity::addToLog('อัพเดทข้อมูล invoice pallet(' . $invoicePallet->id . ')');
+
+        return response()->json([
+            'success' => true,
+            'message' => 'อัพเดทข้อมูล invoice pallet(' . $invoicePallet->id . ')',
+            'data' => $invoicePallet
+        ]);
     }
 
     /**
@@ -80,6 +175,12 @@ class InvoicePalletController extends Controller
      */
     public function destroy(InvoicePallet $invoicePallet)
     {
-        //
+        $id = $invoicePallet->id;
+        LogActivity::addToLog('ลบข้อมูล Invoice Pallet(' . $id .')');
+        return response()->json([
+            'success' => $invoicePallet->delete(),
+            'message' => 'ลบข้อมูล Invoice Pallet(' . $id .')',
+            'data' => []
+        ]);
     }
 }

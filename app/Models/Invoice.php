@@ -27,4 +27,8 @@ class Invoice extends Model
         'invoice_status',
         'is_active',
     ];
+
+    public function order() {
+        return $this->hasOne(Order::class, ['id' => 'order_id']);
+    }
 }

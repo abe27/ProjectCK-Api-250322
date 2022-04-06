@@ -14,6 +14,7 @@ use App\Http\Controllers\FactoryTypeController;
 use App\Http\Controllers\FileGediController;
 use App\Http\Controllers\ImageLedgerController;
 use App\Http\Controllers\InvoiceController;
+use App\Http\Controllers\InvoicePalletController;
 use App\Http\Controllers\InvoicePalletDetailController;
 use App\Http\Controllers\KindsController;
 use App\Http\Controllers\LedgerController;

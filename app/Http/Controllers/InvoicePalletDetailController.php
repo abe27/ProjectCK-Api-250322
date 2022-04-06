@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\InvoicePalletDetail;
+use App\Helpers\LogActivity;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 
 class InvoicePalletDetailController extends Controller
