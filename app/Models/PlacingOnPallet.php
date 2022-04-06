@@ -27,4 +27,8 @@ class PlacingOnPallet extends Model
         'pallet_url',
         'is_active',
     ];
+
+    public function factory() {
+        return $this->hasOne(FactoryType::class, 'id', 'factory_id');
+    }
 }

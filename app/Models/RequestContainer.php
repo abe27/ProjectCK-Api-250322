@@ -23,4 +23,17 @@ class RequestContainer extends Model
         'is_released',
         'is_active',
     ];
+
+    public function region() {
+        return $this->hasOne(Region::class, 'id', 'region_id');
+    }
+
+    public function type() {
+        return $this->hasOne(ContainerType::class, 'id', 'type_id');
+    }
+
+    public function size() {
+        return $this->hasOne(ContainerSize::class, 'id', 'size_id');
+    }
+
 }
