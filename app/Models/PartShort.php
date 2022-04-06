@@ -18,4 +18,8 @@ class PartShort extends Model
         'is_confirm_short',
         'is_active',
     ];
+
+    public function order_detail() {
+        return $this->hasOne(OrderDetail::class, 'id', 'order_detail_id');
+    }
 }
