@@ -24,6 +24,9 @@ return new class extends Migration
             $table->string('prefix_code', 5);
             $table->integer('last_running_no')->nullable()->default(1);
             $table->enum('group_by', ['N', 'M', 'E', 'F'])->nullable()->default('N');
+            $table->longText('mark_line_1')->nullable();
+            $table->longText('mark_line_2')->nullable();
+            $table->longText('mark_line_3')->nullable();
             $table->boolean('is_limit_weight')->nullable()->default(false);
             $table->decimal('limit_weight')->nullable()->default(0);
             $table->boolean('box_only')->nullable()->default(false);

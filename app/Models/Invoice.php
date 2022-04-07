@@ -20,7 +20,7 @@ class Invoice extends Model
         'ship_from',
         'ship_via',
         'ship_der',
-        'title',
+        'title_id',
         'loading_area',
         'privilege',
         'zone_code',
@@ -30,5 +30,9 @@ class Invoice extends Model
 
     public function order() {
         return $this->hasOne(Order::class, ['id' => 'order_id']);
+    }
+
+    public function title() {
+        return $this->hasOne(InvoiceTitle::class, 'id', 'title_id');
     }
 }

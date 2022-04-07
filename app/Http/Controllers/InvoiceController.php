@@ -16,7 +16,7 @@ class InvoiceController extends Controller
      */
     public function index($active = 1)
     {
-        $data = Invoice::with('order')->where('is_active', $active)->paginate();
+        $data = Invoice::with('order', 'title')->where('is_active', $active)->paginate();
         LogActivity::addToLog('ดึงข้อมูล Invoice');
         return response()->json([
             'success' => true,
@@ -51,7 +51,7 @@ class InvoiceController extends Controller
             'ship_from_id' => ['required', 'string', 'min:36', 'max:36'],
             'ship_via' => ['required'],
             'ship_der' => ['required', 'string', 'in:AIR,LCL,FCL,MIX LOAD,40",20"'],
-            'title' => ['required'],
+            'title_id' => ['required', 'string', 'min:36', 'max:36'],
             'loading_area' => ['required', 'string', 'in:DOMESTIC,BONDED,NESC,ICAM,CK-1,CK2,K.39,J03,RMW,FG'],
             'privilege' => ['required', 'string', 'in:DOMESTIC,BONDED,NESC,ICAM,CK-1,CK2,K.39,J03,RMW,FG'],
             'zone_code' => ['required', 'string', 'min:5', 'max:10'],
@@ -75,7 +75,7 @@ class InvoiceController extends Controller
         $obj->ship_from_id = $request->ship_from_id;
         $obj->ship_via = $request->ship_via;
         $obj->ship_der = $request->ship_der;
-        $obj->title = $request->title;
+        $obj->title_id = $request->title_id;
         $obj->loading_area = $request->loading_area;
         $obj->privilege = $request->privilege;
         $obj->zone_code = $request->zone_code;
@@ -100,7 +100,7 @@ class InvoiceController extends Controller
      */
     public function show(Invoice $invoice)
     {
-        $data = Invoice::with('order')->where('id', $invoice->id)->paginate();
+        $data = Invoice::with('order', 'title')->where('id', $invoice->id)->paginate();
         LogActivity::addToLog('แสดงข้อมูล Invoice(' . $invoice->id . ')');
         return response()->json([
             'success' => true,
@@ -137,7 +137,7 @@ class InvoiceController extends Controller
             'ship_from_id' => ['required', 'string', 'min:36', 'max:36'],
             'ship_via' => ['required'],
             'ship_der' => ['required', 'string', 'in:AIR,LCL,FCL,MIX LOAD,40",20"'],
-            'title' => ['required'],
+            'title_id' => ['required', 'string', 'min:36', 'max:36'],
             'loading_area' => ['required', 'string', 'in:DOMESTIC,BONDED,NESC,ICAM,CK-1,CK2,K.39,J03,RMW,FG'],
             'privilege' => ['required', 'string', 'in:DOMESTIC,BONDED,NESC,ICAM,CK-1,CK2,K.39,J03,RMW,FG'],
             'zone_code' => ['required', 'string', 'min:5', 'max:10'],
@@ -160,7 +160,7 @@ class InvoiceController extends Controller
         $invoice->ship_from_id = $request->ship_from_id;
         $invoice->ship_via = $request->ship_via;
         $invoice->ship_der = $request->ship_der;
-        $invoice->title = $request->title;
+        $invoice->title_id = $request->title_id;
         $invoice->loading_area = $request->loading_area;
         $invoice->privilege = $request->privilege;
         $invoice->zone_code = $request->zone_code;

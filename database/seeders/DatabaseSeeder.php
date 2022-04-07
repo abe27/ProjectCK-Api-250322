@@ -45,6 +45,7 @@ class DatabaseSeeder extends Seeder
         $this->call([ContainerTypeSeeder::class]);
         $this->call([ZoneTypeSeeder::class]);
         $this->call([TerritorySeeder::class]);
+        $this->call([InvoiceTitleSeeder::class]);
         Schema::enableForeignKeyConstraints();
     }
 }

@@ -22,7 +22,7 @@ return new class extends Migration
             $table->char('ship_from_id', 36)->nullable();## from zone whs CK-1,CK-2,NESC,ICAM
             $table->string('ship_via')->nullable()->default('-');###
             $table->string('ship_der')->nullable()->default('LCL');### AIR,LCL,FCL,MIX LOAD,40",20"
-            $table->string('title')->nullable()->default('000');
+            $table->string('title_id')->nullable();
             $table->string('loading_area', 10)->nullable()->default('CK-2');### DOMESTIC,BONDED,NESC,ICAM
             $table->string('privilege')->nullable()->default('DOMESTIC');### DOMESTIC,BONDED,NESC,ICAM
             $table->string('zone_code', 25)->nullable()->default('-');
@@ -39,6 +39,7 @@ return new class extends Migration
             $table->timestamps();
             $table->foreign('order_id')->references('id')->on('orders')->cascadeOnDelete();
             $table->foreign('ship_from_id')->references('id')->on('whs')->nullOnDelete();
+            $table->foreign('title_id')->references('id')->on('invoice_titles')->nullOnDelete();
         });
     }
 

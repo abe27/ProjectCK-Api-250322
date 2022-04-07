@@ -16,6 +16,7 @@ use App\Http\Controllers\ImageLedgerController;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\InvoicePalletController;
 use App\Http\Controllers\InvoicePalletDetailController;
+use App\Http\Controllers\InvoiceTitleController;
 use App\Http\Controllers\KindsController;
 use App\Http\Controllers\LedgerController;
 use App\Http\Controllers\LocationController;
@@ -34,6 +35,7 @@ use App\Http\Controllers\ShelveController;
 use App\Http\Controllers\ShippingController;
 use App\Http\Controllers\SizesController;
 use App\Http\Controllers\StockController;
+use App\Http\Controllers\SystemSyncServiceController;
 use App\Http\Controllers\TagrpController;
 use App\Http\Controllers\TerritoryController;
 use App\Http\Controllers\UnitController;
@@ -295,6 +297,14 @@ Route::prefix('/order')->middleware('auth:sanctum')->group(function () {
 });
 
 Route::prefix('/invoice')->middleware('auth:sanctum')->group(function () {
+    Route::prefix('/title')->group(function () {
+        Route::get('/index/{active?}', [InvoiceTitleController::class, 'index'])->name('api.invoice.title.index');
+        Route::post('/store', [InvoiceTitleController::class, 'store'])->name('api.invoice.title.store');
+        Route::get('/show/{invoiceTitle}', [InvoiceTitleController::class, 'show'])->name('api.invoice.title.show');
+        Route::put('/update/{invoiceTitle}', [InvoiceTitleController::class, 'update'])->name('api.invoice.title.put');
+        Route::delete('/delete/{invoiceTitle}', [InvoiceTitleController::class, 'destroy'])->name('api.invoice.title.destroy');
+    });
+
     Route::prefix('/header')->group(function () {
         Route::get('/index/{active?}', [InvoiceController::class, 'index'])->name('api.invoice.header.index');
         Route::post('/store', [InvoiceController::class, 'store'])->name('api.invoice.header.store');
@@ -376,4 +386,12 @@ Route::prefix('/territories')->middleware('auth:sanctum')->group(function () {
     Route::get('/show/{territory}', [TerritoryController::class, 'show'])->name('api.territories.show');
     Route::put('/update/{territory}', [TerritoryController::class, 'update'])->name('api.territories.put');
     Route::delete('/delete/{territory}', [TerritoryController::class, 'destroy'])->name('api.territories.destroy');
+});
+
+Route::prefix('/sync')->middleware('auth:sanctum')->group(function () {
+    Route::get('/index/{active?}', [SystemSyncServiceController::class, 'index'])->name('api.sync.index');
+    Route::post('/store', [SystemSyncServiceController::class, 'store'])->name('api.sync.store');
+    Route::get('/show/{systemSyncService}', [SystemSyncServiceController::class, 'show'])->name('api.sync.show');
+    Route::put('/update/{systemSyncService}', [SystemSyncServiceController::class, 'update'])->name('api.sync.put');
+    Route::delete('/delete/{systemSyncService}', [SystemSyncServiceController::class, 'destroy'])->name('api.sync.destroy');
 });

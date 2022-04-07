@@ -58,6 +58,9 @@ class ConsigneeController extends Controller
             'prefix_code' => ['required', 'string', 'min:2', 'max:5'],
             'last_running_no' => ['required', 'numeric'],
             'group_by' => ['required', 'string', 'min:1'],
+            'mark_line_1' => ['required', 'string', 'min:1'],
+            'mark_line_2' => ['required', 'string', 'min:1'],
+            'mark_line_3' => ['required', 'string', 'min:1'],
             'is_limit_weight' => ['required', 'numeric'],
             'limit_weight' => ['required', 'numeric'],
             'box_only' => ['required', 'boolean'],
@@ -83,6 +86,9 @@ class ConsigneeController extends Controller
         $obj->prefix_code = $request->prefix_code;
         $obj->last_running_no = $request->last_running_no;
         $obj->group_by = $request->group_by;
+        $obj->mark_line_1 = $request->mark_line_1;
+        $obj->mark_line_2 = $request->mark_line_2;
+        $obj->mark_line_3 = $request->mark_line_3;
         $obj->is_limit_weight = $request->is_limit_weight;
         $obj->limit_weight = $request->limit_weight;
         $obj->box_only = $request->box_only;
@@ -151,6 +157,9 @@ class ConsigneeController extends Controller
             'prefix_code' => ['required', 'string', 'min:2', 'max:5'],
             'last_running_no' => ['required', 'numeric'],
             'group_by' => ['required', 'string', 'min:1'],
+            'mark_line_1' => ['required', 'string', 'min:1'],
+            'mark_line_2' => ['required', 'string', 'min:1'],
+            'mark_line_3' => ['required', 'string', 'min:1'],
             'is_limit_weight' => ['required', 'numeric'],
             'limit_weight' => ['required', 'numeric'],
             'box_only' => ['required', 'boolean'],
@@ -175,6 +184,9 @@ class ConsigneeController extends Controller
         $consignee->prefix_code = $request->prefix_code;
         $consignee->last_running_no = $request->last_running_no;
         $consignee->group_by = $request->group_by;
+        $consignee->mark_line_1 = $request->mark_line_1;
+        $consignee->mark_line_2 = $request->mark_line_2;
+        $consignee->mark_line_3 = $request->mark_line_3;
         $consignee->is_limit_weight = $request->is_limit_weight;
         $consignee->limit_weight = $request->limit_weight;
         $consignee->box_only = $request->box_only;
