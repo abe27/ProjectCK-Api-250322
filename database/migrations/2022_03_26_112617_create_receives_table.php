@@ -18,6 +18,7 @@ return new class extends Migration
             $table->char('file_gedi_id', 36)->nullable();
             $table->char('factory_type_id', 36);
             $table->date('receive_date');
+            $table->string('transfer_out_no', 50)->nullable();
             $table->string('receive_no', 25);
             $table->boolean('receive_sync')->nullable()->default(false);
             $table->boolean('is_active')->nullable()->default(false);

@@ -16,6 +16,7 @@ class Receive extends Model
         'file_gedi_id',
         'factory_type_id',
         'receive_date',
+        'transfer_out_no',
         'receive_no',
         'receive_sync',
         'is_active',
