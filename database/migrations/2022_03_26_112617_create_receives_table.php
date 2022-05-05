@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('receives', function (Blueprint $table) {
             $table->char('id', 36)->primary();
+            $table->char('whs_id', 36)->nullable();
             $table->char('file_gedi_id', 36)->nullable();
             $table->char('factory_type_id', 36);
             $table->date('receive_date');
@@ -23,6 +24,7 @@ return new class extends Migration
             $table->boolean('receive_sync')->nullable()->default(false);
             $table->boolean('is_active')->nullable()->default(false);
             $table->timestamps();
+            $table->foreign('whs_id')->references('id')->on('whs')->nullOnDelete();
             $table->foreign('file_gedi_id')->references('id')->on('file_gedis')->nullOnDelete();
             $table->foreign('factory_type_id')->references('id')->on('factory_types')->cascadeOnDelete();
         });

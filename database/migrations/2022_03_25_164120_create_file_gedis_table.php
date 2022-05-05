@@ -15,7 +15,6 @@ return new class extends Migration
     {
         Schema::create('file_gedis', function (Blueprint $table) {
             $table->char('id', 36)->primary();
-            $table->char('whs_id', 36)->nullable();
             $table->enum('file_type', ['R', 'O']);
             $table->string('batch_id')->unique();
             $table->string('file_name');
@@ -24,7 +23,6 @@ return new class extends Migration
             $table->boolean('is_downloaded')->nullable()->default(false);
             $table->boolean('is_active')->nullable()->default(false);
             $table->timestamps();
-            $table->foreign('whs_id')->references('id')->on('whs')->nullOnDelete();
         });
     }
 

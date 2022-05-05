@@ -13,6 +13,7 @@ class Receive extends Model
     use HasFactory, HasApiTokens, Nanoids, Notifiable;
 
     protected $fillable = [
+        'whs_id',
         'file_gedi_id',
         'factory_type_id',
         'receive_date',
@@ -21,6 +22,10 @@ class Receive extends Model
         'receive_sync',
         'is_active',
     ];
+
+    public function whs() {
+        return $this->hasOne(Whs::class, 'id', 'whs_id');
+    }
 
     public function file_gedi() {
         return $this->hasOne(FileGedi::class, 'id', 'file_gedi_id');

@@ -13,7 +13,6 @@ class FileGedi extends Model
     use HasFactory, HasApiTokens, Nanoids, Notifiable;
 
     protected $fillable = [
-        'whs_id',
         'file_type',
         'batch_id',
         'file_name',
@@ -22,8 +21,4 @@ class FileGedi extends Model
         'is_downloaded',
         'is_active',
     ];
-
-    public function whs() {
-        return $this->hasOne(Whs::class, 'id', 'whs_id');
-    }
 }
