@@ -62,8 +62,9 @@ class FileGediController extends Controller
         $v = Validator::make($request->all(), [
             'whs_id' => ['required', 'string'],
             'file_type' => ['required', 'string'],
+            'filename' => ['required', 'string'],
             'batch_id' => ['required', 'string', 'unique:file_gedis'],
-            'file_name' => ['required']
+            'file' => ['required']
         ]);
 
         if ($v->fails()) {
@@ -77,8 +78,8 @@ class FileGediController extends Controller
 
         $whs = Whs::where('name', $request->whs_id)->first();
         $d = new DateTime();
-        $name = $request->file('file_name')->getClientOriginalName();
-        $path = $request->file('file_name')->store('public/files/gedis/'. $d->format('Ymd'));
+        // $name = $request->file('file')->getClientOriginalName();
+        $path = $request->file('file')->store('public/files/gedis/'. $d->format('Ymd'));
         $size = Storage::size($path);
 
         // create
@@ -86,7 +87,7 @@ class FileGediController extends Controller
         $fileGedi->whs_id = $whs->id;
         $fileGedi->file_type = $request->file_type;
         $fileGedi->batch_id = $request->batch_id;
-        $fileGedi->file_name = Str::substr($name, 9);
+        $fileGedi->file_name = $request->filename;
         $fileGedi->file_size = $size;
         $fileGedi->file_path = Storage::url($path);
         $fileGedi->is_active = true;
