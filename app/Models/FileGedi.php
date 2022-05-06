@@ -13,6 +13,7 @@ class FileGedi extends Model
     use HasFactory, HasApiTokens, Nanoids, Notifiable;
 
     protected $fillable = [
+        'whs_id',
         'file_type',
         'batch_id',
         'file_name',

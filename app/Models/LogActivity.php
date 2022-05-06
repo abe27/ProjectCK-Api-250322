@@ -14,6 +14,7 @@ class LogActivity extends Model
 
     protected $fillable = [
         'subject',
+        'description',
         'url',
         'method',
         'ip',

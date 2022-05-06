@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Validator;
 
 class AuthenticationController extends Controller
 {
+    private $sub = "Authenticate";
     public function register(Request $request)
     {
         $v = Validator::make($request->all(), [
@@ -38,7 +39,7 @@ class AuthenticationController extends Controller
         $token = $user->createToken('auth_token')->plainTextToken;
 
         // write log
-        LogActivity::addToLog('ลงทะเบียน');
+        LogActivity::addToLog($this->sub,'ลงทะเบียนผู้ใช้งานใหม่');
         return response()->json([
             'success' => true,
             'message' => $v->getMessageBag(),
@@ -55,6 +56,7 @@ class AuthenticationController extends Controller
 
         if (!Auth::attempt($request->only('empcode', 'password'))) {
             return response()->json([
+                'success' => false,
                 'message' => 'Invalid login details'
             ], 401);
         }
@@ -63,9 +65,10 @@ class AuthenticationController extends Controller
 
         $token = $user->createToken('auth_token')->plainTextToken;
         // log
-        LogActivity::addToLog('เข้าสู่ระบบ');
+        LogActivity::addToLog($this->sub,'เข้าสู่ระบบ');
 
         return response()->json([
+            'success' => true,
             'access_token' => $token,
             'token_type' => 'Bearer',
         ]);
@@ -73,12 +76,12 @@ class AuthenticationController extends Controller
 
     public function me(Request $request)
     {
-        LogActivity::addToLog('ข้อมูลส่วนตัว');
+        LogActivity::addToLog($this->sub,'ตรวจสอบข้อมูลส่วนตัว');
         return $request->user();
     }
 
     public function destroy(Request $request) {
-        LogActivity::addToLog('ออกจากระบบ');
+        LogActivity::addToLog($this->sub,'ออกจากระบบ');
         return response()->json([
             'success' => $request->user()->currentAccessToken()->delete(),
             'message' => 'logout successfully',

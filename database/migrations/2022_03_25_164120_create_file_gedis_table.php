@@ -15,7 +15,8 @@ return new class extends Migration
     {
         Schema::create('file_gedis', function (Blueprint $table) {
             $table->char('id', 36)->primary();
-            $table->enum('file_type', ['R', 'O']);
+            $table->char('whs_id', 36)->nullable();
+            $table->enum('file_type', ['R', 'O', 'I', 'K', 'F', '-']);
             $table->string('batch_id')->unique();
             $table->string('file_name');
             $table->decimal('file_size', 8, 2)->nullable()->default(0);
