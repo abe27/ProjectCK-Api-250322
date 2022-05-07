@@ -160,7 +160,7 @@ class FileGediController extends Controller
         LogActivity::addToLog($this->sub,'อัพเดทข้อมูล GEDI ID ' . $fileGedi->batch_id);
         return response()->json([
             'success' => true,
-            'message' => 'show ' . $fileGedi->id,
+            'message' => 'update ' . $fileGedi->id,
             'data' => $fileGedi
         ]);
     }
