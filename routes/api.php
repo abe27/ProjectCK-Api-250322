@@ -61,7 +61,7 @@ Route::get('/me', [AuthenticationController::class, 'me'])->middleware('auth:san
 Route::get('/logout', [AuthenticationController::class, 'destroy'])->middleware('auth:sanctum')->name('api.user.destroy');
 
 Route::prefix('/gedi')->middleware('auth:sanctum')->group(function () {
-    Route::get('/get', [FileGediController::class, 'get'])->name('api.gedi.get');
+    Route::get('/get/{is_downloaded?}', [FileGediController::class, 'get'])->name('api.gedi.get');
     Route::get('/index/{success?}/{active?}', [FileGediController::class, 'index'])->name('api.gedi.index');
     Route::post('/store', [FileGediController::class, 'store'])->name('api.gedi.store');
     Route::get('/show/{fileGedi}', [FileGediController::class, 'show'])->name('api.gedi.show');

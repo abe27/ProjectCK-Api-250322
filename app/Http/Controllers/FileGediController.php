@@ -15,10 +15,10 @@ class FileGediController extends Controller
 {
     private $sub = "GEDI";
 
-    public function get()
+    public function get($is_downloaded)
     {
         LogActivity::addToLog($this->sub,'ดึงข้อมูล GEDI');
-        $data = FileGedi::where('is_active', true)->get();
+        $data = FileGedi::where('is_downloaded', $is_downloaded)->orderBy('batch_id')->get();
         return response()->json([
             'success' => true,
             'message' => 'get file gedi data',
@@ -33,7 +33,7 @@ class FileGediController extends Controller
     public function index($success=true, $active=true)
     {
         LogActivity::addToLog($this->sub, 'ดึงข้อมูล GEDI status download ' . $success);
-        $data = FileGedi::where('is_downloaded', $success)->where('is_active', $active)->paginate();
+        $data = FileGedi::where('is_downloaded', $success)->where('is_active', $active)->orderBy('batch_id')->get();
         return response()->json([
             'success' => true,
             'message' => 'get file gedi data by status download ' . $success,
