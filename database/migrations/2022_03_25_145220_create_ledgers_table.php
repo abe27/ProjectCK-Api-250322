@@ -22,11 +22,11 @@ return new class extends Migration
             $table->char('kinds_id', 36)->nullable();
             $table->char('sizes_id', 36)->nullable();
             $table->char('colors_id', 36)->nullable();
-            $table->decimal('width', 8, 2)->nullable()->default(0);
-            $table->decimal('length', 8, 2)->nullable()->default(0);
-            $table->decimal('height', 8, 2)->nullable()->default(0);
-            $table->decimal('net_weight', 8, 2)->nullable()->default(0);
-            $table->decimal('gross_weight', 8, 2)->nullable()->default(0);
+            $table->decimal('width', 64, 2)->nullable()->default(0);
+            $table->decimal('length', 64, 2)->nullable()->default(0);
+            $table->decimal('height', 64, 2)->nullable()->default(0);
+            $table->decimal('net_weight', 64, 2)->nullable()->default(0);
+            $table->decimal('gross_weight', 64, 2)->nullable()->default(0);
             $table->char('unit_id', 36)->nullable();
             $table->boolean('is_active')->nullable()->default(false);
             $table->timestamps();

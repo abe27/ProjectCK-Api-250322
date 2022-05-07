@@ -19,7 +19,7 @@ return new class extends Migration
             $table->enum('file_type', ['R', 'O', 'I', 'K', 'F', '-']);
             $table->string('batch_id')->unique();
             $table->string('file_name');
-            $table->decimal('file_size', 8, 2)->nullable()->default(0);
+            $table->decimal('file_size', 64, 2)->nullable()->default(0);
             $table->string('file_path');
             $table->boolean('is_downloaded')->nullable()->default(false);
             $table->boolean('is_active')->nullable()->default(false);

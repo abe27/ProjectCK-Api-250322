@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('stocks', function (Blueprint $table) {
             $table->char('id', 36)->primary();
             $table->char('ledger_id', 36);
-            $table->decimal('per_qty', 8, 2);
-            $table->decimal('ctn', 8, 2);
+            $table->decimal('per_qty', 64, 2);
+            $table->decimal('ctn', 64, 2);
             $table->boolean('is_active')->nullable()->default(false);
             $table->timestamps();
             $table->foreign('ledger_id')->references('id')->on('ledgers')->cascadeOnDelete();

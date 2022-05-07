@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('part_shorts', function (Blueprint $table) {
             $table->char('id', 36)->primary();
             $table->char('order_detail_id', 36);
-            $table->decimal('short_ctn', 8, 2)->nullable()->default(0);
+            $table->decimal('short_ctn', 64, 2)->nullable()->default(0);
             $table->boolean('is_confirm_short')->nullable()->default(false);
             $table->boolean('is_active')->nullable()->default(false);
             $table->timestamps();
