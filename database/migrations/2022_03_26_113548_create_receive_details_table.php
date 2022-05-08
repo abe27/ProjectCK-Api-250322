@@ -18,7 +18,7 @@ return new class extends Migration
             $table->char('receive_id', 36);
             $table->char('ledger_id', 36);
             $table->integer('seq');
-            $table->string('managing_no')->unique();
+            $table->string('managing_no')->nullable();
             $table->decimal('plan_qty', 64, 2)->nullable()->default(0);
             $table->decimal('plan_ctn', 64, 2)->nullable()->default(0);
             $table->boolean('is_active')->nullable()->default(false);
