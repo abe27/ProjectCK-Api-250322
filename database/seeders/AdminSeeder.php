@@ -40,5 +40,23 @@ class AdminSeeder extends Seeder
         $user->is_admin = true;
         $user->is_verified = true;
         $user->save();
+
+        $user = new User();
+        $user->name = "Chakkarin Dangnoi";
+        $user->empcode = "30004";
+        $user->email = "chakkarin@seiwa-pioneer.com";
+        $user->password = $hashed;
+        $user->is_admin = false;
+        $user->is_verified = true;
+        $user->save();
+
+        $user = new User();
+        $user->name = "Sunchai Kwunyang";
+        $user->empcode = "30007";
+        $user->email = "sunchai@seiwa-pioneer.com";
+        $user->password = $hashed;
+        $user->is_admin = false;
+        $user->is_verified = true;
+        $user->save();
     }
 }
