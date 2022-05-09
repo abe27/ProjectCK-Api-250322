@@ -20,7 +20,14 @@ class ReceiveDetailController extends Controller
         $data = ReceiveDetail::with(
             'receive',
             'ledger',
-        )->orderBy('seq')->where('receive_id', $receive->id)->where('is_active', $active)->paginate();
+            'ledger.tagrp',
+            'ledger.factory',
+            'ledger.whs',
+            'ledger.part',
+            'ledger.kinds',
+            'ledger.sizes',
+            'ledger.colors'
+        )->orderBy('seq')->where('receive_id', $receive->id)->where('is_active', $active)->get();
 
         LogActivity::addToLog('ดึงข้อมูล receive(' . $receive->id . ') detail');
         return response()->json([

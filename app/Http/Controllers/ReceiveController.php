@@ -9,17 +9,18 @@ use Illuminate\Http\Request;
 
 class ReceiveController extends Controller
 {
+    private $sub = 'Receive';
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($active = 1, $receive_no = null)
+    public function index($sync=1, $active = 1, $receive_no = null)
     {
         $data = Receive::with(
             'file_gedi',
             'factory_type',
-        )->orderBy('receive_date')->where('is_active', $active)->paginate();
+        )->orderBy('receive_date')->where('receive_sync', $sync)->where('is_active', $active)->paginate();
 
         if ($receive_no != null) {
             $data = Receive::with(
@@ -28,7 +29,7 @@ class ReceiveController extends Controller
             )->orderBy('receive_date')->where('receive_no', $receive_no)->where('is_active', $active)->paginate();
         }
 
-        LogActivity::addToLog('ดึงข้อมูล receive');
+        LogActivity::addToLog($this->sub, 'ดึงข้อมูล receive');
         return response()->json([
             'success' => true,
             'message' => 'get data receive',
@@ -80,7 +81,7 @@ class ReceiveController extends Controller
         $obj->is_active = $request->active;
         $obj->save();
 
-        LogActivity::addToLog('สร้างข้อมูล receive(' . $obj->id . ')');
+        LogActivity::addToLog($this->sub, 'สร้างข้อมูล receive(' . $obj->id . ')');
 
         return response()->json([
             'success' => true,
@@ -102,7 +103,7 @@ class ReceiveController extends Controller
             'factory_type',
         )->orderBy('receive_date')->where('id', $receive->id)->paginate();
 
-        LogActivity::addToLog('แสดงข้อมูล receive('.$receive->id.')');
+        LogActivity::addToLog($this->sub, 'แสดงข้อมูล receive('.$receive->id.')');
         return response()->json([
             'success' => true,
             'message' => 'แสดงข้อมูล receive('.$receive->id.')',
@@ -155,7 +156,7 @@ class ReceiveController extends Controller
         $receive->is_active = $request->active;
         $receive->save();
 
-        LogActivity::addToLog('อัพเดทข้อมูล receive(' . $receive->id . ')');
+        LogActivity::addToLog($this->sub, 'อัพเดทข้อมูล receive(' . $receive->id . ')');
         $data = Receive::with(
             'file_gedi',
             'factory_type',
@@ -177,7 +178,7 @@ class ReceiveController extends Controller
     public function destroy(Receive $receive)
     {
         $id = $receive->id;
-        LogActivity::addToLog('ลบข้อมูล receive('.$receive->id.') เรียบร้อยแล้ว');
+        LogActivity::addToLog($this->sub, 'ลบข้อมูล receive('.$receive->id.') เรียบร้อยแล้ว');
         return response()->json([
             'success' => $receive->delete(),
             'message' => 'ลบข้อมูล receive('.$id.') เรียบร้อยแล้ว',

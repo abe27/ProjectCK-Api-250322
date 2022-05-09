@@ -188,7 +188,7 @@ Route::prefix('/stock')->middleware('auth:sanctum')->group(function () {
 
 Route::prefix('/receive')->middleware('auth:sanctum')->group(function () {
     Route::prefix('/header')->group(function () {
-        Route::get('/index/{active?}', [ReceiveController::class, 'index'])->name('api.receive.header.index');
+        Route::get('/index/{sync?}/{active?}/{receive_no?}', [ReceiveController::class, 'index'])->name('api.receive.header.index');
         Route::post('/store', [ReceiveController::class, 'store'])->name('api.receive.header.store');
         Route::get('/show/{receive}', [ReceiveController::class, 'show'])->name('api.receive.header.show');
         Route::put('/update/{receive}', [ReceiveController::class, 'update'])->name('api.receive.header.put');
