@@ -174,7 +174,6 @@ class FileGediController extends Controller
     public function destroy(FileGedi $fileGedi)
     {
         $id = $fileGedi->id;
-
         LogActivity::addToLog($this->sub,'ลบข้อมูล GEDI');
         return response()->json([
             'success' => $fileGedi->delete(),
