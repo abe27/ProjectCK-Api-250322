@@ -34,7 +34,10 @@ class LedgerSeeder extends Seeder
             $part_type = "PART";
             if (Str::substr($r->part, 0, 2) == "71") {
                 $part_type = "PLATE";
+            } else if (Str::substr($r->part, 0, 2) == "18") {
+                $part_type = "WIRE";
             }
+
             $part_type_id = PartType::where('name', $part_type)->first();
             $tagrp = Tagrp::where('name', $r->tagrp)->first();
             $factory = FactoryType::where('name', $r->factory)->first();
