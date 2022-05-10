@@ -19,6 +19,9 @@ class ReceiveDetailController extends Controller
     {
         $data = ReceiveDetail::with(
             'receive',
+            'receive.whs',
+            'receive.file_gedi',
+            'receive.factory_type',
             'ledger',
             'ledger.tagrp',
             'ledger.factory',
