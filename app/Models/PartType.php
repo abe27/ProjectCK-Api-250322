@@ -14,6 +14,7 @@ class PartType extends Model
 
     protected $fillable = [
         'name',
+        'pallet_limit',
         'description',
         'is_active',
     ];

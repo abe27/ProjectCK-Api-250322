@@ -7,6 +7,7 @@ use App\Models\FactoryType;
 use App\Models\Kinds;
 use App\Models\Ledger;
 use App\Models\Part;
+use App\Models\PartType;
 use App\Models\Sizes;
 use App\Models\Tagrp;
 use App\Models\Unit;
@@ -14,6 +15,7 @@ use App\Models\Whs;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class LedgerSeeder extends Seeder
 {
@@ -29,6 +31,11 @@ class LedgerSeeder extends Seeder
 
         Ledger::truncate();
         foreach ($data as $r) {
+            $part_type = "PART";
+            if (Str::substr($r->part, 0, 2) == "71") {
+                $part_type = "PLATE";
+            }
+            $part_type_id = PartType::where('name', $part_type)->first();
             $tagrp = Tagrp::where('name', $r->tagrp)->first();
             $factory = FactoryType::where('name', $r->factory)->first();
             $whs = Whs::where('name', $r->whs)->first();
@@ -37,9 +44,10 @@ class LedgerSeeder extends Seeder
             $sizes = Sizes::where('sizes', $r->sizes)->first();
             $colors = Colors::where('colors', $r->colors)->first();
             $unit = Unit::where('name', $r->unit)->first();
-            ### insert
-            // $this->command->info("insert part: " . $r->part);
+            $this->command->info("insert part: " . $r->part . " type: " . Str::substr($r->part, 0, 2));
+
             $obj = new Ledger();
+            $obj->part_type_id = $part_type_id->id;
             $obj->tagrp_id = $tagrp->id;
             $obj->factory_id = $factory->id;
             $obj->whs_id = $whs->id;

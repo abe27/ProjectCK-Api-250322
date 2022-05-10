@@ -13,6 +13,7 @@ class Ledger extends Model
     use HasFactory, HasApiTokens, Nanoids, Notifiable;
 
     protected $fillable = [
+        'part_type_id',
         'tagrp_id',
         'factory_id',
         'whs_id',
@@ -28,6 +29,10 @@ class Ledger extends Model
         'unit_id',
         'is_active',
     ];
+
+    public function part_type() {
+        return $this->hasOne(PartType::class, 'id', 'part_type_id');
+    }
 
     public function tagrp() {
         return $this->hasOne(Tagrp::class, 'id', 'tagrp_id');

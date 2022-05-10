@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('ledgers', function (Blueprint $table) {
             $table->char('id', 36)->primary();
+            $table->char('part_type_id', 36)->nullable();
             $table->char('tagrp_id', 36)->nullable();
             $table->char('factory_id', 36)->nullable();
             $table->char('whs_id', 36)->nullable();
@@ -30,6 +31,7 @@ return new class extends Migration
             $table->char('unit_id', 36)->nullable();
             $table->boolean('is_active')->nullable()->default(false);
             $table->timestamps();
+            $table->foreign('part_type_id')->references('id')->on('part_types')->nullOnDelete();
             $table->foreign('tagrp_id')->references('id')->on('tagrps')->nullOnDelete();
             $table->foreign('factory_id')->references('id')->on('factory_types')->nullOnDelete();
             $table->foreign('whs_id')->references('id')->on('whs')->nullOnDelete();
