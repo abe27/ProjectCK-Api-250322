@@ -29,7 +29,8 @@ class ReceiveDetailController extends Controller
             'ledger.part',
             'ledger.kinds',
             'ledger.sizes',
-            'ledger.colors'
+            'ledger.colors',
+            'ledger.unit'
         )->orderBy('seq')->where('receive_id', $receive->id)->where('is_active', $active)->get();
 
         LogActivity::addToLog('ดึงข้อมูล receive(' . $receive->id . ') detail');

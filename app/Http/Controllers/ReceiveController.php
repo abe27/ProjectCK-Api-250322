@@ -20,13 +20,13 @@ class ReceiveController extends Controller
         $data = Receive::with(
             'file_gedi',
             'factory_type',
-        )->orderBy('receive_date')->where('receive_sync', $sync)->where('is_active', $active)->paginate();
+        )->orderBy('receive_no')->where('receive_sync', $sync)->where('is_active', $active)->paginate(20);
 
         if ($receive_no != null) {
             $data = Receive::with(
                 'file_gedi',
                 'factory_type',
-            )->orderBy('receive_date')->where('receive_no', $receive_no)->where('is_active', $active)->paginate();
+            )->orderBy('receive_no')->where('receive_no', $receive_no)->where('is_active', $active)->paginate(20);
         }
 
         LogActivity::addToLog($this->sub, 'ดึงข้อมูล receive');
@@ -131,11 +131,15 @@ class ReceiveController extends Controller
      */
     public function update(Request $request, Receive $receive)
     {
+        // $v = Validator::make($request->all(), [
+        //     'file_gedi_id' => ['required', 'string', 'min:36', 'max:36'],
+        //     'factory_type_id' => ['required', 'string', 'min:36', 'max:36'],
+        //     'receive_date' => ['required', 'date'],
+        //     'receive_no' => ['required', 'string', 'min:10', 'max:25'],
+        //     'receive_sync' => ['required', 'boolean'],
+        //     'active' => ['required', 'boolean']
+        // ]);
         $v = Validator::make($request->all(), [
-            'file_gedi_id' => ['required', 'string', 'min:36', 'max:36'],
-            'factory_type_id' => ['required', 'string', 'min:36', 'max:36'],
-            'receive_date' => ['required', 'date'],
-            'receive_no' => ['required', 'string', 'min:10', 'max:25'],
             'receive_sync' => ['required', 'boolean'],
             'active' => ['required', 'boolean']
         ]);
@@ -148,10 +152,10 @@ class ReceiveController extends Controller
             ]);
         }
 
-        $receive->file_gedi_id = $request->file_gedi_id;
-        $receive->factory_type_id = $request->factory_type_id;
-        $receive->receive_date = $request->receive_date;
-        $receive->receive_no = $request->receive_no;
+        // $receive->file_gedi_id = $request->file_gedi_id;
+        // $receive->factory_type_id = $request->factory_type_id;
+        // $receive->receive_date = $request->receive_date;
+        // $receive->receive_no = $request->receive_no;
         $receive->receive_sync = $request->receive_sync;
         $receive->is_active = $request->active;
         $receive->save();
