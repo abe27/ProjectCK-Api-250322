@@ -9,15 +9,16 @@ use Illuminate\Http\Request;
 
 class OrderPlanController extends Controller
 {
+    private $sub = "Order Plan";
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($active = 1)
+    public function index($active = 1, $sync=1, $limit=15)
     {
-        $data = OrderPlan::with('file_gedi')->where('is_active', $active)->paginate();
-        LogActivity::addToLog('ดึงข้อมูล order plan');
+        $data = OrderPlan::with('file_gedi')->where('is_sync', $sync)->where('is_active', $active)->OrderBy('created_at')->paginate($limit);
+        LogActivity::addToLog($this->sub, ' ดึงข้อมูล order plan');
         return response()->json([
             'success' => true,
             'message' => 'get data',
@@ -169,7 +170,7 @@ class OrderPlanController extends Controller
         $obj->is_active = $request->active;
         $obj->save();
 
-        LogActivity::addToLog('สร้างข้อมูล order plan(' . $obj->id . ')');
+        LogActivity::addToLog($this->sub, ' สร้างข้อมูล order plan(' . $obj->id . ')');
 
         return response()->json([
             'success' => true,
@@ -187,7 +188,7 @@ class OrderPlanController extends Controller
     public function show(OrderPlan $orderPlan)
     {
         $data = OrderPlan::with('file_gedi')->where('id', $orderPlan->id)->paginate();
-        LogActivity::addToLog('แสดงข้อมูล order plan(' . $orderPlan->id . ')');
+        LogActivity::addToLog($this->sub, ' แสดงข้อมูล order plan(' . $orderPlan->id . ')');
         return response()->json([
             'success' => true,
             'message' => 'get data',
@@ -340,7 +341,7 @@ class OrderPlanController extends Controller
         $orderPlan->is_active = $request->active;
         $orderPlan->save();
 
-        LogActivity::addToLog('แก้ไขข้อมูล order plan(' . $orderPlan->id . ')');
+        LogActivity::addToLog($this->sub, ' แก้ไขข้อมูล order plan(' . $orderPlan->id . ')');
 
         return response()->json([
             'success' => true,
@@ -358,7 +359,7 @@ class OrderPlanController extends Controller
     public function destroy(OrderPlan $orderPlan)
     {
         $id = $orderPlan->id;
-        LogActivity::addToLog('ลบข้อมูล orderPlan(' . $id . ')');
+        LogActivity::addToLog($this->sub, ' ลบข้อมูล orderPlan(' . $id . ')');
         return response()->json([
             'success' => $orderPlan->delete(),
             'message' => 'ลบข้อมูล orderPlan(' . $id . ')',
