@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Validator;
 
 class ReceiveDetailController extends Controller
 {
+    private $sub = "Receive Detail";
     /**
      * Display a listing of the resource.
      *
@@ -33,7 +34,7 @@ class ReceiveDetailController extends Controller
             'ledger.unit'
         )->orderBy('seq')->where('receive_id', $receive->id)->where('is_active', $active)->get();
 
-        LogActivity::addToLog('ดึงข้อมูล receive(' . $receive->id . ') detail');
+        LogActivity::addToLog($this->sub, 'ดึงข้อมูล receive(' . $receive->id . ') detail');
         return response()->json([
             'success' => true,
             'message' => 'ดึงข้อมูล receive(' . $receive->id . ') detail',
@@ -87,7 +88,7 @@ class ReceiveDetailController extends Controller
         $obj->is_active = $request->active;
         $obj->save();
 
-        LogActivity::addToLog('สร้างข้อมูล receive detail(' . $obj->id . ')');
+        LogActivity::addToLog($this->sub, ' สร้างข้อมูล receive detail(' . $obj->id . ')');
 
         return response()->json([
             'success' => true,
@@ -109,7 +110,7 @@ class ReceiveDetailController extends Controller
             'ledger',
         )->orderBy('seq')->where('id', $receiveDetail->id)->paginate();
 
-        LogActivity::addToLog('แสดงข้อมูล receiveDetail(' . $receiveDetail->id . ')');
+        LogActivity::addToLog($this->sub, ' แสดงข้อมูล receiveDetail(' . $receiveDetail->id . ')');
         return response()->json([
             'success' => true,
             'message' => 'แสดงข้อมูล receiveDetail(' . $receiveDetail->id . ')',
@@ -160,7 +161,7 @@ class ReceiveDetailController extends Controller
         $receiveDetail->is_active = $request->active;
         $receiveDetail->save();
 
-        LogActivity::addToLog('อัพเดทข้อมูล receive detail(' . $receiveDetail->id . ')');
+        LogActivity::addToLog($this->sub, ' อัพเดทข้อมูล receive detail(' . $receiveDetail->id . ')');
 
         return response()->json([
             'success' => true,
@@ -178,7 +179,7 @@ class ReceiveDetailController extends Controller
     public function destroy(ReceiveDetail $receiveDetail)
     {
         $id = $receiveDetail->id;
-        LogActivity::addToLog('ลบข้อมูล receiveDetail(' . $receiveDetail->id . ') เรียบร้อยแล้ว');
+        LogActivity::addToLog($this->sub, ' ลบข้อมูล receiveDetail(' . $receiveDetail->id . ') เรียบร้อยแล้ว');
         return response()->json([
             'success' => $receiveDetail->delete(),
             'message' => 'ลบข้อมูล receiveDetail(' . $id . ') เรียบร้อยแล้ว',

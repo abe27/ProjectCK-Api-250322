@@ -14,8 +14,8 @@ class LogActivity
         $user = auth()->check() ? auth()->user()->id : 0;
         $username = auth()->check() ? auth()->user()->name : "ไม่ทราบชื่อ";
         $log = [];
-        $log['subject'] = $username . " " . $subject;
-        $log['description'] = $description;
+        $log['subject'] = $subject;
+        $log['description'] = $username . " " .  $description;
         $log['url'] = Request::fullUrl();
         $log['method'] = Request::method();
         $log['ip'] = Request::ip();
