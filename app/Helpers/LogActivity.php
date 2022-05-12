@@ -12,8 +12,9 @@ class LogActivity
     public static function addToLog($subject='ไม่ระบุ', $description='-')
     {
         $user = auth()->check() ? auth()->user()->id : 0;
+        $username = auth()->check() ? auth()->user()->name : "ไม่ทราบชื่อ";
         $log = [];
-        $log['subject'] = $subject;
+        $log['subject'] = $username . " " . $subject;
         $log['description'] = $description;
         $log['url'] = Request::fullUrl();
         $log['method'] = Request::method();
