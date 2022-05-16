@@ -31,6 +31,7 @@ use App\Http\Controllers\ReceiveController;
 use App\Http\Controllers\ReceiveDetailController;
 use App\Http\Controllers\RegionController;
 use App\Http\Controllers\RequestContainerController;
+use App\Http\Controllers\SerialNoTriggerController;
 use App\Http\Controllers\ShelveController;
 use App\Http\Controllers\ShippingController;
 use App\Http\Controllers\SizesController;
@@ -59,6 +60,14 @@ Route::post('/register', [AuthenticationController::class, 'register'])->name('a
 Route::post('/login', [AuthenticationController::class, 'login'])->name('api.user.login');
 Route::get('/me', [AuthenticationController::class, 'me'])->middleware('auth:sanctum')->name('api.user.me');
 Route::get('/logout', [AuthenticationController::class, 'destroy'])->middleware('auth:sanctum')->name('api.user.destroy');
+
+Route::prefix('/trigger')->group(function () {
+    Route::get('/index', [SerialNoTriggerController::class, 'index'])->name('api.trigger.index');
+    Route::post('/store', [SerialNoTriggerController::class, 'store'])->name('api.trigger.store');
+    Route::get('/show/{serialNoTrigger}', [SerialNoTriggerController::class, 'show'])->name('api.trigger.show');
+    Route::put('/update/{serialNoTrigger}', [SerialNoTriggerController::class, 'update'])->name('api.trigger.update');
+    Route::delete('/delete/{serialNoTrigger}', [SerialNoTriggerController::class, 'destroy'])->name('api.trigger.delete');
+});
 
 Route::prefix('/gedi')->middleware('auth:sanctum')->group(function () {
     Route::get('/get/{is_downloaded?}', [FileGediController::class, 'get'])->name('api.gedi.get');
