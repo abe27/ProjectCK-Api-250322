@@ -28,25 +28,14 @@ class SerialNoTriggerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store($part_no,$serial_no,$event_trigger='R')
     {
-        $v = Validator::make($request->all(), [
-            'part_no' => 'required',
-            'serial_no' => 'required',
-            'event_trigger' => 'required'
-        ]);
-
-        if ($v->fails()) {
-            return response()->json($v->getMessageBag(), 503);
-        }
-
         $data = new SerialNoTrigger();
-        $data->part_no = $request->part_no;
-        $data->serial_no = $request->serial_no;
-        $data->event_trigger = $request->event_trigger;
-        $data->is_active = $request->is_active;
+        $data->part_no = $part_no;
+        $data->serial_no = $serial_no;
+        $data->event_trigger = $event_trigger;
+        $data->is_active = true;
         $data->save();
-
         return response()->json($data, 201);
     }
 
