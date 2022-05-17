@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\SerialNoTrigger;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-use App\Helpers\LogActivity;
 
 class SerialNoTriggerController extends Controller
 {
@@ -22,8 +21,6 @@ class SerialNoTriggerController extends Controller
         $obj = [
             'data' => $data,
         ];
-
-        LogActivity::addToLog($this->sub,'ดึงข้อมูล Serail Trigger');
         return response()->json($obj, 200);
     }
 
@@ -41,7 +38,6 @@ class SerialNoTriggerController extends Controller
         $data->event_trigger = $event_trigger;
         $data->is_active = true;
         $data->save();
-        LogActivity::addToLog($this->sub,'สร้างข้อมูล Serail Trigger ' . $data->id);
         return response()->json($data, 201);
     }
 
