@@ -92,9 +92,18 @@ class SerialNoTriggerController extends Controller
 
             $factory = FactoryType::where('name', $fac)->first();
             $part = Part::where('no', $request->part_no)->first();
+            if ($part == null) {
+                $part = new Part();
+                $part->name = $request->part_no;
+                $part->pallet_limit = 20;
+            }
+
+            $part->no = $request->part_no;
+            $part->save();
+
             $ledger = Ledger::where('part_id', $part->id)->where('factory_id', $factory->id)->where('whs_id', $whs->id)->first();
             if ($ledger == null) {
-
+                $ledger = new Ledger();
             }
             $ledger->factory_id = $factory->id;
             $ledger->whs_id = $whs->id;
