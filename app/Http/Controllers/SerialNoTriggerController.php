@@ -176,9 +176,9 @@ class SerialNoTriggerController extends Controller
                 $carton = Carton::where('serial_no', $request->serial_no)->first();
                 if ($carton == null) {
                     $carton = new Carton();
+                    $carton->receive_detail_id = $receive_detail->id;
                 }
 
-                $carton->receive_detail_id = $receive_detail->id;
                 $carton->lot_no = $request->lot_no;
                 $carton->serial_no = $request->serial_no;
                 $carton->die_no = $request->case_id;
