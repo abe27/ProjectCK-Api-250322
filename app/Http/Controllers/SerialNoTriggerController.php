@@ -93,6 +93,14 @@ class SerialNoTriggerController extends Controller
             $factory = FactoryType::where('name', $fac)->first();
             $part = Part::where('no', $request->part_no)->first();
             $ledger = Ledger::where('part_id', $part->id)->where('factory_id', $factory->id)->where('whs_id', $whs->id)->first();
+            if ($ledger == null) {
+
+            }
+            $ledger->factory_id = $factory->id;
+            $ledger->whs_id = $whs->id;
+            $ledger->part_id = $part->id;
+            $ledger->is_active = true;
+            $ledger->save();
 
             ## check serial no duplicate
             $s = SerialNoTrigger::where('serial_no', $request->serial_no)->first();
