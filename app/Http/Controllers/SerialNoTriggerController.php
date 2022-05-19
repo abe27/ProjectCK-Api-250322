@@ -85,101 +85,146 @@ class SerialNoTriggerController extends Controller
             ], 503);
         }
 
-        // $whs = Whs::where('name', $request->whs)->first();
-        // $factory = FactoryType::where('name', $request->factory)->first();
-        // $part = Part::where('no', $request->part_no)->first();
-        // $ledger = Ledger::where('part_id', $part->id)->where('factory_id', $factory->id)->where('whs_id', $whs->id)->first();
-        // ### create stock data
-        // $stock = Stock::where('ledger_id', $ledger->id)->first();
-        // if ($stock == null) {
-        //     $stock = new Stock();
-        //     $stock->ledger_id =  $ledger->id;
-        //     $stock->per_qty = $request->std_pack_qty;
-        //     $stock->is_active = true;
-        // }
-        // $stock->ctn = $request->on_stock_ctn;
-        // $stock->save();
+        try {
+            $whs = Whs::where('name', $request->whs)->first();
+            $factory = FactoryType::where('name', $request->factory)->first();
+            $part = Part::where('no', $request->part_no)->first();
+            if ($part == null) {
+                $part = new Part();
+                $part->name = $request->part_no;
+            }
 
-        // ### check location
-        // $location = Location::where('name', $request->shelve)->first();
-        // if ($location == null) {
-        //     $location = new Location();
-        //     $location->description = '-';
-        //     $location->is_active = true;
-        // }
+            $part->no = $request->part_no;
+            $part->save();
 
-        // $location->name = $request->shelve;
-        // $location->save();
+            $ledger = Ledger::where('part_id', $part->id)->where('factory_id', $factory->id)->where('whs_id', $whs->id)->first();
+            if ($ledger == null) {
+                $ledger = new Ledger();
+            }
+            $ledger->factory_id = $factory->id;
+            $ledger->whs_id = $whs->id;
+            $ledger->part_id = $part->id;
+            $ledger->is_active = true;
+            $ledger->save();
 
-        // ### check carton
-        // $receive = Receive::where('whs_id', $whs->id)->where('factory_type_id', $factory->id)->where('receive_no', $request->invoice_no)->first();
-        // if ($receive == null) {
-        //     $receive = new Receive();
-        //     $receive->whs_id = $whs->id;
-        //     $receive->factory_type_id = $factory->id;
-        //     $receive->receive_date = $request->rec_date;
-        //     $receive->transfer_out_no = $request->invoice_no;
-        //     $receive->receive_no = $request->invoice_no;
-        //     $receive->receive_sync = true;
-        //     $receive->is_active = true;
-        // }
-        // $receive->save();
+            ## check serial no duplicate
+            $s = SerialNoTrigger::where('serial_no', $request->serial_no)->first();
 
-        // ### check receive detail
-        // $receive_detail = ReceiveDetail::where('receive_id', $receive->id)->where('ledger_id', $ledger->id)->first();
-        // if ($receive_detail == null) {
-        //     $receive_detail = new ReceiveDetail();
-        //     $receive_detail->receive_id = $receive->id;
-        //     $receive_detail->ledger_id = $ledger->id;
-        //     $receive_detail->managing_no = $request->rvn_no;
-        //     $receive_detail->seq = 1;
-        //     $receive_detail->plan_qty = 0;
-        //     $receive_detail->is_active = true;
-        // }
-        // $receive_detail->plan_ctn += 1;
-        // $receive_detail->save();
+            ### create stock data
+            $stock = Stock::where('ledger_id', $ledger->id)->first();
+            if ($stock == null) {
+                $stock = new Stock();
+            }
 
-        // ### check carton data
-        // $carton = Carton::where('serial_no', $request->serial_no)->first();
-        // if ($carton == null) {
-        //     $carton = new Carton();
-        //     $carton->receive_detail_id = $receive_detail->id;
-        //     $carton->lot_no = $request->lot_no;
-        //     $carton->serial_no = $request->serial_no;
-        //     $carton->qty = $request->std_pack_qty;
-        //     $carton->is_active = true;
-        // }
-        // $carton->die_no = $request->case_id;
-        // $carton->save();
+            $current_ctn = 1;
+            if ($request->shelve == 'S-XXX') {
+                $current_ctn = 0;
+            }
 
-        // ### check shelve
-        // $shelve = Shelve::where('carton_id', $carton->id)->where('location_id', $location->id)->first();
-        // if ($shelve == null) {
-        //     $shelve = new Shelve();
-        //     $shelve->carton_id = $carton->id;
-        // }
+            $stock->ledger_id =  $ledger->id;
+            $stock->per_qty = $request->std_pack_qty;
+            if ($request->shelve == 'S-PLOUT' || $request->shelve == 'S-XXX') {
+                $stock->ctn -= $current_ctn;
+            } else {
+                if ($s == null) {
+                    $stock->ctn = 1;
+                }
+                else {
+                    $stock->ctn += 1;
+                }
+            }
+            $stock->is_active = true;
+            $stock->save();
+            LogActivity::addToLog($this->sub, 'Update Stock ' . $stock->id);
 
-        // $shelve->location_id = $location->id;
-        // $shelve->pallet_no = $request->pallet_no;
-        // $shelve->is_printed = false;
-        // $shelve->is_active = true;
-        // $shelve->save();
+            ### check location
+            $location = Location::where('name', $request->shelve)->first();
+            if ($location == null) {
+                $location = new Location();
+            }
 
-        $data = new SerialNoTrigger();
-        $data->invoice_no = $request->invoice_no;
-        $data->part_no = $request->part_no;
-        $data->serial_no = $request->serial_no;
-        $data->lot_no = $request->lot_no;
-        $data->case_id = $request->case_id;
-        $data->case_no = $request->case_no;
-        $data->std_pack_qty = $request->std_pack_qty;
-        $data->qty = $request->qty;
-        $data->shelve = $request->shelve;
-        $data->pallet_no = $request->pallet_no;
-        $data->on_stock_ctn = $request->on_stock_ctn;
-        $data->event_trigger = $request->event_trigger;
-        $data->is_active = true;
-        $data->save();
+            $location->name = $request->shelve;
+            $location->description = '-';
+            $location->is_active = true;
+            $location->save();
+            LogActivity::addToLog($this->sub, 'Update Location ' . $location->id);
+
+            ### check carton
+            if (Str::substr($request->invoice_no, 0, 1) != 'S') {
+                $receive = Receive::where('whs_id', $whs->id)->where('factory_type_id', $factory->id)->where('receive_no', $request->invoice_no)->first();
+                if ($receive == null) {
+                    $receive = new Receive();
+                }
+                $receive->whs_id = $whs->id;
+                $receive->factory_type_id = $factory->id;
+                $receive->receive_date = $request->rec_date;
+                $receive->transfer_out_no = $request->invoice_no;
+                $receive->receive_no = $request->invoice_no;
+                $receive->receive_sync = true;
+                $receive->is_active = true;
+                $receive->save();
+
+                ### check receive detail
+                $receive_detail = ReceiveDetail::where('receive_id', $receive->id)->where('ledger_id', $ledger->id)->first();
+                if ($receive_detail == null) {
+                    $receive_detail = new ReceiveDetail();
+                }
+                $receive_detail->receive_id = $receive->id;
+                $receive_detail->ledger_id = $ledger->id;
+                $receive_detail->managing_no = $request->rvn_no;
+                $receive_detail->seq = 1;
+                $receive_detail->plan_qty = 0;
+                $receive_detail->plan_ctn += 1;
+                $receive_detail->is_active = true;
+                $receive_detail->save();
+
+                ### check carton data
+                $carton = Carton::where('serial_no', $request->serial_no)->first();
+                if ($carton == null) {
+                    $carton = new Carton();
+                    $carton->receive_detail_id = $receive_detail->id;
+                }
+
+                $carton->lot_no = $request->lot_no;
+                $carton->serial_no = $request->serial_no;
+                $carton->die_no = $request->case_id;
+                $carton->qty = $request->std_pack_qty;
+                $carton->is_active = true;
+                $carton->save();
+
+                ### check shelve
+                $shelve = Shelve::where('carton_id', $carton->id)->where('location_id', $location->id)->first();
+                if ($shelve == null) {
+                    $shelve = new Shelve();
+                }
+                $shelve->carton_id = $carton->id;
+                $shelve->location_id = $location->id;
+                $shelve->pallet_no = $request->pallet_no;
+                $shelve->is_printed = false;
+                $shelve->is_active = true;
+                $shelve->save();
+            }
+
+            $data = new SerialNoTrigger();
+            $data->invoice_no = $request->invoice_no;
+            $data->part_no = $request->part_no;
+            $data->serial_no = $request->serial_no;
+            $data->lot_no = $request->lot_no;
+            $data->case_id = $request->case_id;
+            $data->case_no = $request->case_no;
+            $data->std_pack_qty = $request->std_pack_qty;
+            $data->qty = $request->qty;
+            $data->shelve = $request->shelve;
+            $data->pallet_no = $request->pallet_no;
+            $data->on_stock_ctn = $request->on_stock_ctn;
+            $data->event_trigger = $request->event_trigger;
+            $data->is_active = true;
+            $data->save();
+
+        } catch (Exception $ex) {
+            LogActivity::addToLog($this->sub, 'Error ' . $ex->getMessage());
+            return response()->json($ex->getMessage(), 503);
+        }
 
         LogActivity::addToLog($this->sub, 'สร้างข้อมูล Serail Trigger ' . $data->id);
         return response()->json($data, 201);
