@@ -14,7 +14,6 @@ class Part extends Model
 
     protected $fillable = [
         'no',
-        'pallet_limit',
         'name',
         'is_active',
     ];
