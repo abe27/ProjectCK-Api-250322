@@ -25,6 +25,7 @@ class SerialNoTrigger extends Model
         'pallet_no',
         'on_stock_ctn',
         'event_trigger',
+        'emp_id',
         'is_active',
     ];
 }

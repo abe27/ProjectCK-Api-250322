@@ -76,6 +76,7 @@ class SerialNoTriggerController extends Controller
             'pallet_no' => 'required',
             'on_stock_ctn' => 'required',
             'event_trigger' => 'required',
+            'emp_id' => 'required',
         ]);
 
         if ($v->fails()) {
@@ -218,6 +219,7 @@ class SerialNoTriggerController extends Controller
             $data->pallet_no = $request->pallet_no;
             $data->on_stock_ctn = $request->on_stock_ctn;
             $data->event_trigger = $request->event_trigger;
+            $data->emp_id = $request->emp_id;
             $data->is_active = true;
             $data->save();
 
