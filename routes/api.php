@@ -62,6 +62,7 @@ Route::get('/me', [AuthenticationController::class, 'me'])->middleware('auth:san
 Route::get('/logout', [AuthenticationController::class, 'destroy'])->middleware('auth:sanctum')->name('api.user.destroy');
 
 Route::prefix('/trigger')->group(function () {
+    Route::post('/receive', [SerialNoTriggerController::class, 'receive'])->name('api.trigger.store');
     Route::get('/index', [SerialNoTriggerController::class, 'index'])->name('api.trigger.index');
     Route::post('/store', [SerialNoTriggerController::class, 'store'])->name('api.trigger.store');
     Route::get('/show/{serialNoTrigger}', [SerialNoTriggerController::class, 'show'])->name('api.trigger.show');
