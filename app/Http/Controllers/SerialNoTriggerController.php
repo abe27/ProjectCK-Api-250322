@@ -135,9 +135,9 @@ class SerialNoTriggerController extends Controller
         $receive_detail->receive_id = $receive->id;
         $receive_detail->ledger_id = $ledger->id;
         $receive_detail->managing_no = $request->rvn_no;
-        $receive_detail->seq = 1;
-        $receive_detail->plan_qty = 0;
-        $receive_detail->plan_ctn += 1;
+        $receive_detail->seq += 1;
+        // $receive_detail->plan_qty = 0;
+        // $receive_detail->plan_ctn += 1;
         $receive_detail->is_active = true;
         $receive_detail->save();
 
@@ -270,9 +270,9 @@ class SerialNoTriggerController extends Controller
                 $receive_detail->receive_id = $receive->id;
                 $receive_detail->ledger_id = $ledger->id;
                 $receive_detail->managing_no = $request->rvn_no;
-                $receive_detail->seq = 1;
-                $receive_detail->plan_qty = 0;
-                $receive_detail->plan_ctn += 1;
+                $receive_detail->seq += 1;
+                // $receive_detail->plan_qty = 0;
+                // $receive_detail->plan_ctn += 1;
                 $receive_detail->is_active = true;
                 $receive_detail->save();
 
