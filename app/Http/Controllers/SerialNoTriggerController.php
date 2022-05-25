@@ -219,8 +219,7 @@ class SerialNoTriggerController extends Controller
         $data->save();
 
         // LogActivity::addToLog($this->sub, 'สร้างข้อมูล Serail Trigger ' . $data->id);
-        // return response()->json($data, 201);
-        return;
+        return response()->json($data, 201);
     }
 
     /**
