@@ -13,7 +13,7 @@ class Carton extends Model
     use HasFactory, HasApiTokens, Nanoids, Notifiable;
 
     protected $fillable = [
-        'receive_detail_id',
+        'ledger_id',
         'lot_no',
         'serial_no',
         'die_no',
@@ -23,6 +23,6 @@ class Carton extends Model
     ];
 
     public function receive_detail() {
-        return $this->hasOne(ReceiveDetail::class, 'id', 'receive_detail_id');
+        return $this->hasOne(ReceiveDetail::class, 'id', 'ledgers');
     }
 }

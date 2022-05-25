@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('cartons', function (Blueprint $table) {
             $table->char('id', 36)->primary();
-            $table->char('receive_detail_id', 36);
+            $table->char('ledger_id', 36);
             $table->string('lot_no');
             $table->string('serial_no')->unique();
             $table->string('die_no')->nullable();
@@ -23,7 +23,7 @@ return new class extends Migration
             $table->decimal('qty', 64, 2)->nullable()->default(0);
             $table->boolean('is_active')->nullable()->default(false);
             $table->timestamps();
-            $table->foreign('receive_detail_id')->references('id')->on('receive_details')->cascadeOnDelete();
+            $table->foreign('ledger_id')->references('id')->on('ledgers')->cascadeOnDelete();
         });
     }
 
