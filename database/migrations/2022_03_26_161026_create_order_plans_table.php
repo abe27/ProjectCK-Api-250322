@@ -72,7 +72,6 @@ return new class extends Migration
             $table->boolean('is_sync')->nullable()->default(false);
             $table->boolean('is_active')->nullable()->default(false);
             $table->timestamps();
-            $table->foreign('file_gedi_id')->references('id')->on('file_gedis')->nullOnDelete();
         });
     }
 
