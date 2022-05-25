@@ -138,7 +138,7 @@ class SerialNoTriggerController extends Controller
         $data->is_active = true;
         $data->save();
 
-        LogActivity::addToLog($this->sub, 'สร้างข้อมูล Receive Trigger ');
+        // LogActivity::addToLog($this->sub, 'สร้างข้อมูล Receive Trigger ');
         return response()->json($data, 201);
     }
 
