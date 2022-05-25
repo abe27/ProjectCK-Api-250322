@@ -10,7 +10,7 @@
         "is_active": true
     },
     {
-        "name": "S-OUT",
+        "name": "S-PLOUT",
         "description": "พื้นที่ scan out/หรือจัดเตรียม",
         "is_active": true
     }

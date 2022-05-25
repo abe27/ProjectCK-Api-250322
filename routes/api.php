@@ -62,9 +62,10 @@ Route::get('/me', [AuthenticationController::class, 'me'])->middleware('auth:san
 Route::get('/logout', [AuthenticationController::class, 'destroy'])->middleware('auth:sanctum')->name('api.user.destroy');
 
 Route::prefix('/trigger')->group(function () {
-    Route::post('/receive', [SerialNoTriggerController::class, 'receive'])->name('api.trigger.store');
+    Route::post('/receive', [SerialNoTriggerController::class, 'receive'])->name('api.trigger.receive');
     Route::get('/index', [SerialNoTriggerController::class, 'index'])->name('api.trigger.index');
     Route::post('/store', [SerialNoTriggerController::class, 'store'])->name('api.trigger.store');
+    Route::post('/carton', [SerialNoTriggerController::class, 'carton'])->name('api.trigger.carton');
     Route::get('/show/{serialNoTrigger}', [SerialNoTriggerController::class, 'show'])->name('api.trigger.show');
     Route::put('/update/{serialNoTrigger}', [SerialNoTriggerController::class, 'update'])->name('api.trigger.update');
     Route::delete('/delete/{serialNoTrigger}', [SerialNoTriggerController::class, 'destroy'])->name('api.trigger.delete');
