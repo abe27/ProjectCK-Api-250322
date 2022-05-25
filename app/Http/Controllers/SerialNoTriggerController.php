@@ -115,9 +115,10 @@ class SerialNoTriggerController extends Controller
         $stock = Stock::where('ledger_id', $ledger->id)->first();
         if ($stock == null) {
             $stock = new Stock();
+            $stock->per_qty = $request->stdpack;
         }
+
         $stock->ledger_id = $ledger->id;
-        $stock->per_qty = $request->stdpack;
         $stock->ctn += $request->ctn;
         $stock->is_active = true;
         $stock->save();
