@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('lot_no');
             $table->string('serial_no')->unique();
             $table->string('die_no')->nullable();
-            $table->string('division_no')->nullable();
+            $table->string('revision_no')->nullable();
             $table->decimal('qty', 64, 2)->nullable()->default(0);
             $table->boolean('is_active')->nullable()->default(false);
             $table->timestamps();

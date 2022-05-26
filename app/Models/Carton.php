@@ -17,7 +17,7 @@ class Carton extends Model
         'lot_no',
         'serial_no',
         'die_no',
-        'division_no',
+        'revision_no',
         'qty',
         'is_active',
     ];
