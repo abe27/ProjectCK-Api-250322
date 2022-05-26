@@ -95,7 +95,7 @@ class SerialNoTriggerController extends Controller
         $carton->lot_no = $request->lot_no;
         $carton->serial_no = $request->serial_no;
         $carton->die_no = $request->case_id;
-        $carton->division_no = '-';
+        $carton->revision_no = '-';
         $carton->qty = $request->qty;
         $carton->is_active = true;
         $carton->save();
