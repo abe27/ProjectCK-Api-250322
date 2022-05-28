@@ -57,7 +57,9 @@ class AuthenticationController extends Controller
         if (!Auth::attempt($request->only('empcode', 'password'))) {
             return response()->json([
                 'success' => false,
-                'message' => 'Invalid login details'
+                'token' => null,
+                'access' => null,
+                'message' => 'ไม่พบข้อมูลผู้ใช้งาน'
             ], 401);
         }
 
@@ -69,9 +71,10 @@ class AuthenticationController extends Controller
 
         return response()->json([
             'success' => true,
-            'access_token' => $token,
-            'token_type' => 'Bearer',
-        ]);
+            'token' => $token,
+            'access' => 'Bearer',
+            'message' => 'ยินดีต้อนรับเข้าสู่ระบบ CWS'
+        ], 200);
     }
 
     public function me(Request $request)
@@ -84,8 +87,9 @@ class AuthenticationController extends Controller
         LogActivity::addToLog($this->sub,'ออกจากระบบ');
         return response()->json([
             'success' => $request->user()->currentAccessToken()->delete(),
-            'message' => 'logout successfully',
-            'data' => []
-        ]);
+            'token' => null,
+            'access' => 'Bearer',
+            'message' => 'ออกจากระบบเรียบร้อยแล้ว'
+        ], 200);
     }
 }
