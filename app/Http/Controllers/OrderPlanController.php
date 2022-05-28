@@ -15,7 +15,7 @@ class OrderPlanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($active = 1, $sync=1, $limit=15)
+    public function index($active = 1, $sync = 1, $limit = 15)
     {
         $data = OrderPlan::with('file_gedi')->where('is_sync', $sync)->where('is_active', $active)->OrderBy('created_at')->paginate($limit);
         LogActivity::addToLog($this->sub, ' ดึงข้อมูล order plan');
@@ -31,9 +31,51 @@ class OrderPlanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function etd(string $etd, string $vendor)
     {
-        //
+        $data = OrderPlan::select(
+            'etdtap',
+            'vendor',
+            'biivpx',
+            'biac',
+            'bishpc',
+            'bisafn',
+            'shiptype',
+            'bicomd',
+            'ordertype',
+            'deleteflg',
+            'bidrfl',
+            'shippedflg',
+            'firmflg',
+            'pc',
+            'commercial',
+            'sampleflg',
+            'is_active'
+        )->where('etdtap', $etd)->where('vendor', $vendor)->where('is_active', true)->groupBy(
+            'etdtap',
+            'vendor',
+            'biivpx',
+            'biac',
+            'bishpc',
+            'bisafn',
+            'shiptype',
+            'bicomd',
+            'ordertype',
+            'deleteflg',
+            'bidrfl',
+            'shippedflg',
+            'firmflg',
+            'pc',
+            'commercial',
+            'sampleflg',
+            'is_active'
+        )->get();
+        LogActivity::addToLog($this->sub, ' ดึงข้อมูล order plan etd ' . $etd);
+        return response()->json([
+            'success' => true,
+            'message' => 'get data',
+            'data' => $data
+        ]);
     }
 
     /**
