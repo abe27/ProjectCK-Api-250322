@@ -3,7 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Helpers\LogActivity;
+use App\Models\Consignee;
+use App\Models\Customer;
+use App\Models\FactoryType;
 use App\Models\OrderPlan;
+use App\Models\Shipping;
+use App\Models\Territory;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 
@@ -33,7 +38,7 @@ class OrderPlanController extends Controller
      */
     public function etd(string $etd, string $vendor)
     {
-        $data = OrderPlan::select(
+        $obj = OrderPlan::select(
             'etdtap',
             'vendor',
             'biivpx',
@@ -70,6 +75,59 @@ class OrderPlanController extends Controller
             'sampleflg',
             'is_active'
         )->get();
+
+        $data = [];
+
+        foreach ($obj as $r) {
+            $ship = Shipping::where('prefix_code', $r->shiptype)->orWhere('prefix_code', 'N')->first();
+            $cust = Customer::where('cust_code', $r->bishpc)->first();
+            $fac = FactoryType::where('name', $r->vendor)->first();
+            $consignee = Consignee::where('factory_id', $fac->id)->where('customer_id', $cust->id)->first();
+            $territory = Territory::where('consignee_id', $consignee->id)->where('shipping_id', $ship->id)->first();
+            array_push($data, $territory);
+        }
+
+
+        // $data = OrderPlan::select(
+        //     'etdtap',
+        //     'vendor',
+        //     'biivpx',
+        //     'biac',
+        //     'bishpc',
+        //     'bisafn',
+        //     'shiptype',
+        //     'bicomd',
+        //     'ordertype',
+        //     'deleteflg',
+        //     'bidrfl',
+        //     'shippedflg',
+        //     'firmflg',
+        //     'pc',
+        //     'commercial',
+        //     'sampleflg',
+        //     'pono',
+        //     'is_active'
+        // )->where('etdtap', $etd)->where('vendor', $vendor)->where('is_active', true)->groupBy(
+        //     'etdtap',
+        //     'vendor',
+        //     'biivpx',
+        //     'biac',
+        //     'bishpc',
+        //     'bisafn',
+        //     'shiptype',
+        //     'bicomd',
+        //     'ordertype',
+        //     'deleteflg',
+        //     'bidrfl',
+        //     'shippedflg',
+        //     'firmflg',
+        //     'pc',
+        //     'commercial',
+        //     'sampleflg',
+        //     'pono',
+        //     'is_active'
+        // )->get();
+
         LogActivity::addToLog($this->sub, ' ดึงข้อมูล order plan etd ' . $etd);
         return response()->json([
             'success' => true,

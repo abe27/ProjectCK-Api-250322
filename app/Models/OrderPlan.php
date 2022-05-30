@@ -66,7 +66,8 @@ class OrderPlan extends Model
         'ovsshelfbin', // )->default('ONON',// "ovsshelfbin": "ONON",
         'picshelfbasicqty', // )->default(0);// "picshelfbasicqty": 0,
         'outerpcs', // )->default(0);// "outerpcs": 0,
-        'allocateqty', // )->default(0);// "allocateqty": 0,
+        'allocateqty',
+        'order_group', // )->default(0);// "allocateqty": 0,
         'is_sync', // )->default(false);
         'is_active', // )->default(false);
     ];
