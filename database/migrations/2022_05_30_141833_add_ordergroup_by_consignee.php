@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('order_plans', function (Blueprint $table) {
-            $table->string('order_group', 10);
+            $table->string('order_group', 10)->nullable()->default('All');
         });
     }
 
