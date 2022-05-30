@@ -55,6 +55,9 @@ class TerritoryController extends Controller
             'zone_type_id' => ['required', 'string', 'min:36', 'max:36'],
             'shipping_id' => ['required', 'string', 'min:36', 'max:36'],
             'split_order' => ['required', 'boolean'],
+            'all_order' => ['required', 'boolean'],
+            'first_three_order' => ['required', 'boolean'],
+            'last_three_order' => ['required', 'boolean'],
             'description' => ['required', 'string'],
             'active' => ['required', 'boolean'],
         ]);

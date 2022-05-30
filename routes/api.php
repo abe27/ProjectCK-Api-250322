@@ -281,6 +281,14 @@ Route::prefix('/consignees')->middleware('auth:sanctum')->group(function () {
     Route::delete('/delete/{consignee}', [ConsigneeController::class, 'destroy'])->name('api.consignees.destroy');
 });
 
+Route::prefix('/territory')->middleware('auth:sanctum')->group(function () {
+    Route::get('/index/{active?}', [TerritoryController::class, 'index'])->name('api.territory.index');
+    Route::post('/store', [TerritoryController::class, 'store'])->name('api.territory.store');
+    Route::get('/show/{consignee}', [TerritoryController::class, 'show'])->name('api.territory.show');
+    Route::put('/update/{consignee}', [TerritoryController::class, 'update'])->name('api.territory.put');
+    Route::delete('/delete/{consignee}', [TerritoryController::class, 'destroy'])->name('api.territory.destroy');
+});
+
 Route::prefix('/order')->middleware('auth:sanctum')->group(function () {
     Route::prefix('/plan')->group(function () {
         Route::get('/index/{active?}/{sync?}/{limit?}', [OrderPlanController::class, 'index'])->name('api.order.plan.index');

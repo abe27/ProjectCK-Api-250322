@@ -18,7 +18,6 @@ class Territory extends Model
         'plan_on_day',
         'zone_type_id',
         'shipping_id',
-        'plan_group_id',
         'split_order',
         'all_order',
         'first_three_order',
