@@ -1,0 +1,26 @@
+[
+  {
+    "name": "CK-1",
+    "description": "PLAN CK-1"
+  },
+  {
+    "name": "CK-2",
+    "description": "PLAN CK-2"
+  },
+  {
+    "name": "NESC",
+    "description": "PLAN NESC"
+  },
+  {
+    "name": "ICAM",
+    "description": "PLAN ICAM"
+  },
+  {
+    "name": "LCL",
+    "description": "LCL"
+  },
+  {
+    "name": "MIX LOAD",
+    "description": "MIX LOAD"
+  }
+]

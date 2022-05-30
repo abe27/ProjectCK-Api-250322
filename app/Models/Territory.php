@@ -18,7 +18,11 @@ class Territory extends Model
         'plan_on_day',
         'zone_type_id',
         'shipping_id',
+        'plan_group_id',
         'split_order',
+        'all_order',
+        'first_three_order',
+        'last_three_order',
         'description',
         'is_active',
     ];
@@ -39,4 +43,7 @@ class Territory extends Model
         return $this->hasOne(Shipping::class, 'id', 'shipping_id');
     }
 
+    public function plan_group() {
+        return $this->hasOne(PlanGroup::class, 'id', 'plan_group_id');
+    }
 }
