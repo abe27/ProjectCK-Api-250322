@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
         Schema::disableForeignKeyConstraints();
         $this->call([AdminSeeder::class]);
+        $this->call([UserSeeder::class]);
         $this->call([WarehouseTypeSeeder::class]);
         $this->call([ShippingSeeder::class]);
         $this->call([WhsSeeder::class]);
@@ -46,7 +47,6 @@ class DatabaseSeeder extends Seeder
         $this->call([ZoneTypeSeeder::class]);
         $this->call([TerritorySeeder::class]);
         $this->call([InvoiceTitleSeeder::class]);
-        $this->call([UserSeeder::class]);
         Schema::enableForeignKeyConstraints();
     }
 }
