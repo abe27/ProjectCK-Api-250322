@@ -294,6 +294,7 @@ Route::prefix('/order')->middleware('auth:sanctum')->group(function () {
         Route::get('/index/{active?}/{sync?}/{limit?}', [OrderPlanController::class, 'index'])->name('api.order.plan.index');
         Route::post('/store', [OrderPlanController::class, 'store'])->name('api.order.plan.store');
         Route::get('/etd/{etd}/{vendor}', [OrderPlanController::class, 'etd'])->name('api.order.plan.etd');
+        Route::post('/detail', [OrderPlanController::class, 'detail'])->name('api.order.plan.detail');
         Route::get('/show/{orderPlan}', [OrderPlanController::class, 'show'])->name('api.order.plan.show');
         Route::put('/update/{orderPlan}', [OrderPlanController::class, 'update'])->name('api.order.plan.put');
         Route::delete('/delete/{orderPlan}', [OrderPlanController::class, 'destroy'])->name('api.order.plan.destroy');

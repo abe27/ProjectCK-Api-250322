@@ -47,7 +47,6 @@ class OrderPlanController extends Controller
             'bishpc',
             'bisafn',
             'shiptype',
-            'bicomd',
             'ordertype',
             'deleteflg',
             'bidrfl',
@@ -58,7 +57,7 @@ class OrderPlanController extends Controller
             'sampleflg',
             'order_group',
             'is_active'
-        )->where('etdtap', $etd)->where('vendor', $vendor)->where('is_active', true)->groupBy(
+        )->selectRaw("count(partno) as items,sum(balqty/bistdp) ctn,case when max(reasoncd) = '' then false else true end as revise_code,max(updated_at) updated_at")->where('etdtap', $etd)->where('vendor', $vendor)->where('is_active', true)->groupBy(
             'etdtap',
             'vendor',
             'bioabt',
@@ -67,7 +66,6 @@ class OrderPlanController extends Controller
             'bishpc',
             'bisafn',
             'shiptype',
-            'bicomd',
             'ordertype',
             'deleteflg',
             'bidrfl',
@@ -228,6 +226,41 @@ class OrderPlanController extends Controller
             'success' => true,
             'message' => 'สร้างข้อมูล order plan(' . $obj->id . ')',
             'data' => $obj
+        ]);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\OrderPlan  $orderPlan
+     * @return \Illuminate\Http\Response
+     */
+    public function detail(Request $request)
+    {
+        $data = OrderPlan::with('file_gedi')
+            ->where('etdtap', $request->etdtap)
+            ->where('vendor', $request->vendor)
+            ->where('bioabt', $request->bioabt)
+            ->where('biivpx', $request->biivpx)
+            ->where('biac', $request->biac)
+            ->where('bishpc', $request->bishpc)
+            ->where('bisafn', $request->bisafn)
+            ->where('shiptype', $request->shiptype)
+            ->where('ordertype', $request->ordertype)
+            ->where('deleteflg', $request->deleteflg)
+            ->where('bidrfl', $request->bidrfl)
+            ->where('shippedflg', $request->shippedflg)
+            ->where('firmflg', $request->firmflg)
+            ->where('pc', $request->pc)
+            ->where('commercial', $request->commercial)
+            ->where('sampleflg', $request->sampleflg)
+            ->where('order_group', $request->order_group)
+            ->get();
+        LogActivity::addToLog($this->sub, ' แสดงข้อมูล order plan(' . $request->bishpc . ')');
+        return response()->json([
+            'success' => true,
+            'message' => 'get data',
+            'data' => $data
         ]);
     }
 
