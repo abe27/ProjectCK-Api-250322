@@ -42,11 +42,9 @@ class TerritorySeeder extends Seeder
             $consignee = Consignee::where('factory_id', $factory->id)->where('customer_id', $c->id)->first();
             if ($consignee != null) {
                 $this->command->info($r->code);
-                $this->command->info($consignee->id);
 
                 $a = ["CK-1", "CK-2", "NESC", "ICAM", "LCL", "MIX LOAD"];
                 foreach ($a as $x) {
-                    $this->command->info($x);
                     $plan_on_day = "All";
                     $zone_type = ZoneType::where('name', $x)->first();
                     if ($x == "CK-1") {
