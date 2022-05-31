@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('orders', function (Blueprint $table) {
+        Schema::table('order_plans', function (Blueprint $table) {
             $table->boolean('is_generated')->nullable()->default(false);
         });
     }
@@ -25,7 +25,7 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('orders', function (Blueprint $table) {
+        Schema::table('order_plans', function (Blueprint $table) {
             //
         });
     }
