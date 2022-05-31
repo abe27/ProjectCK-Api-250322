@@ -18,7 +18,7 @@ class FileGediController extends Controller
     public function get($is_downloaded)
     {
         LogActivity::addToLog($this->sub,'ดึงข้อมูล GEDI');
-        $data = FileGedi::where('is_downloaded', $is_downloaded)->orderBy('batch_id')->get();
+        $data = FileGedi::where('is_downloaded', $is_downloaded)->orderBy('file_name')->get();
         return response()->json([
             'success' => true,
             'message' => 'get file gedi data',

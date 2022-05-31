@@ -22,4 +22,8 @@ class FileGedi extends Model
         'is_downloaded',
         'is_active',
     ];
+
+    public function whs() {
+        return $this->hasOne(Whs::class, 'id', 'whs_id');
+    }
 }

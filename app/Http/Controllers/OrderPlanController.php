@@ -46,18 +46,20 @@ class OrderPlanController extends Controller
             'biac',
             'bishpc',
             'bisafn',
+            'bicomd',
             'shiptype',
             'ordertype',
-            'deleteflg',
-            'bidrfl',
-            'shippedflg',
-            'firmflg',
             'pc',
             'commercial',
-            'sampleflg',
             'order_group',
             'is_active'
-        )->selectRaw("count(partno) as items,sum(balqty/bistdp) ctn,case when max(reasoncd) = '' then false else true end as revise_code,max(updated_at) updated_at")->where('etdtap', $etd)->where('vendor', $vendor)->where('is_active', true)->groupBy(
+        )
+        ->selectRaw("count(partno) as items,sum(balqty/bistdp) ctn,case when max(reasoncd) = '' then false else true end as revise_code,max(updated_at) updated_at")
+        ->where('etdtap', $etd)
+        ->where('vendor', $vendor)
+        ->where('balqty', '>', 0)
+        ->where('is_active', true)
+        ->groupBy(
             'etdtap',
             'vendor',
             'bioabt',
@@ -65,18 +67,15 @@ class OrderPlanController extends Controller
             'biac',
             'bishpc',
             'bisafn',
+            'bicomd',
             'shiptype',
             'ordertype',
-            'deleteflg',
-            'bidrfl',
-            'shippedflg',
-            'firmflg',
             'pc',
             'commercial',
-            'sampleflg',
             'order_group',
             'is_active'
-        )->get();
+        )
+        ->get();
 
         LogActivity::addToLog($this->sub, ' ดึงข้อมูล order plan etd ' . $etd);
         return response()->json([
@@ -237,7 +236,7 @@ class OrderPlanController extends Controller
      */
     public function detail(Request $request)
     {
-        $data = OrderPlan::with('file_gedi')
+        $data = OrderPlan::with('file_gedi')->with('file_gedi.whs')
             ->where('etdtap', $request->etdtap)
             ->where('vendor', $request->vendor)
             ->where('bioabt', $request->bioabt)
@@ -247,14 +246,11 @@ class OrderPlanController extends Controller
             ->where('bisafn', $request->bisafn)
             ->where('shiptype', $request->shiptype)
             ->where('ordertype', $request->ordertype)
-            ->where('deleteflg', $request->deleteflg)
-            ->where('bidrfl', $request->bidrfl)
-            ->where('shippedflg', $request->shippedflg)
-            ->where('firmflg', $request->firmflg)
+            ->where('firmflg', 'F')
             ->where('pc', $request->pc)
             ->where('commercial', $request->commercial)
-            ->where('sampleflg', $request->sampleflg)
             ->where('order_group', $request->order_group)
+            ->where('balqty', '>', 0)
             ->get();
         LogActivity::addToLog($this->sub, ' แสดงข้อมูล order plan(' . $request->bishpc . ')');
         return response()->json([
@@ -302,62 +298,8 @@ class OrderPlanController extends Controller
     public function update(Request $request, OrderPlan $orderPlan)
     {
         $v = Validator::make($request->all(), [
-            'file_gedi_id' => ['required', 'string', 'min:36', 'max:36'],
-            'vendor' => ['required', 'string'],
-            'cd' => ['required', 'string'],
-            'unit' => ['required', 'string'],
-            'whs' => ['required', 'string'],
-            'tagrp' => ['required', 'string'],
-            'factory' => ['required', 'string'],
-            'sortg1' => ['required', 'string'],
-            'sortg2' => ['required', 'string'],
-            'sortg3' => ['required', 'string'],
-            'plantype' => ['required', 'string'],
-            'pono' => ['required', 'string'],
-            'biac' => ['required', 'string'],
-            'shiptype' => ['required', 'string', 'min:1', 'max:1'],
-            'etdtap' => ['required', 'date'],
-            'partno' => ['required', 'string'],
-            'partname' => ['required', 'string'],
-            'pc' => ['required', 'string', 'min:1', 'max:1'],
-            'commercial' => ['required', 'string', 'min:1', 'max:1'],
-            'sampleflg' => ['required', 'string', 'min:1', 'max:1'],
-            'orderorgi' => ['required', 'numeric'],
-            'orderround' => ['required', 'numeric'],
-            'firmflg' => ['required', 'string'],
-            'shippedflg' => ['required', 'string'],
-            'shippedqty' => ['required', 'numeric'],
-            'ordermonth' => ['required', 'date'],
-            'balqty' => ['required', 'numeric'],
-            'bidrfl' => ['required', 'string'],
-            'deleteflg' => ['required', 'string'],
-            'ordertype' => ['required', 'string'],
-            'reasoncd' => ['required', 'string'],
-            'upddte' => ['required', 'string'],
-            'updtime' => ['required', 'string'],
-            'carriercode' => ['required', 'string'],
-            'bioabt' => ['required', 'string'],
-            'bicomd' => ['required', 'string'],
-            'bistdp' => ['required', 'numeric'],
-            'binewt' => ['required', 'numeric'],
-            'bigrwt' => ['required', 'numeric'],
-            'bishpc' => ['required', 'string'],
-            'biivpx' => ['required', 'string'],
-            'bisafn' => ['required', 'string'],
-            'biwidt' => ['required', 'numeric'],
-            'bihigh' => ['required', 'numeric'],
-            'bileng' => ['required', 'numeric'],
-            'lotno' => ['required', 'string'],
-            'minimum' => ['required', 'numeric'],
-            'maximum' => ['required', 'numeric'],
-            'picshelfbin' => ['required', 'string'],
-            'stkshelfbin' => ['required', 'string'],
-            'ovsshelfbin' => ['required', 'string'],
-            'picshelfbasicqty' => ['required', 'numeric'],
-            'outerpcs' => ['required', 'numeric'],
-            'allocateqty' => ['required', 'numeric'],
-            'is_sync' => ['required', 'boolean'],
-            'active' => ['required', 'boolean'],
+            'is_sync' => ['required'],
+            'is_active' => ['required'],
         ]);
 
         if ($v->fails()) {
@@ -368,62 +310,8 @@ class OrderPlanController extends Controller
             ]);
         }
 
-        $orderPlan->file_gedi_id = $request->file_gedi_id;
-        $orderPlan->vendor = $request->vendor;
-        $orderPlan->cd = $request->cd;
-        $orderPlan->unit = $request->unit;
-        $orderPlan->whs = $request->whs;
-        $orderPlan->tagrp = $request->tagrp;
-        $orderPlan->factory = $request->factory;
-        $orderPlan->sortg1 = $request->sortg1;
-        $orderPlan->sortg2 = $request->sortg2;
-        $orderPlan->sortg3 = $request->sortg3;
-        $orderPlan->plantype = $request->plantype;
-        $orderPlan->pono = $request->pono;
-        $orderPlan->biac = $request->biac;
-        $orderPlan->shiptype = $request->shiptype;
-        $orderPlan->etdtap = $request->etdtap;
-        $orderPlan->partno = $request->partno;
-        $orderPlan->partname = $request->partname;
-        $orderPlan->pc = $request->pc;
-        $orderPlan->commercial = $request->commercial;
-        $orderPlan->sampleflg = $request->sampleflg;
-        $orderPlan->orderorgi = $request->orderorgi;
-        $orderPlan->orderround = $request->orderround;
-        $orderPlan->firmflg = $request->firmflg;
-        $orderPlan->shippedflg = $request->shippedflg;
-        $orderPlan->shippedqty = $request->shippedqty;
-        $orderPlan->ordermonth = $request->ordermonth;
-        $orderPlan->balqty = $request->balqty;
-        $orderPlan->bidrfl = $request->bidrfl;
-        $orderPlan->deleteflg = $request->deleteflg;
-        $orderPlan->ordertype = $request->ordertype;
-        $orderPlan->reasoncd = $request->reasoncd;
-        $orderPlan->upddte = $request->upddte;
-        $orderPlan->updtime = $request->updtime;
-        $orderPlan->carriercode = $request->carriercode;
-        $orderPlan->bioabt = $request->bioabt;
-        $orderPlan->bicomd = $request->bicomd;
-        $orderPlan->bistdp = $request->bistdp;
-        $orderPlan->binewt = $request->binewt;
-        $orderPlan->bigrwt = $request->bigrwt;
-        $orderPlan->bishpc = $request->bishpc;
-        $orderPlan->biivpx = $request->biivpx;
-        $orderPlan->bisafn = $request->bisafn;
-        $orderPlan->biwidt = $request->biwidt;
-        $orderPlan->bihigh = $request->bihigh;
-        $orderPlan->bileng = $request->bileng;
-        $orderPlan->lotno = $request->lotno;
-        $orderPlan->minimum = $request->minimum;
-        $orderPlan->maximum = $request->maximum;
-        $orderPlan->picshelfbin = $request->picshelfbin;
-        $orderPlan->stkshelfbin = $request->stkshelfbin;
-        $orderPlan->ovsshelfbin = $request->ovsshelfbin;
-        $orderPlan->picshelfbasicqty = $request->picshelfbasicqty;
-        $orderPlan->outerpcs = $request->outerpcs;
-        $orderPlan->allocateqty = $request->allocateqty;
         $orderPlan->is_sync = $request->is_sync;
-        $orderPlan->is_active = $request->active;
+        $orderPlan->is_active = $request->is_active;
         $orderPlan->save();
 
         LogActivity::addToLog($this->sub, ' แก้ไขข้อมูล order plan(' . $orderPlan->id . ')');
@@ -431,7 +319,7 @@ class OrderPlanController extends Controller
         return response()->json([
             'success' => true,
             'message' => 'แก้ไขข้อมูล order plan(' . $orderPlan->id . ')',
-            'data' => $orderPlan
+            'data' => []
         ]);
     }
 

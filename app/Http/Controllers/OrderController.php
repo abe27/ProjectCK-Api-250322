@@ -43,9 +43,25 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
+        // $v = Validator::make($request->all(), [
+        //     'consignee_id' => ['required', 'string', 'min:36', 'max:36'],
+        //     'shipping_id' => ['required', 'string', 'min:36', 'max:36'],
+        //     'etd_date' => ['required', 'date'],
+        //     'order_group' => ['required'],
+        //     'pc' => ['required', 'string', 'in:P,C'],
+        //     'commercial' => ['required', 'string', 'in:N,C'],
+        //     'order_type' => ['required', 'string', 'in:M,E'],
+        //     'bioabt' => ['required', 'numeric'],
+        //     'bicomd' => ['required', 'string', 'min:1', 'max:2'],
+        //     'is_sync' => ['required'],
+        //     'is_active' => ['required'],
+        // ]);
+
         $v = Validator::make($request->all(), [
-            'consignee_id' => ['required', 'string', 'min:36', 'max:36'],
-            'shipping_id' => ['required', 'string', 'min:36', 'max:36'],
+            'factory' => ['required', 'string'],
+            'affcode' => ['required', 'string'],
+            'custcode' => ['required', 'string'],
+            'shipping' => ['required', 'string'],
             'etd_date' => ['required', 'date'],
             'order_group' => ['required'],
             'pc' => ['required', 'string', 'in:P,C'],
@@ -53,8 +69,8 @@ class OrderController extends Controller
             'order_type' => ['required', 'string', 'in:M,E'],
             'bioabt' => ['required', 'numeric'],
             'bicomd' => ['required', 'string', 'min:1', 'max:2'],
-            'sync' => ['required', 'boolean'],
-            'active' => ['required', 'boolean'],
+            'is_sync' => ['required'],
+            'is_active' => ['required'],
         ]);
 
         if ($v->fails()) {
@@ -75,8 +91,8 @@ class OrderController extends Controller
         $obj->order_type = $request->order_type;
         $obj->bioabt = $request->bioabt;
         $obj->bicomd = $request->bicomd;
-        $obj->sync = $request->sync;
-        $obj->is_active = $request->active;
+        $obj->sync = $request->is_sync;
+        $obj->is_active = $request->is_active;
         $obj->save();
 
         LogActivity::addToLog('สร้างข้อมูล order(' . $obj->id . ')');
