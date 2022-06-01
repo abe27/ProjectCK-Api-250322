@@ -14,7 +14,7 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($active = 1,$etd_date)
+    public function index($active = 1,$etd_date,$vendor="INJ")
     {
         $data = Order::with(
             'consignee',
@@ -28,7 +28,8 @@ class OrderController extends Controller
             'items.order',
             'items.order_plan',
             'items.revise',
-            'items.ledger'
+            'items.ledger',
+            'order_whs'
         )
         ->where('is_active', $active)
         ->where('etd_date', $etd_date)

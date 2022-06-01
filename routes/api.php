@@ -301,7 +301,7 @@ Route::prefix('/order')->middleware('auth:sanctum')->group(function () {
     });
 
     Route::prefix('/header')->group(function () {
-        Route::get('/index/{active?}/{etd_date}', [OrderController::class, 'index'])->name('api.order.header.index');
+        Route::get('/index/{active?}/{etd_date}/{vendor?}', [OrderController::class, 'index'])->name('api.order.header.index');
         Route::post('/store', [OrderController::class, 'store'])->name('api.order.header.store');
         Route::get('/show/{order}', [OrderController::class, 'show'])->name('api.order.header.show');
         Route::put('/update/{order}', [OrderController::class, 'update'])->name('api.order.header.put');
