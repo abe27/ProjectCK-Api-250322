@@ -14,9 +14,25 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($active = 1)
+    public function index($active = 1,$etd_date)
     {
-        $data = Order::with('consignee', 'shipping')->where('is_active', $active)->paginate();
+        $data = Order::with(
+            'consignee',
+            'shipping',
+            'consignee.factory',
+            'consignee.aff',
+            'consignee.customer',
+            'consignee.region',
+            'consignee.address',
+            'items',
+            'items.order',
+            'items.order_plan',
+            'items.revise',
+            'items.ledger'
+        )
+        ->where('is_active', $active)
+        ->where('etd_date', $etd_date)
+        ->orderBy('etd_date')->get();
         LogActivity::addToLog('ดึงข้อมูล order');
         return response()->json([
             'success' => true,
