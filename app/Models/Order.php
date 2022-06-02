@@ -38,7 +38,11 @@ class Order extends Model
         return $this->hasMany(OrderDetail::class, 'order_id', 'id');
     }
 
-    public function order_whs() {
-        return $this->hasMany(OrderZone::class, 'id', 'order_whs_id');
+    public function orderwhs() {
+        return $this->hasOne(OrderZone::class, 'id', 'order_whs_id');
+    }
+
+    public function invoices() {
+        return $this->hasOne(Invoice::class, 'order_id', 'id');
     }
 }

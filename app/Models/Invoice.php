@@ -17,7 +17,7 @@ class Invoice extends Model
         'inv_prefix',
         'running_seq',
         'ship_date',
-        'ship_from',
+        'ship_from_id',
         'ship_via',
         'ship_der',
         'title_id',

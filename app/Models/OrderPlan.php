@@ -14,6 +14,7 @@ class OrderPlan extends Model
 
     protected $fillable = [
         'file_gedi_id',
+        'sequence',
         'vendor', // "vendor": factory,
         'cd', // "cd": cd,
         'unit', // "unit": unit,

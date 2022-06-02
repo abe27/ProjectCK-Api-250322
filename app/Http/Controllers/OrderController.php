@@ -29,7 +29,18 @@ class OrderController extends Controller
             'items.order_plan',
             'items.revise',
             'items.ledger',
-            'order_whs'
+            'items.ledger.part_type',
+            'items.ledger.part',
+            'items.ledger.tagrp',
+            'items.ledger.factory',
+            'items.ledger.whs',
+            'items.ledger.kinds',
+            'items.ledger.sizes',
+            'items.ledger.colors',
+            'items.ledger.unit',
+            'orderwhs',
+            'orderwhs.factory',
+            'invoices'
         )
         ->where('is_active', $active)
         ->where('etd_date', $etd_date)
