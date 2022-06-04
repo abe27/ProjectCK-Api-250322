@@ -23,6 +23,7 @@ class Order extends Model
         'bioabt',
         'is_matched',
         'is_checked',
+        'is_invoice',
         'sync',
         'is_active',
     ];

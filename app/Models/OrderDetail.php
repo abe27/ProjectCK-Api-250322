@@ -41,7 +41,7 @@ class OrderDetail extends Model
     }
 
     public function order_plan() {
-        return $this->hasOne(OrderPlan::class, 'id', 'order_plan_id');
+        return $this->hasMany(OrderPlan::class, 'id', 'order_plan_id');
     }
 
     public function revise() {
