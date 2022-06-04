@@ -21,7 +21,8 @@ class Order extends Model
         'commercial',
         'order_type',
         'bioabt',
-        'bicomd',
+        'is_matched',
+        'is_checked',
         'sync',
         'is_active',
     ];
