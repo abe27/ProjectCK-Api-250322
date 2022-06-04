@@ -15,6 +15,7 @@ class FactoryType extends Model
     protected $fillable = [
         'name',
         'description',
+        'factory_prefix',
         'is_active',
     ];
 }
