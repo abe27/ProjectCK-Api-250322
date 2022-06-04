@@ -174,14 +174,17 @@ class OrderController extends Controller
             'shipping_id' => ['required', 'string', 'min:36', 'max:36'],
             'etd_date' => ['required', 'date'],
             'order_group' => ['required'],
-            'pc' => ['required', 'string', 'in:P,C'],
-            'commercial' => ['required', 'string', 'in:N,C'],
-            'order_type' => ['required', 'string', 'in:M,E'],
-            'bioabt' => ['required', 'numeric'],
-            'bicomd' => ['required', 'string', 'min:1', 'max:2'],
-            'sync' => ['required', 'boolean'],
-            'active' => ['required', 'boolean'],
+            'pc' => ['required'],
+            'commercial' => ['required'],
+            'order_type' => ['required'],
+            'bioabt' => ['required'],
+            'is_matched' => ['required'],
+            'is_checked' => ['required'],
+            'sync' => ['required'],
+            'active' => ['required'],
         ]);
+
+        return $request;
 
         if ($v->fails()) {
             return response()->json([
@@ -199,7 +202,8 @@ class OrderController extends Controller
         $order->commercial = $request->commercial;
         $order->order_type = $request->order_type;
         $order->bioabt = $request->bioabt;
-        $order->bicomd = $request->bicomd;
+        $order->is_matched = $request->is_matched;
+        $order->is_checked = $request->is_checked;
         $order->sync = $request->sync;
         $order->is_active = $request->active;
         $order->save();
@@ -209,7 +213,7 @@ class OrderController extends Controller
         return response()->json([
             'success' => true,
             'message' => 'อัพเดทข้อมูล order(' . $order->id . ')',
-            'data' => $order
+            'data' => []
         ]);
     }
 
