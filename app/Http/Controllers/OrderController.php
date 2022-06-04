@@ -184,8 +184,6 @@ class OrderController extends Controller
             'active' => ['required'],
         ]);
 
-        return $request;
-
         if ($v->fails()) {
             return response()->json([
                 'success' => false,
@@ -212,7 +210,7 @@ class OrderController extends Controller
 
         return response()->json([
             'success' => true,
-            'message' => 'อัพเดทข้อมูล order(' . $order->id . ')',
+            'message' => 'อัพเดทข้อมูล order(' . $order->id . ') เรียบร้อยแล้ว',
             'data' => []
         ]);
     }
