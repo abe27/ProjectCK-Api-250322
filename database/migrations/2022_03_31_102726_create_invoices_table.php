@@ -23,8 +23,8 @@ return new class extends Migration
             $table->string('ship_via')->nullable()->default('-');###
             $table->string('ship_der')->nullable()->default('LCL');### AIR,LCL,FCL,MIX LOAD,40",20"
             $table->string('title_id')->nullable();
-            $table->string('loading_area', 10)->nullable()->default('CK-2');### DOMESTIC,BONDED,NESC,ICAM
-            $table->string('privilege')->nullable()->default('DOMESTIC');### DOMESTIC,BONDED,NESC,ICAM
+            $table->string('loading_area', 10)->nullable()->default('CK-2');### EXPORT,DOMESTIC,BONDED,NESC,ICAM
+            $table->string('privilege')->nullable()->default('DOMESTIC');### EXPORT,DOMESTIC,BONDED,NESC,ICAM
             $table->string('zone_code', 25)->nullable()->default('-');
             // 'N' = None,
             // 'J' = JobList,
