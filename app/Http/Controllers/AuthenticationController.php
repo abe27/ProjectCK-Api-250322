@@ -59,13 +59,29 @@ class AuthenticationController extends Controller
                 'success' => false,
                 'token' => null,
                 'access' => null,
-                'message' => 'ไม่พบข้อมูลผู้ใช้งาน'
+                'message' => 'ไม่พบข้อมูลผู้ใช้งาน',
+                'profiles' => []
             ], 401);
         }
 
         $user = User::where('empcode', $request['empcode'])->firstOrFail();
 
         $token = $user->createToken('auth_token')->plainTextToken;
+
+        $profiles = User::with(
+            'data',
+            'data.factory',
+            'data.whs',
+            'territory',
+            'territory.consignee',
+            'territory.consignee.factory',
+            'territory.consignee.aff',
+            'territory.consignee.customer',
+            'territory.consignee.region',
+            'territory.consignee.address',
+            'territory.zone_type',
+            'territory.shipping',
+        )->find($user->id);
         // log
         LogActivity::addToLog($this->sub,'เข้าสู่ระบบ');
 
@@ -73,7 +89,8 @@ class AuthenticationController extends Controller
             'success' => true,
             'token' => $token,
             'access' => 'Bearer',
-            'message' => 'ยินดีต้อนรับเข้าสู่ระบบ CWS'
+            'message' => 'ยินดีต้อนรับเข้าสู่ระบบ CWS',
+            'profiles' => $profiles
         ], 200);
     }
 

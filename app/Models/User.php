@@ -46,4 +46,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function territory() {
+        return $this->hasMany(Territory::class, 'user_id', 'id');
+    }
+
+    public function data() {
+        return $this->hasOne(UserData::class, 'user_id', 'id');
+    }
 }

@@ -42,7 +42,7 @@ class Territory extends Model
         return $this->hasOne(Shipping::class, 'id', 'shipping_id');
     }
 
-    public function plan_group() {
-        return $this->hasOne(PlanGroup::class, 'id', 'plan_group_id');
-    }
+    // public function plan_group() {
+    //     return $this->hasOne(PlanGroup::class, 'id', 'plan_group_id');
+    // }
 }

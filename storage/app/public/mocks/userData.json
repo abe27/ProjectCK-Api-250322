@@ -1,0 +1,97 @@
+[
+  {
+    "empcode": "30000",
+    "factory": "-",
+    "whs": "-"
+  },
+  {
+    "empcode": "30006",
+    "factory": "-",
+    "whs": "-"
+  },
+  {
+    "empcode": "30004",
+    "factory": "-",
+    "whs": "-"
+  },
+  {
+    "empcode": "30007",
+    "factory": "-",
+    "whs": "-"
+  },
+  {
+    "empcode": "00484",
+    "factory": "-",
+    "whs": "-"
+  },
+  {
+    "empcode": "20008",
+    "factory": "-",
+    "whs": "CK-2"
+  },
+  {
+    "empcode": "00568",
+    "factory": "-",
+    "whs": "CK-2"
+  },
+  {
+    "empcode": "00523",
+    "factory": "INJ",
+    "whs": "CK-2"
+  },
+  {
+    "empcode": "00525",
+    "factory": "INJ",
+    "whs": "CK-2"
+  },
+  {
+    "empcode": "00534",
+    "factory": "INJ",
+    "whs": "CK-2"
+  },
+  {
+    "empcode": "00560",
+    "factory": "INJ",
+    "whs": "CK-2"
+  },
+  {
+    "empcode": "00561",
+    "factory": "INJ",
+    "whs": "CK-2"
+  },
+  {
+    "empcode": "00566",
+    "factory": "INJ",
+    "whs": "CK-2"
+  },
+  {
+    "empcode": "00656",
+    "factory": "INJ",
+    "whs": "CK-2"
+  },
+  {
+    "empcode": "00657",
+    "factory": "INJ",
+    "whs": "CK-2"
+  },
+  {
+    "empcode": "00658",
+    "factory": "INJ",
+    "whs": "CK-2"
+  },
+  {
+    "empcode": "00659",
+    "factory": "INJ",
+    "whs": "CK-2"
+  },
+  {
+    "empcode": "00881",
+    "factory": "INJ",
+    "whs": "CK-2"
+  },
+  {
+    "empcode": "50514",
+    "factory": "INJ",
+    "whs": "CK-2"
+  }
+]
