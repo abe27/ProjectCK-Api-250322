@@ -14,9 +14,36 @@ class InvoiceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($active = 1)
+    public function index(string $ship_date,$active = 1)
     {
-        $data = Invoice::with('order', 'title')->where('is_active', $active)->paginate();
+        $data = Invoice::with(
+            'order',
+            'order.consignee',
+            'order.consignee.factory',
+            'order.consignee.aff',
+            'order.consignee.customer',
+            'order.consignee.region',
+            'order.consignee.address',
+            'order.consignee.territory',
+            'order.consignee.territory.user',
+            'order.shipping',
+            'order.items',
+            'order.items.order_plan',
+            'order.items.revise',
+            'order.items.ledger',
+            'order.items.ledger.part_type',
+            'order.items.ledger.tagrp',
+            'order.items.ledger.factory',
+            'order.items.ledger.whs',
+            'order.items.ledger.part',
+            'order.items.ledger.kinds',
+            'order.items.ledger.sizes',
+            'order.items.ledger.colors',
+            'order.items.ledger.unit',
+            'order.orderwhs',
+            'order.invoices',
+            'title'
+        )->where('ship_date', $ship_date)->where('is_active', $active)->get();
         LogActivity::addToLog('ดึงข้อมูล Invoice');
         return response()->json([
             'success' => true,

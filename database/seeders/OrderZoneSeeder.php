@@ -27,6 +27,17 @@ class OrderZoneSeeder extends Seeder
             $obj->factory_id = $factory->id;
             $obj->bioat = $r->bioat;
             $obj->zone = $r->zone;
+            $z = "K";
+            if ($r->zone == "CK-2") {
+                $z = "C";
+            }
+            else if ($r->zone == "NESC") {
+                $z = "N";
+            }
+            else if ($r->zone == "ICAM") {
+                $z = "I";
+            }
+            $obj->last_prefix = $z;
             $obj->is_active = true;
             $obj->save();
         }

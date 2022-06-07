@@ -327,7 +327,7 @@ Route::prefix('/invoice')->middleware('auth:sanctum')->group(function () {
     });
 
     Route::prefix('/header')->group(function () {
-        Route::get('/index/{active?}', [InvoiceController::class, 'index'])->name('api.invoice.header.index');
+        Route::get('/index/{ship_date}/{active?}', [InvoiceController::class, 'index'])->name('api.invoice.header.index');
         Route::post('/store', [InvoiceController::class, 'store'])->name('api.invoice.header.store');
         Route::get('/show/{invoice}', [InvoiceController::class, 'show'])->name('api.invoice.header.show');
         Route::put('/update/{invoice}', [InvoiceController::class, 'update'])->name('api.invoice.header.put');

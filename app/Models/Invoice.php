@@ -29,7 +29,7 @@ class Invoice extends Model
     ];
 
     public function order() {
-        return $this->hasOne(Order::class, ['id' => 'order_id']);
+        return $this->hasOne(Order::class, 'id', 'order_id');
     }
 
     public function title() {

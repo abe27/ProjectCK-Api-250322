@@ -16,6 +16,7 @@ class OrderZone extends Model
         'factory_id',
         'bioat',
         'zone',
+        'last_prefix',
         'description',
         'is_active',
     ];

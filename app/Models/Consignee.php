@@ -28,6 +28,10 @@ class Consignee extends Model
         'is_active',
     ];
 
+    public function territory() {
+        return $this->hasOne(Territory::class, 'consignee_id', 'id');
+    }
+
     public function factory() {
         return $this->hasOne(FactoryType::class, 'id', 'factory_id');
     }
