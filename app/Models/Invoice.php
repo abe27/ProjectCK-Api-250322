@@ -32,6 +32,10 @@ class Invoice extends Model
         return $this->hasOne(Order::class, 'id', 'order_id');
     }
 
+    public function pallet() {
+        return $this->hasMany(InvoicePallet::class, 'id', 'order_id');
+    }
+
     public function title() {
         return $this->hasOne(InvoiceTitle::class, 'id', 'title_id');
     }

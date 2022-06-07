@@ -42,6 +42,7 @@ class InvoiceController extends Controller
             'order.items.ledger.unit',
             'order.orderwhs',
             'order.invoices',
+            'pallet',
             'title'
         )->where('ship_date', $ship_date)->where('is_active', $active)->get();
         LogActivity::addToLog('ดึงข้อมูล Invoice');
