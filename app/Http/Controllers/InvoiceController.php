@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Invoice;
 use App\Helpers\LogActivity;
+use App\Models\Order;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 
@@ -164,13 +165,13 @@ class InvoiceController extends Controller
             'ship_date' => ['required', 'date'],
             'ship_from_id' => ['required', 'string', 'min:36', 'max:36'],
             'ship_via' => ['required'],
-            'ship_der' => ['required', 'string', 'in:AIR,LCL,FCL,MIX LOAD,40",20"'],
-            'title_id' => ['required', 'string', 'min:36', 'max:36'],
-            'loading_area' => ['required', 'string', 'in:DOMESTIC,BONDED,NESC,ICAM,CK-1,CK2,K.39,J03,RMW,FG'],
-            'privilege' => ['required', 'string', 'in:DOMESTIC,BONDED,NESC,ICAM,CK-1,CK2,K.39,J03,RMW,FG'],
-            'zone_code' => ['required', 'string', 'min:5', 'max:10'],
-            'invoice_status' => ['required', 'in:N,J,P,D,C,L,S,H'],
-            'active' => ['required', 'boolean'],
+            'ship_der' => ['required'],
+            'title_id' => ['required'],
+            'loading_area' => ['required'],
+            'privilege' => ['required'],
+            'zone_code' => ['required'],
+            'invoice_status' => ['required'],
+            'active' => ['required'],
         ]);
 
         if ($v->fails()) {
@@ -196,12 +197,15 @@ class InvoiceController extends Controller
         $invoice->is_active = $request->active;
         $invoice->save();
 
+        $order = Order::find($invoice->order_id);
+        $order->sync = false;
+        $order->save();
+
         LogActivity::addToLog('อัพเดทข้อมูล invoice(' . $invoice->id . ')');
-        $data = Invoice::with('order')->where('รก', $invoice->id)->paginate();
         return response()->json([
             'success' => true,
             'message' => 'อัพเดทข้อมูล invoice(' . $invoice->id . ')',
-            'data' => $data
+            'data' => []
         ]);
     }
 
