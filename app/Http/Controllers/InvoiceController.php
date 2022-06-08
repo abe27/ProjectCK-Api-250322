@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Invoice;
 use App\Helpers\LogActivity;
+use App\Models\Consignee;
 use App\Models\Order;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
@@ -25,16 +26,16 @@ class InvoiceController extends Controller
             'order.consignee.customer',
             'order.consignee.region',
             'order.consignee.address',
-            'order.consignee.territory',
+            // 'order.consignee.territory',
             'order.consignee.territory.user',
             'order.shipping',
             'order.items',
             'order.items.order_plan',
             'order.items.revise',
-            'order.items.ledger',
+            // 'order.items.ledger',
             'order.items.ledger.part_type',
             'order.items.ledger.tagrp',
-            'order.items.ledger.factory',
+            // 'order.items.ledger.factory',
             'order.items.ledger.whs',
             'order.items.ledger.part',
             'order.items.ledger.kinds',
@@ -171,6 +172,7 @@ class InvoiceController extends Controller
             'privilege' => ['required'],
             'zone_code' => ['required'],
             'invoice_status' => ['required'],
+            'change_invoice' => ['required', 'numeric'],
             'active' => ['required'],
         ]);
 
@@ -199,6 +201,15 @@ class InvoiceController extends Controller
 
         $order = Order::find($invoice->order_id);
         $order->sync = false;
+
+        if ($request->change_invoice > 0) {
+            $consignee = Consignee::where('factory_id', $request->factory_id)->where('prefix_code', $request->inv_prefix)->first();
+            $consignee->last_running_no = $request->running_seq;
+            $consignee->save();
+            $order->is_matched = true;
+            $order->is_checked = true;
+        }
+
         $order->save();
 
         LogActivity::addToLog('อัพเดทข้อมูล invoice(' . $invoice->id . ')');
