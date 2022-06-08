@@ -24,6 +24,7 @@ class Invoice extends Model
         'loading_area',
         'privilege',
         'zone_code',
+        'references_id',
         'invoice_status',
         'is_active',
     ];
