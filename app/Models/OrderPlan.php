@@ -69,6 +69,7 @@ class OrderPlan extends Model
         'outerpcs', // )->default(0);// "outerpcs": 0,
         'allocateqty',
         'order_group', // )->default(0);// "allocateqty": 0,
+        'is_planning',
         'is_sync', // )->default(false);
         'is_active', // )->default(false);
     ];
