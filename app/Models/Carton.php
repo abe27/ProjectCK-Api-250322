@@ -13,6 +13,7 @@ class Carton extends Model
     use HasFactory, HasApiTokens, Nanoids, Notifiable;
 
     protected $fillable = [
+        'receive_detail_id',
         'ledger_id',
         'lot_no',
         'serial_no',
