@@ -130,7 +130,39 @@ class InvoiceController extends Controller
      */
     public function show(Invoice $invoice)
     {
-        $data = Invoice::with('order', 'title')->where('id', $invoice->id)->paginate();
+        $data = Invoice::with(
+            'order',
+            'order.consignee',
+            'order.consignee.factory',
+            'order.consignee.aff',
+            'order.consignee.customer',
+            'order.consignee.region',
+            'order.consignee.address',
+            // 'order.consignee.territory',
+            'order.consignee.territory.user',
+            'order.shipping',
+            'order.items',
+            'order.items.order_plan',
+            'order.items.revise',
+            // 'order.items.ledger',
+            'order.items.ledger.part_type',
+            'order.items.ledger.tagrp',
+            // 'order.items.ledger.factory',
+            'order.items.ledger.whs',
+            'order.items.ledger.part',
+            'order.items.ledger.kinds',
+            'order.items.ledger.sizes',
+            'order.items.ledger.colors',
+            'order.items.ledger.unit',
+            'order.orderwhs',
+            'order.invoices',
+            'pallet',
+            'pallet.pallet_type',
+            'pallet.placing',
+            'pallet.part',
+            'pallet.location',
+            'title'
+        )->where('id', $invoice->id)->get();
         LogActivity::addToLog('แสดงข้อมูล Invoice(' . $invoice->id . ')');
         return response()->json([
             'success' => true,

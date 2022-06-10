@@ -34,7 +34,7 @@ class Invoice extends Model
     }
 
     public function pallet() {
-        return $this->hasMany(InvoicePallet::class, 'id', 'order_id');
+        return $this->hasMany(InvoicePallet::class, 'invoice_id', 'id');
     }
 
     public function title() {

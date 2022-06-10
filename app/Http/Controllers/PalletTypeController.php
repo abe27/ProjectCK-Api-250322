@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\LogActivity;
 use App\Models\PalletType;
 use Illuminate\Http\Request;
 
@@ -12,9 +13,15 @@ class PalletTypeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($active=1)
     {
-        //
+        $data = PalletType::orderBy('name')->where('is_active', $active)->get();
+        LogActivity::addToLog('ดึงข้อมูล Pallet Type');
+        return response()->json([
+            'success' => true,
+            'message' => 'get data',
+            'data' => $data
+        ]);
     }
 
     /**

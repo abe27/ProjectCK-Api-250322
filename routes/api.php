@@ -24,9 +24,11 @@ use App\Http\Controllers\LogActivitiesController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\OrderDetailController;
 use App\Http\Controllers\OrderPlanController;
+use App\Http\Controllers\PalletTypeController;
 use App\Http\Controllers\PartController;
 use App\Http\Controllers\PartShortController;
 use App\Http\Controllers\PartTypeController;
+use App\Http\Controllers\PlacingOnPalletController;
 use App\Http\Controllers\ReceiveController;
 use App\Http\Controllers\ReceiveDetailController;
 use App\Http\Controllers\RegionController;
@@ -83,6 +85,22 @@ Route::prefix('/gedi')->middleware('auth:sanctum')->group(function () {
 
 Route::prefix('/log')->middleware('auth:sanctum')->group(function () {
     Route::get('/index', [LogActivitiesController::class, 'index'])->name('api.log.index');
+});
+
+Route::prefix('/pallet_type')->middleware('auth:sanctum')->group(function () {
+    Route::get('/index/{active?}', [PalletTypeController::class, 'index'])->name('api.pallet_type.index');
+    Route::post('/store', [PalletTypeController::class, 'store'])->name('api.pallet_type.store');
+    Route::get('/show/{palletType}', [PalletTypeController::class, 'show'])->name('api.pallet_type.show');
+    Route::put('/update/{palletType}', [PalletTypeController::class, 'update'])->name('api.pallet_type.put');
+    Route::delete('/delete/{palletType}', [PalletTypeController::class, 'destroy'])->name('api.pallet_type.destroy');
+});
+
+Route::prefix('/pallet_placing')->middleware('auth:sanctum')->group(function () {
+    Route::get('/index/{active?}', [PlacingOnPalletController::class, 'index'])->name('api.pallet_placing.index');
+    Route::post('/store', [PlacingOnPalletController::class, 'store'])->name('api.pallet_placing.store');
+    Route::get('/show/{placingOnPallet}', [PlacingOnPalletController::class, 'show'])->name('api.pallet_placing.show');
+    Route::put('/update/{placingOnPallet}', [PlacingOnPalletController::class, 'update'])->name('api.pallet_placing.put');
+    Route::delete('/delete/{placingOnPallet}', [PlacingOnPalletController::class, 'destroy'])->name('api.pallet_placing.destroy');
 });
 
 Route::prefix('/warehouse_type')->middleware('auth:sanctum')->group(function () {

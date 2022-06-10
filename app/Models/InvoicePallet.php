@@ -14,6 +14,7 @@ class InvoicePallet extends Model
 
     protected $fillable = [
         'invoice_id',
+        'pallet_type_id',
         'placing_id',
         'part_id',
         'location_id',
@@ -25,6 +26,10 @@ class InvoicePallet extends Model
 
     public function invoice() {
         return $this->hasOne(Invoice::class, 'id', 'invoice_id');
+    }
+
+    public function pallet_type() {
+        return $this->hasOne(PalletType::class, 'id','pallet_type_id');
     }
 
     public function placing() {

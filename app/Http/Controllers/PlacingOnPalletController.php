@@ -16,7 +16,7 @@ class PlacingOnPalletController extends Controller
      */
     public function index($active = 1)
     {
-        $data = PlacingOnPallet::with('factory')->where('is_active', $active)->paginate();
+        $data = PlacingOnPallet::with('factory')->where('is_active', $active)->get();
         LogActivity::addToLog('ดึงข้อมูล PlacingOnPallet');
         return response()->json([
             'success' => true,
