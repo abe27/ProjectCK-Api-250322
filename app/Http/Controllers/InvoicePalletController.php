@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\InvoicePallet;
 use App\Helpers\LogActivity;
+use App\Models\Invoice;
+use App\Models\Location;
+use App\Models\Order;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 
@@ -52,8 +55,7 @@ class InvoicePalletController extends Controller
             'invoice_id' => ['required', 'string', 'min:36', 'max:36'],
             'pallet_type_id' => ['required', 'string', 'min:36', 'max:36'],
             'placing_id' => ['required', 'string', 'min:36', 'max:36'],
-            // 'part_id' => ['required', 'string', 'min:36', 'max:36'],
-            // 'location_id' => ['required', 'string', 'min:36', 'max:36'],
+            'location_id' => ['required'],
             'pallet_no' => ['required', 'string', 'min:1', 'max:25'],
             'spl_pallet_no' => ['required', 'string', 'min:1', 'max:25'],
             'pallet_total' => ['required'],
@@ -68,21 +70,23 @@ class InvoicePalletController extends Controller
             ]);
         }
 
+        $l = Location::where('name', $request->location_id)->first();
         $c = InvoicePallet::where('invoice_id', $request->invoice_id)->where('pallet_type_id', $request->pallet_type_id)->count();
         $obj = new InvoicePallet();
         $obj->invoice_id = $request->invoice_id;
         $obj->pallet_type_id = $request->pallet_type_id;
         $obj->placing_id = $request->placing_id;
-        if (isset($request->part_id)) {
-            $obj->part_id = $request->part_id;
-            $obj->location_id = $request->location_id;
-        }
-
+        $obj->location_id = $l->id;
         $obj->pallet_no = ($c + 1);
         $obj->spl_pallet_no = $request->spl_pallet_no;
         $obj->pallet_total = $request->pallet_total;
         $obj->is_active = $request->active;
         $obj->save();
+
+        $inv = Invoice::find($request->invoice_id)->first();
+        $ord = Order::find($inv->order_id)->first();
+        $ord->sync = false;
+        $ord->save();
 
         LogActivity::addToLog('สร้างข้อมูล invoice pallet(' . $obj->id . ')');
 
@@ -138,13 +142,13 @@ class InvoicePalletController extends Controller
     {
         $v = Validator::make($request->all(), [
             'invoice_id' => ['required', 'string', 'min:36', 'max:36'],
+            'pallet_type_id' => ['required', 'string', 'min:36', 'max:36'],
             'placing_id' => ['required', 'string', 'min:36', 'max:36'],
-            'part_id' => ['required', 'string', 'min:36', 'max:36'],
-            'location_id' => ['required', 'string', 'min:36', 'max:36'],
-            'pallet_no' => ['required', 'string', 'min:1', 'max:25'],
+            'location_id' => ['required'],
+            'pallet_no' => ['required'],
             'spl_pallet_no' => ['required', 'string', 'min:1', 'max:25'],
-            'pallet_total' => ['required', 'numeric'],
-            'active' => ['required', 'boolean'],
+            'pallet_total' => ['required'],
+            'active' => ['required'],
         ]);
 
         if ($v->fails()) {
@@ -155,10 +159,11 @@ class InvoicePalletController extends Controller
             ]);
         }
 
+        $l = Location::where('name', $request->location_id)->first();
         $invoicePallet->invoice_id = $request->invoice_id;
+        $invoicePallet->pallet_type_id = $request->pallet_type_id;
         $invoicePallet->placing_id = $request->placing_id;
-        $invoicePallet->part_id = $request->part_id;
-        $invoicePallet->location_id = $request->location_id;
+        $invoicePallet->location_id = $l->id;
         $invoicePallet->pallet_no = $request->pallet_no;
         $invoicePallet->spl_pallet_no = $request->spl_pallet_no;
         $invoicePallet->pallet_total = $request->pallet_total;
@@ -170,7 +175,7 @@ class InvoicePalletController extends Controller
         return response()->json([
             'success' => true,
             'message' => 'อัพเดทข้อมูล invoice pallet(' . $invoicePallet->id . ')',
-            'data' => $invoicePallet
+            'data' => null
         ]);
     }
 

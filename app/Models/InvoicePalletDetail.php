@@ -14,9 +14,7 @@ class InvoicePalletDetail extends Model
 
     protected $fillable = [
         'invoice_pallet_id',
-        'carton_id',
-        'seq',
-        'ticket_no',
+        'invoice_part_id',
         'is_printed',
         'is_active',
     ];
@@ -25,8 +23,12 @@ class InvoicePalletDetail extends Model
         return $this->hasOne(InvoicePallet::class, 'id', 'invoice_pallet_id');
     }
 
-    public function carton() {
-        return $this->hasOne(Carton::class, 'id', 'carton_id');
+    public function invoice_parts() {
+        return $this->hasOne(OrderDetail::class, 'id', 'invoice_part_id');
     }
 
+    public function fticket()
+    {
+        return $this->hasMany(Fticket::class, 'invoice_pallet_detail_id', 'id');
+    }
 }
