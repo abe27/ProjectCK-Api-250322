@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\InvoicePalletDetail;
 use App\Helpers\LogActivity;
 use App\Models\Fticket;
+use DateTime;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 
@@ -51,7 +52,6 @@ class InvoicePalletDetailController extends Controller
             'invoice_pallet_id' => ['required', 'string', 'min:36', 'max:36'],
             'invoice_part_id' => ['required', 'string', 'min:36', 'max:36'],
             'total_per_pallet' => ['required', 'integer'],
-            'is_printed' => ['required'],
             'active' => ['required'],
         ]);
 
@@ -63,26 +63,31 @@ class InvoicePalletDetailController extends Controller
             ]);
         }
 
-        // $obj = new InvoicePalletDetail();
-        // $obj->invoice_pallet_id = $request->invoice_pallet_id;
-        // $obj->carton_id = $request->invoice_part_id;
-        // $obj->is_printed = $request->is_printed;
-        // $obj->is_active = $request->active;
-        // $obj->save();
+        $obj = new InvoicePalletDetail();
+        $obj->invoice_pallet_id = $request->invoice_pallet_id;
+        $obj->invoice_part_id = $request->invoice_part_id;
+        $obj->is_printed = false;
+        $obj->is_active = $request->active;
+        $obj->save();
 
-        for ($x = 0; $x <= $request->total_per_pallet; $x++) {
-            $f = Fticket::where('fticket_no', 'like', 'V')->count();
-            echo "The number is: $x <br>";
+        $dt = new DateTime();
+        for ($x = 0; $x <= ($request->total_per_pallet - 1); $x++) {
+            $n = Fticket::where('fticket_no', 'like', "V" . $dt->format("ymd") . "%")->count() + 1;
+            $fticket_no = "V" . $dt->format("ymd") . sprintf("%08d", $n);
+            $fticket = new Fticket();
+            $fticket->invoice_pallet_detail_id = $obj->id;
+            $fticket->fticket_no = $fticket_no;
+            $fticket->description = '-';
+            $fticket->save();
         }
 
+        LogActivity::addToLog('สร้างข้อมูล FTicket (' . $obj->id . ')');
 
-        // LogActivity::addToLog('สร้างข้อมูล invoice pallet(' . $obj->id . ')');
-
-        // return response()->json([
-        //     'success' => true,
-        //     'message' => 'บันทึกข้อมูลใหม่',
-        //     'data' => $obj
-        // ]);
+        return response()->json([
+            'success' => true,
+            'message' => 'บันทึกข้อมูลใหม่',
+            'data' => null
+        ]);
     }
 
     /**
