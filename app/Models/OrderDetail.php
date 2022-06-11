@@ -33,6 +33,7 @@ class OrderDetail extends Model
         'reason_code',
         'firm_flg',
         'poupd_flg',
+        'set_pallet_ctn',
         'is_active',
     ];
 
@@ -50,6 +51,10 @@ class OrderDetail extends Model
 
     public function ledger() {
         return $this->hasOne(Ledger::class, 'id', 'ledger_id');
+    }
+
+    public function invoice_pallet() {
+        return $this->hasOne(InvoicePalletDetail::class, 'invoice_part_id', 'id');
     }
 
 }

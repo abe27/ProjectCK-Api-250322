@@ -160,6 +160,7 @@ class InvoiceController extends Controller
             'pallet.pallet_type',
             'pallet.placing',
             'pallet.part',
+            'pallet.part.invoice_parts',
             'pallet.location',
             'title'
         )->where('id', $invoice->id)->get();

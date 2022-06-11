@@ -16,7 +16,6 @@ class InvoicePallet extends Model
         'invoice_id',
         'pallet_type_id',
         'placing_id',
-        'part_id',
         'location_id',
         'pallet_no',
         'spl_pallet_no',
@@ -37,7 +36,7 @@ class InvoicePallet extends Model
     }
 
     public function part() {
-        return $this->hasOne(OrderDetail::class, 'id', 'part_id');
+        return $this->hasMany(InvoicePalletDetail::class, 'invoice_pallet_id', 'id');
     }
 
     public function location() {

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\InvoicePalletDetail;
 use App\Helpers\LogActivity;
 use App\Models\Fticket;
+use App\Models\OrderDetail;
 use DateTime;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
@@ -63,7 +64,11 @@ class InvoicePalletDetailController extends Controller
             ]);
         }
 
-        $obj = new InvoicePalletDetail();
+
+        $obj = InvoicePalletDetail::where('invoice_pallet_id', $request->invoice_pallet_id)->where('invoice_part_id', $request->invoice_part_id)->first();
+        if ($obj == null) {
+            $obj = new InvoicePalletDetail();
+        }
         $obj->invoice_pallet_id = $request->invoice_pallet_id;
         $obj->invoice_part_id = $request->invoice_part_id;
         $obj->is_printed = false;
@@ -80,6 +85,10 @@ class InvoicePalletDetailController extends Controller
             $fticket->description = '-';
             $fticket->save();
         }
+
+        $ord = OrderDetail::find($request->invoice_part_id);
+        $ord->set_pallet_ctn = $request->total_per_pallet;
+        $ord->save();
 
         LogActivity::addToLog('สร้างข้อมูล FTicket (' . $obj->id . ')');
 
