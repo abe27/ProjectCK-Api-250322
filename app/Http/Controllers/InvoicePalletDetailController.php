@@ -87,7 +87,7 @@ class InvoicePalletDetailController extends Controller
         }
 
         $ord = OrderDetail::find($request->invoice_part_id);
-        $ord->set_pallet_ctn = $request->total_per_pallet;
+        $ord->set_pallet_ctn += $request->total_per_pallet;
         $ord->save();
 
         LogActivity::addToLog('สร้างข้อมูล FTicket (' . $obj->id . ')');

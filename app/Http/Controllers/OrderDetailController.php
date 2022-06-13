@@ -126,7 +126,7 @@ class OrderDetailController extends Controller
             'order_plan',
             'revise',
             'ledger'
-        )->where('id', $orderDetail->id)->paginate();
+        )->where('id', $orderDetail->id)->first();
         LogActivity::addToLog('แสดงข้อมูล orderDetail(' . $orderDetail->id . ')');
         return response()->json([
             'success' => true,

@@ -109,8 +109,12 @@ class InvoicePalletController extends Controller
             'invoice',
             'placing',
             'part',
+            'part.invoice_parts',
+            'part.invoice_parts.ledger',
+            'part.invoice_parts.ledger.part',
+            'part.fticket',
             'location'
-        )->where('id', $invoicePallet->id)->get();
+        )->where('id', $invoicePallet->id)->first();
 
         LogActivity::addToLog('แสดงข้อมูล Invoice Pallet(' . $invoicePallet->id .')');
         return response()->json([

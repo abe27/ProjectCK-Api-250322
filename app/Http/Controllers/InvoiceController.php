@@ -16,37 +16,72 @@ class InvoiceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(string $ship_date,$active = 1)
+    public function index(Request $req, string $ship_date, $active = 1)
     {
-        $data = Invoice::with(
-            'order',
-            'order.consignee',
-            'order.consignee.factory',
-            'order.consignee.aff',
-            'order.consignee.customer',
-            'order.consignee.region',
-            'order.consignee.address',
-            // 'order.consignee.territory',
-            'order.consignee.territory.user',
-            'order.shipping',
-            'order.items',
-            'order.items.order_plan',
-            'order.items.revise',
-            // 'order.items.ledger',
-            'order.items.ledger.part_type',
-            'order.items.ledger.tagrp',
-            // 'order.items.ledger.factory',
-            'order.items.ledger.whs',
-            'order.items.ledger.part',
-            'order.items.ledger.kinds',
-            'order.items.ledger.sizes',
-            'order.items.ledger.colors',
-            'order.items.ledger.unit',
-            'order.orderwhs',
-            'order.invoices',
-            'pallet',
-            'title'
-        )->where('ship_date', $ship_date)->where('is_active', $active)->get();
+        $data  = [];
+        if ($req->user()->is_admin) {
+            $data = Invoice::with(
+                'order',
+                'order.consignee',
+                'order.consignee.factory',
+                'order.consignee.aff',
+                'order.consignee.customer',
+                'order.consignee.region',
+                'order.consignee.address',
+                // 'order.consignee.territory',
+                'order.consignee.territory.user',
+                'order.shipping',
+                'order.items',
+                'order.items.order_plan',
+                'order.items.revise',
+                // 'order.items.ledger',
+                'order.items.ledger.part_type',
+                'order.items.ledger.tagrp',
+                // 'order.items.ledger.factory',
+                'order.items.ledger.whs',
+                'order.items.ledger.part',
+                'order.items.ledger.kinds',
+                'order.items.ledger.sizes',
+                'order.items.ledger.colors',
+                'order.items.ledger.unit',
+                'order.orderwhs',
+                'order.invoices',
+                'pallet',
+                'title'
+            )->where('ship_date', $ship_date)->where('is_active', $active)->get();
+        } else {
+            $data = Invoice::with(
+                'order',
+                'order.consignee',
+                'order.consignee.factory',
+                'order.consignee.aff',
+                'order.consignee.customer',
+                'order.consignee.region',
+                'order.consignee.address',
+                // 'order.consignee.territory',
+                'order.consignee.territory.user',
+                'order.shipping',
+                'order.items',
+                'order.items.order_plan',
+                'order.items.revise',
+                // 'order.items.ledger',
+                'order.items.ledger.part_type',
+                'order.items.ledger.tagrp',
+                // 'order.items.ledger.factory',
+                'order.items.ledger.whs',
+                'order.items.ledger.part',
+                'order.items.ledger.kinds',
+                'order.items.ledger.sizes',
+                'order.items.ledger.colors',
+                'order.items.ledger.unit',
+                'order.orderwhs',
+                'order.invoices',
+                'pallet',
+                'title'
+            )->whereHas('order.consignee.territory.user', function ($q) {
+                $q->where('empcode', $req->empcode);
+            })->where('ship_date', $ship_date)->where('is_active', $active)->get();
+        }
         LogActivity::addToLog('ดึงข้อมูล Invoice');
         return response()->json([
             'success' => true,
@@ -122,6 +157,25 @@ class InvoiceController extends Controller
         ]);
     }
 
+    public function load_pallet(Invoice $invoice)
+    {
+        $data = Invoice::with(
+            'pallet',
+            'pallet.pallet_type',
+            'pallet.placing',
+            'pallet.part',
+            'pallet.part.fticket',
+            'pallet.location',
+            'title'
+        )->where('id', $invoice->id)->first();
+        LogActivity::addToLog('แสดงข้อมูล Invoice(' . $invoice->id . ')');
+        return response()->json([
+            'success' => true,
+            'message' => 'แสดงข้อมูล Invoice(' . $invoice->id . ')',
+            'data' => $data
+        ]);
+    }
+
     /**
      * Display the specified resource.
      *
@@ -161,9 +215,11 @@ class InvoiceController extends Controller
             'pallet.placing',
             'pallet.part',
             'pallet.part.invoice_parts',
+            'pallet.part.invoice_parts.ledger',
+            'pallet.part.invoice_parts.ledger.part',
             'pallet.location',
             'title'
-        )->where('id', $invoice->id)->get();
+        )->where('id', $invoice->id)->first();
         LogActivity::addToLog('แสดงข้อมูล Invoice(' . $invoice->id . ')');
         return response()->json([
             'success' => true,
