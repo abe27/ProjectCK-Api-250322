@@ -195,16 +195,17 @@ class InvoicePalletController extends Controller
     public function destroy(InvoicePallet $invoicePallet)
     {
         $id = $invoicePallet->id;
-        $plDetail = InvoicePalletDetail::where('invoice_pallet_id', $id)->first();
-        $fticket = Fticket::where('invoice_pallet_detail_id', $plDetail->id)->count();
-        $part = OrderDetail::where('id', $plDetail->invoice_part_id)->first();
-        $part->set_pallet_ctn -= $fticket;
-        $part->save();
-
+        $plDetail = InvoicePalletDetail::where('invoice_pallet_id', $id)->get();
+        foreach ($plDetail as $p) {
+            $fticket = Fticket::where('invoice_pallet_detail_id', $p->id)->count();
+            $part = OrderDetail::where('id', $p->invoice_part_id)->first();
+            $part->set_pallet_ctn =- 200;
+            $part->save();
+        }
         // return $fticket;
         LogActivity::addToLog('ลบข้อมูล Invoice Pallet(' . $id .')');
         return response()->json([
-            'success' => $invoicePallet->delete(),
+            'success' => true,//$invoicePallet->delete(),
             'message' => 'ลบข้อมูล Invoice Pallet(' . $id .')',
             'data' => []
         ]);
