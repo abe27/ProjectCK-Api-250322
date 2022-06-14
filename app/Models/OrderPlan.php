@@ -72,6 +72,7 @@ class OrderPlan extends Model
         'is_planning',
         'is_sync', // )->default(false);
         'is_active', // )->default(false);
+        'is_system_sync'
     ];
 
     public function file_gedi() {
