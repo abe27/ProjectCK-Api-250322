@@ -16,10 +16,10 @@ class InvoiceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $req, string $ship_date, $active = 1)
+    public function index(Request $request, string $ship_date, $active = 1)
     {
         $data  = [];
-        if ($req->user()->is_admin) {
+        if ($request->user()->is_admin) {
             $data = Invoice::with(
                 'order',
                 'order.consignee',
@@ -78,9 +78,88 @@ class InvoiceController extends Controller
                 'order.invoices',
                 'pallet',
                 'title'
-            )->whereHas('order.consignee.territory.user', function ($q) {
-                $q->where('empcode', $req->empcode);
+            )->whereHas('order.consignee.territory.user', function ($q, $request) {
+                $q->where('empcode', $request->user()->empcode);
             })->where('ship_date', $ship_date)->where('is_active', $active)->get();
+        }
+        LogActivity::addToLog('ดึงข้อมูล Invoice');
+        return response()->json([
+            'success' => true,
+            'message' => 'get data',
+            'data' => $data
+        ]);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function between(Request $request, string $from_date, string $end_date, $active = 1)
+    {
+        $data  = [];
+        if ($request->user()->is_admin) {
+            $data = Invoice::with(
+                'order',
+                'order.consignee',
+                'order.consignee.factory',
+                'order.consignee.aff',
+                'order.consignee.customer',
+                'order.consignee.region',
+                'order.consignee.address',
+                // 'order.consignee.territory',
+                'order.consignee.territory.user',
+                'order.shipping',
+                'order.items',
+                'order.items.order_plan',
+                'order.items.revise',
+                // 'order.items.ledger',
+                'order.items.ledger.part_type',
+                'order.items.ledger.tagrp',
+                // 'order.items.ledger.factory',
+                'order.items.ledger.whs',
+                'order.items.ledger.part',
+                'order.items.ledger.kinds',
+                'order.items.ledger.sizes',
+                'order.items.ledger.colors',
+                'order.items.ledger.unit',
+                'order.orderwhs',
+                'order.invoices',
+                'pallet',
+                'title'
+            )->whereBetween('ship_date', [$from_date, $end_date])->where('is_active', $active)->get();
+        } else {
+            $data = Invoice::with(
+                'order',
+                'order.consignee',
+                'order.consignee.factory',
+                'order.consignee.aff',
+                'order.consignee.customer',
+                'order.consignee.region',
+                'order.consignee.address',
+                // 'order.consignee.territory',
+                'order.consignee.territory.user',
+                'order.shipping',
+                'order.items',
+                'order.items.order_plan',
+                'order.items.revise',
+                // 'order.items.ledger',
+                'order.items.ledger.part_type',
+                'order.items.ledger.tagrp',
+                // 'order.items.ledger.factory',
+                'order.items.ledger.whs',
+                'order.items.ledger.part',
+                'order.items.ledger.kinds',
+                'order.items.ledger.sizes',
+                'order.items.ledger.colors',
+                'order.items.ledger.unit',
+                'order.orderwhs',
+                'order.invoices',
+                'pallet',
+                'title'
+            )->whereHas('order.consignee.territory.user', function ($q, $request) {
+                $q->where('empcode', $request->user()->empcode);
+            })->whereBetween('ship_date', [$from_date, $end_date])->where('is_active', $active)->get();
         }
         LogActivity::addToLog('ดึงข้อมูล Invoice');
         return response()->json([

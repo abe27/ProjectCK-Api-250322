@@ -346,6 +346,7 @@ Route::prefix('/invoice')->middleware('auth:sanctum')->group(function () {
 
     Route::prefix('/header')->group(function () {
         Route::get('/index/{ship_date}/{active?}', [InvoiceController::class, 'index'])->name('api.invoice.header.index');
+        Route::get('/between/{from_date}/{end_date}/{active?}', [InvoiceController::class, 'between'])->name('api.invoice.header.index');
         Route::post('/store', [InvoiceController::class, 'store'])->name('api.invoice.header.store');
         Route::get('/pallet/{invoice}', [InvoiceController::class, 'load_pallet'])->name('api.invoice.header.load_pallet');
         Route::get('/show/{invoice}', [InvoiceController::class, 'show'])->name('api.invoice.header.show');
