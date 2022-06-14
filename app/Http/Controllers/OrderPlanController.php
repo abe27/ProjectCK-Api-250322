@@ -22,7 +22,7 @@ class OrderPlanController extends Controller
      */
     public function index($active = 1, $sync = 1, $limit = 15)
     {
-        $data = OrderPlan::with('file_gedi')->where('is_sync', $sync)->where('is_active', $active)->OrderBy('created_at')->paginate($limit);
+        $data = OrderPlan::with('file_gedi')->where('is_system_sync', $sync)->where('is_active', $active)->OrderBy('created_at')->paginate($limit);
         LogActivity::addToLog($this->sub, ' ดึงข้อมูล order plan');
         return response()->json([
             'success' => true,
