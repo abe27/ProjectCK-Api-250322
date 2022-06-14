@@ -77,6 +77,7 @@ class InvoicePalletDetailController extends Controller
 
         $dt = new DateTime();
         for ($x = 0; $x <= ($request->total_per_pallet - 1); $x++) {
+            // ymdHi
             $n = Fticket::where('fticket_no', 'like', "V" . $dt->format("ymd") . "%")->count() + 1;
             $seq = Fticket::where('invoice_pallet_detail_id', $obj->id)->count() + 1;
             $fticket_no = "V" . $dt->format("ymd") . sprintf("%08d", $n);

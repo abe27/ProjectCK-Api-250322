@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\InvoicePallet;
 use App\Helpers\LogActivity;
+use App\Models\Fticket;
 use App\Models\Invoice;
+use App\Models\InvoicePalletDetail;
 use App\Models\Location;
 use App\Models\Order;
+use App\Models\OrderDetail;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 
@@ -192,6 +195,13 @@ class InvoicePalletController extends Controller
     public function destroy(InvoicePallet $invoicePallet)
     {
         $id = $invoicePallet->id;
+        $plDetail = InvoicePalletDetail::where('invoice_pallet_id', $id)->first();
+        $fticket = Fticket::where('invoice_pallet_detail_id', $plDetail->id)->count();
+        $part = OrderDetail::where('id', $plDetail->invoice_part_id)->first();
+        $part->set_pallet_ctn -= $fticket;
+        $part->save();
+
+        // return $fticket;
         LogActivity::addToLog('ลบข้อมูล Invoice Pallet(' . $id .')');
         return response()->json([
             'success' => $invoicePallet->delete(),
