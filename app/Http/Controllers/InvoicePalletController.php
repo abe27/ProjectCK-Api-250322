@@ -199,13 +199,13 @@ class InvoicePalletController extends Controller
         foreach ($plDetail as $p) {
             $fticket = Fticket::where('invoice_pallet_detail_id', $p->id)->count();
             $part = OrderDetail::where('id', $p->invoice_part_id)->first();
-            $part->set_pallet_ctn =- 200;
+            $part->set_pallet_ctn =- $fticket;
             $part->save();
         }
         // return $fticket;
         LogActivity::addToLog('ลบข้อมูล Invoice Pallet(' . $id .')');
         return response()->json([
-            'success' => true,//$invoicePallet->delete(),
+            'success' => $invoicePallet->delete(),
             'message' => 'ลบข้อมูล Invoice Pallet(' . $id .')',
             'data' => []
         ]);
