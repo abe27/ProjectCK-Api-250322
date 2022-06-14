@@ -85,6 +85,7 @@ class InvoicePalletDetailController extends Controller
             $fticket->invoice_pallet_detail_id = $obj->id;
             $fticket->fticket_no = $fticket_no;
             $fticket->description = '-';
+            $fticket->is_active = true;
             $fticket->save();
         }
 
