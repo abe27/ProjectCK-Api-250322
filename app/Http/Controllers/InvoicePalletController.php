@@ -71,13 +71,13 @@ class InvoicePalletController extends Controller
         }
 
         $l = Location::where('name', $request->location_id)->first();
-        $c = InvoicePallet::where('invoice_id', $request->invoice_id)->where('pallet_type_id', $request->pallet_type_id)->count();
+        $c = InvoicePallet::where('invoice_id', $request->invoice_id)->where('pallet_type_id', $request->pallet_type_id)->count() + 1;
         $obj = new InvoicePallet();
         $obj->invoice_id = $request->invoice_id;
         $obj->pallet_type_id = $request->pallet_type_id;
         $obj->placing_id = $request->placing_id;
         $obj->location_id = $l->id;
-        $obj->pallet_no = ($c + 1);
+        $obj->pallet_no = $c;
         $obj->spl_pallet_no = $request->spl_pallet_no;
         $obj->pallet_total = $request->pallet_total;
         $obj->is_active = $request->active;
