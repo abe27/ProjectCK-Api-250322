@@ -12,6 +12,7 @@ use App\Http\Controllers\CustomerAddressController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\FactoryTypeController;
 use App\Http\Controllers\FileGediController;
+use App\Http\Controllers\FticketController;
 use App\Http\Controllers\ImageLedgerController;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\InvoicePalletController;
@@ -368,6 +369,14 @@ Route::prefix('/invoice')->middleware('auth:sanctum')->group(function () {
         Route::get('/show/{invoicePalletDetail}', [InvoicePalletDetailController::class, 'show'])->name('api.invoice.pallet_detail.show');
         Route::put('/update/{invoicePalletDetail}', [InvoicePalletDetailController::class, 'update'])->name('api.invoice.pallet_detail.put');
         Route::delete('/delete/{invoicePalletDetail}', [InvoicePalletDetailController::class, 'destroy'])->name('api.invoice.pallet_detail.destroy');
+    });
+
+    Route::prefix('/fticket')->group(function () {
+        Route::get('/index/{active?}', [FticketController::class, 'index'])->name('api.invoice.fticket.index');
+        Route::post('/store', [FticketController::class, 'store'])->name('api.invoice.fticket.store');
+        Route::get('/show/{fticket}', [FticketController::class, 'show'])->name('api.invoice.fticket.show');
+        Route::put('/update/{fticket}', [FticketController::class, 'update'])->name('api.invoice.fticket.put');
+        Route::delete('/delete/{fticket}', [FticketController::class, 'destroy'])->name('api.invoice.fticket.destroy');
     });
 });
 
