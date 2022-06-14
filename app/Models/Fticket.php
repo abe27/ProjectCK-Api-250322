@@ -13,6 +13,7 @@ class Fticket extends Model
     use HasFactory, HasApiTokens, Notifiable, Nanoids;
 
     protected $fillable = [
+        'seq',
         'invoice_pallet_detail_id',
         'fticket_no',
         'description',
