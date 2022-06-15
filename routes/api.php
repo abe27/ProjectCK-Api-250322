@@ -372,7 +372,7 @@ Route::prefix('/invoice')->middleware('auth:sanctum')->group(function () {
     });
 
     Route::prefix('/fticket')->group(function () {
-        Route::get('/index/{active?}', [FticketController::class, 'index'])->name('api.invoice.fticket.index');
+        Route::get('/index/{invoice}/{active?}', [FticketController::class, 'index'])->name('api.invoice.fticket.index');
         Route::post('/store', [FticketController::class, 'store'])->name('api.invoice.fticket.store');
         Route::get('/show/{fticket}', [FticketController::class, 'show'])->name('api.invoice.fticket.show');
         Route::put('/update/{fticket}', [FticketController::class, 'update'])->name('api.invoice.fticket.put');

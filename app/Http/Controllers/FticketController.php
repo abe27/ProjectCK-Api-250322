@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Helpers\LogActivity;
 use App\Models\Fticket;
+use App\Models\Invoice;
 use Illuminate\Http\Request;
 
 class FticketController extends Controller
@@ -13,9 +14,23 @@ class FticketController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Invoice $invoice, String $active)
     {
-        //
+        $data = Invoice::with(
+            'pallet',
+            'pallet.pallet_type',
+            'pallet.placing',
+            'pallet.part',
+            'pallet.part.fticket',
+            'pallet.location',
+            'title'
+        )->find($invoice->id);
+        LogActivity::addToLog('แสดงข้อมูล FTicket (' . $invoice->id . ')');
+        return response()->json([
+            'success' => true,
+            'message' => 'แสดงข้อมูล FTicket(' . $invoice->id . ')',
+            'data' => $data
+        ]);
     }
 
     /**
