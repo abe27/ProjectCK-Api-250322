@@ -94,7 +94,14 @@ class FticketController extends Controller
      */
     public function update(Request $request, Fticket $fticket)
     {
-        //
+        $fticket->is_printed = true;
+        $fticket->save();
+        LogActivity::addToLog('อัพเดทข้อมูล FTicket (' . $fticket->fticket_no .')');
+        return response()->json([
+            'success' => true,
+            'message' => 'อัพเดทข้อมูล FTicket (' . $fticket->fticket_no .') เรียบร้อยแล้ว',
+            'data' => []
+        ]);
     }
 
     /**
