@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\LogActivity;
 use App\Models\Fticket;
 use Illuminate\Http\Request;
 
@@ -80,6 +81,13 @@ class FticketController extends Controller
      */
     public function destroy(Fticket $fticket)
     {
-        //
+        $id = $fticket->id;
+
+        LogActivity::addToLog('ลบข้อมูล Invoice Pallet(' . $id .')');
+        return response()->json([
+            'success' => $id,
+            'message' => 'ลบข้อมูล FTicket (' . $id .') เรียบร้อยแล้ว',
+            'data' => $fticket
+        ]);
     }
 }

@@ -57,7 +57,7 @@ class InvoicePalletController extends Controller
         $v = Validator::make($request->all(), [
             'invoice_id' => ['required', 'string', 'min:36', 'max:36'],
             'pallet_type_id' => ['required', 'string', 'min:36', 'max:36'],
-            'placing_id' => ['required', 'string', 'min:36', 'max:36'],
+            // 'placing_id' => ['required', 'string', 'min:36', 'max:36'],
             'location_id' => ['required'],
             'pallet_no' => ['required', 'string', 'min:1', 'max:25'],
             'spl_pallet_no' => ['required', 'string', 'min:1', 'max:25'],
@@ -78,7 +78,11 @@ class InvoicePalletController extends Controller
         $obj = new InvoicePallet();
         $obj->invoice_id = $request->invoice_id;
         $obj->pallet_type_id = $request->pallet_type_id;
-        $obj->placing_id = $request->placing_id;
+        if (isset($request->placing_id))
+        {
+            $obj->placing_id = $request->placing_id;
+        }
+
         $obj->location_id = $l->id;
         $obj->pallet_no = $c;
         $obj->spl_pallet_no = $request->spl_pallet_no;
@@ -169,7 +173,10 @@ class InvoicePalletController extends Controller
         $l = Location::where('name', $request->location_id)->first();
         $invoicePallet->invoice_id = $request->invoice_id;
         $invoicePallet->pallet_type_id = $request->pallet_type_id;
-        $invoicePallet->placing_id = $request->placing_id;
+        if (isset($request->placing_id))
+        {
+            $invoicePallet->placing_id = $request->placing_id;
+        }
         $invoicePallet->location_id = $l->id;
         $invoicePallet->pallet_no = $request->pallet_no;
         $invoicePallet->spl_pallet_no = $request->spl_pallet_no;
