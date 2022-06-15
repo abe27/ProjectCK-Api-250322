@@ -17,11 +17,18 @@ class FticketController extends Controller
     public function index(Invoice $invoice, String $active)
     {
         $data = Invoice::with(
+            'order.consignee.factory',
+            'order.consignee.customer',
+            'order.shipping',
             'pallet',
             'pallet.pallet_type',
             'pallet.placing',
             'pallet.part',
             'pallet.part.fticket',
+            'pallet.part.fticket.invoice_pallet_detail',
+            'pallet.part.fticket.invoice_pallet_detail.invoice_parts',
+            'pallet.part.fticket.invoice_pallet_detail.invoice_parts.ledger',
+            'pallet.part.fticket.invoice_pallet_detail.invoice_parts.ledger.part',
             'pallet.location',
             'title'
         )->find($invoice->id);
