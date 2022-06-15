@@ -105,7 +105,6 @@ class FticketController extends Controller
      */
     public function destroy(Fticket $fticket)
     {
-        $id = $fticket->id;
         $invDetail = InvoicePalletDetail::where('id', $fticket->invoice_pallet_detail_id)->first();
         $order = OrderDetail::find($invDetail->invoice_part_id);
         $order->set_pallet_ctn -= 1;
