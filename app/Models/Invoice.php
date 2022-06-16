@@ -25,6 +25,7 @@ class Invoice extends Model
         'privilege',
         'zone_code',
         'references_id',
+        'is_completed',
         'invoice_status',
         'is_active',
     ];
