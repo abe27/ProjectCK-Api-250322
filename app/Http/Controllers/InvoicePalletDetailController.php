@@ -80,9 +80,13 @@ class InvoicePalletDetailController extends Controller
         for ($x = 0; $x <= ($request->total_per_pallet - 1); $x++) {
             // ymdHi
             $y = Str::substr($dt->format("Y"), 3, 1);
-            $n = Fticket::where('fticket_no', 'like', "V" . $y . "%")->count() + 1;
+            $fno = 1;
+            $n = Fticket::where('fticket_no', 'like', "V" . $y . "%")->last();
+            if (isset($n)) {
+                $fno = (int)Str::substr($n->fticket_no, 3, 9);
+            }
             $seq = Fticket::where('invoice_pallet_detail_id', $obj->id)->count() + 1;
-            $fticket_no = "V" . $y . sprintf("%09d", $n);
+            $fticket_no = "V" . $y . sprintf("%09d", $fno);
             $fticket = new Fticket();
             $fticket->seq = $seq;
             $fticket->invoice_pallet_detail_id = $obj->id;
