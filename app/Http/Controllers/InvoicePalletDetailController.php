@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\InvoicePalletDetail;
 use App\Helpers\LogActivity;
 use App\Models\Fticket;
+use App\Models\FticketSeq;
 use App\Models\OrderDetail;
 use DateTime;
 use Illuminate\Support\Facades\Validator;
@@ -79,14 +80,11 @@ class InvoicePalletDetailController extends Controller
         $dt = new DateTime();
         for ($x = 0; $x <= ($request->total_per_pallet - 1); $x++) {
             // ymdHi
-            $y = Str::substr($dt->format("Y"), 3, 1);
-            $fno = 1;
-            $n = Fticket::where('fticket_no', 'like', "V" . $y . "%")->last();
-            if (isset($n)) {
-                $fno = (int)Str::substr($n->fticket_no, 3, 9);
-            }
+            $y = $dt->format("Y");
+            $n = FticketSeq::where('fticket_prefix', "V")->where('on_year', $y)->first();
             $seq = Fticket::where('invoice_pallet_detail_id', $obj->id)->count() + 1;
-            $fticket_no = "V" . $y . sprintf("%09d", $fno);
+            $fticket_no = "V" . Str::substr($y, 3, 1) . sprintf("%09d", $n->running_seq);
+
             $fticket = new Fticket();
             $fticket->seq = $seq;
             $fticket->invoice_pallet_detail_id = $obj->id;
@@ -94,6 +92,9 @@ class InvoicePalletDetailController extends Controller
             $fticket->description = '-';
             $fticket->is_active = true;
             $fticket->save();
+
+            $n->running_seq += 1;
+            $n->save();
         }
 
         $ord = OrderDetail::find($request->invoice_part_id);
