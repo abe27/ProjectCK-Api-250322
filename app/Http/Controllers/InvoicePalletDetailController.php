@@ -8,6 +8,7 @@ use App\Models\Fticket;
 use App\Models\OrderDetail;
 use DateTime;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
 class InvoicePalletDetailController extends Controller
@@ -78,9 +79,10 @@ class InvoicePalletDetailController extends Controller
         $dt = new DateTime();
         for ($x = 0; $x <= ($request->total_per_pallet - 1); $x++) {
             // ymdHi
-            $n = Fticket::where('fticket_no', 'like', "V" . $dt->format("md") . "%")->count() + 1;
+            $y = Str::substr($dt->format("Y"), 3, 1);
+            $n = Fticket::where('fticket_no', 'like', "V" . $y . "%")->count() + 1;
             $seq = Fticket::where('invoice_pallet_detail_id', $obj->id)->count() + 1;
-            $fticket_no = "V" . $dt->format("md") . sprintf("%07d", $n);
+            $fticket_no = "V" . $y . sprintf("%09d", $n);
             $fticket = new Fticket();
             $fticket->seq = $seq;
             $fticket->invoice_pallet_detail_id = $obj->id;
