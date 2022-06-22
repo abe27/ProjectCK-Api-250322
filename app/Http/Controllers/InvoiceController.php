@@ -308,6 +308,63 @@ class InvoiceController extends Controller
     }
 
     /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\Invoice  $invoice
+     * @return \Illuminate\Http\Response
+     */
+    public function fticket(Invoice $invoice)
+    {
+        $data = Invoice::with(
+            'order',
+            'order.consignee',
+            'order.consignee.factory',
+            'order.consignee.aff',
+            'order.consignee.customer',
+            'order.consignee.region',
+            'order.consignee.address',
+            // 'order.consignee.territory',
+            'order.consignee.territory.user',
+            'order.shipping',
+            // 'order.items',
+            // 'order.items.order_plan',
+            // 'order.items.revise',
+            // // 'order.items.ledger',
+            // 'order.items.ledger.part_type',
+            // 'order.items.ledger.tagrp',
+            // // 'order.items.ledger.factory',
+            // 'order.items.ledger.whs',
+            // 'order.items.ledger.part',
+            // 'order.items.ledger.kinds',
+            // 'order.items.ledger.sizes',
+            // 'order.items.ledger.colors',
+            // 'order.items.ledger.unit',
+            'order.orderwhs',
+            'order.invoices',
+            'pallet',
+            // 'pallet.pallet_type',
+            // 'pallet.placing',
+            // 'pallet.part',
+            // 'pallet.part.invoice_parts',
+            // 'pallet.part.invoice_parts.ledger',
+            // 'pallet.part.invoice_parts.ledger.part',
+            'pallet.part.fticket',
+            'pallet.part.fticket.invoice_pallet_detail',
+            'pallet.part.fticket.invoice_pallet_detail.invoice_parts',
+            'pallet.part.fticket.invoice_pallet_detail.invoice_parts.ledger.whs',
+            'pallet.part.fticket.invoice_pallet_detail.invoice_parts.ledger.part',
+            // 'pallet.location',
+            'title'
+        )->where('id', $invoice->id)->first();
+        LogActivity::addToLog('แสดงข้อมูล Invoice(' . $invoice->id . ')');
+        return response()->json([
+            'success' => true,
+            'message' => 'แสดงข้อมูล Invoice(' . $invoice->id . ')',
+            'data' => $data
+        ]);
+    }
+
+    /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\Invoice  $invoice
