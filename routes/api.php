@@ -353,6 +353,7 @@ Route::prefix('/invoice')->middleware('auth:sanctum')->group(function () {
         Route::get('/show/{invoice}', [InvoiceController::class, 'show'])->name('api.invoice.header.show');
         Route::get('/fticket/{invoice}', [InvoiceController::class, 'fticket'])->name('api.invoice.header.fticket');
         Route::put('/update/{invoice}', [InvoiceController::class, 'update'])->name('api.invoice.header.put');
+        Route::put('/gedi/{invoice}', [InvoiceController::class, 'update_gedi'])->name('api.invoice.header.update_gedi');
         Route::delete('/delete/{invoice}', [InvoiceController::class, 'destroy'])->name('api.invoice.header.destroy');
     });
 

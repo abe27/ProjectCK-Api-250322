@@ -370,9 +370,16 @@ class InvoiceController extends Controller
      * @param  \App\Models\Invoice  $invoice
      * @return \Illuminate\Http\Response
      */
-    public function edit(Invoice $invoice)
+    public function update_gedi(Request $request, Invoice $invoice)
     {
-        //
+        $invoice->is_completed = $request->is_completed;
+        $invoice->save();
+        LogActivity::addToLog('อัพเดทข้อมูลสถานะ invoice(' . $invoice->id . ') เพื่อส่งข้อมูล GEDI');
+        return response()->json([
+            'success' => true,
+            'message' => 'อัพเดทข้อมูล invoice(' . $invoice->id . ')',
+            'data' => []
+        ]);
     }
 
     /**
