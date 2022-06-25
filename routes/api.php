@@ -351,6 +351,7 @@ Route::prefix('/invoice')->middleware('auth:sanctum')->group(function () {
         Route::post('/store', [InvoiceController::class, 'store'])->name('api.invoice.header.store');
         Route::get('/pallet/{invoice}', [InvoiceController::class, 'load_pallet'])->name('api.invoice.header.load_pallet');
         Route::get('/show/{invoice}', [InvoiceController::class, 'show'])->name('api.invoice.header.show');
+        Route::get('/joblist/{order}', [InvoiceController::class, 'joblist'])->name('api.invoice.header.joblist');
         Route::get('/fticket/{invoice}', [InvoiceController::class, 'fticket'])->name('api.invoice.header.fticket');
         Route::put('/update/{invoice}', [InvoiceController::class, 'update'])->name('api.invoice.header.put');
         Route::put('/gedi/{invoice}', [InvoiceController::class, 'update_gedi'])->name('api.invoice.header.update_gedi');

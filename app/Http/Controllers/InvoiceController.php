@@ -21,23 +21,17 @@ class InvoiceController extends Controller
         $data  = [];
         if ($request->user()->is_admin) {
             $data = Invoice::with(
-                'order',
-                'order.consignee',
                 'order.consignee.factory',
                 'order.consignee.aff',
                 'order.consignee.customer',
                 'order.consignee.region',
                 'order.consignee.address',
-                // 'order.consignee.territory',
                 'order.consignee.territory.user',
                 'order.shipping',
-                'order.items',
                 'order.items.order_plan',
                 'order.items.revise',
-                // 'order.items.ledger',
                 'order.items.ledger.part_type',
                 'order.items.ledger.tagrp',
-                // 'order.items.ledger.factory',
                 'order.items.ledger.whs',
                 'order.items.ledger.part',
                 'order.items.ledger.kinds',
@@ -58,16 +52,12 @@ class InvoiceController extends Controller
                 'order.consignee.customer',
                 'order.consignee.region',
                 'order.consignee.address',
-                // 'order.consignee.territory',
                 'order.consignee.territory.user',
                 'order.shipping',
-                'order.items',
                 'order.items.order_plan',
                 'order.items.revise',
-                // 'order.items.ledger',
                 'order.items.ledger.part_type',
                 'order.items.ledger.tagrp',
-                // 'order.items.ledger.factory',
                 'order.items.ledger.whs',
                 'order.items.ledger.part',
                 'order.items.ledger.kinds',
@@ -100,23 +90,17 @@ class InvoiceController extends Controller
         $data  = [];
         if ($request->user()->is_admin) {
             $data = Invoice::with(
-                'order',
-                'order.consignee',
                 'order.consignee.factory',
                 'order.consignee.aff',
                 'order.consignee.customer',
                 'order.consignee.region',
                 'order.consignee.address',
-                // 'order.consignee.territory',
                 'order.consignee.territory.user',
                 'order.shipping',
-                'order.items',
                 'order.items.order_plan',
                 'order.items.revise',
-                // 'order.items.ledger',
                 'order.items.ledger.part_type',
                 'order.items.ledger.tagrp',
-                // 'order.items.ledger.factory',
                 'order.items.ledger.whs',
                 'order.items.ledger.part',
                 'order.items.ledger.kinds',
@@ -130,23 +114,17 @@ class InvoiceController extends Controller
             )->whereBetween('ship_date', [$from_date, $end_date])->where('is_active', $active)->get();
         } else {
             $data = Invoice::with(
-                'order',
-                'order.consignee',
                 'order.consignee.factory',
                 'order.consignee.aff',
                 'order.consignee.customer',
                 'order.consignee.region',
                 'order.consignee.address',
-                // 'order.consignee.territory',
                 'order.consignee.territory.user',
                 'order.shipping',
-                'order.items',
                 'order.items.order_plan',
                 'order.items.revise',
-                // 'order.items.ledger',
                 'order.items.ledger.part_type',
                 'order.items.ledger.tagrp',
-                // 'order.items.ledger.factory',
                 'order.items.ledger.whs',
                 'order.items.ledger.part',
                 'order.items.ledger.kinds',
@@ -264,23 +242,17 @@ class InvoiceController extends Controller
     public function show(Invoice $invoice)
     {
         $data = Invoice::with(
-            'order',
-            'order.consignee',
             'order.consignee.factory',
             'order.consignee.aff',
             'order.consignee.customer',
             'order.consignee.region',
             'order.consignee.address',
-            // 'order.consignee.territory',
             'order.consignee.territory.user',
             'order.shipping',
-            'order.items',
             'order.items.order_plan',
             'order.items.revise',
-            // 'order.items.ledger',
             'order.items.ledger.part_type',
             'order.items.ledger.tagrp',
-            // 'order.items.ledger.factory',
             'order.items.ledger.whs',
             'order.items.ledger.part',
             'order.items.ledger.kinds',
@@ -289,12 +261,8 @@ class InvoiceController extends Controller
             'order.items.ledger.unit',
             'order.orderwhs',
             'order.invoices',
-            'pallet',
             'pallet.pallet_type',
             'pallet.placing',
-            'pallet.part',
-            'pallet.part.invoice_parts',
-            'pallet.part.invoice_parts.ledger',
             'pallet.part.invoice_parts.ledger.part',
             'pallet.location',
             'title'
@@ -313,47 +281,57 @@ class InvoiceController extends Controller
      * @param  \App\Models\Invoice  $invoice
      * @return \Illuminate\Http\Response
      */
+    public function joblist(Order $order)
+    {
+        $data = Order::with(
+            'invoices.title',
+            'consignee.factory',
+            'consignee.aff',
+            'consignee.customer',
+            'consignee.region',
+            'consignee.address',
+            'shipping',
+            'orderwhs.factory',
+            'items.ledger.part_type',
+            'items.ledger.tagrp',
+            'items.ledger.factory',
+            'items.ledger.whs',
+            'items.ledger.part',
+            'items.ledger.kinds',
+            'items.ledger.sizes',
+            'items.ledger.colors',
+            'items.ledger.unit',
+            'items.ledger.stock',
+            'items.ledger.carton.shelve.location',
+        )->find($order->id);
+        LogActivity::addToLog('แสดงข้อมูล Invoice Joblist(' . $order->id . ')');
+        return response()->json([
+            'success' => true,
+            'message' => 'แสดงข้อมูล Invoice Joblist(' . $order->id . ')',
+            'data' => $data
+        ]);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\Invoice  $invoice
+     * @return \Illuminate\Http\Response
+     */
     public function fticket(Invoice $invoice)
     {
         $data = Invoice::with(
-            'order',
-            'order.consignee',
             'order.consignee.factory',
             'order.consignee.aff',
             'order.consignee.customer',
             'order.consignee.region',
             'order.consignee.address',
-            // 'order.consignee.territory',
             'order.consignee.territory.user',
             'order.shipping',
-            // 'order.items',
-            // 'order.items.order_plan',
-            // 'order.items.revise',
-            // // 'order.items.ledger',
-            // 'order.items.ledger.part_type',
-            // 'order.items.ledger.tagrp',
-            // // 'order.items.ledger.factory',
-            // 'order.items.ledger.whs',
-            // 'order.items.ledger.part',
-            // 'order.items.ledger.kinds',
-            // 'order.items.ledger.sizes',
-            // 'order.items.ledger.colors',
-            // 'order.items.ledger.unit',
             'order.orderwhs',
             'order.invoices',
-            'pallet',
-            // 'pallet.pallet_type',
-            // 'pallet.placing',
-            // 'pallet.part',
-            // 'pallet.part.invoice_parts',
-            // 'pallet.part.invoice_parts.ledger',
-            // 'pallet.part.invoice_parts.ledger.part',
-            'pallet.part.fticket',
-            'pallet.part.fticket.invoice_pallet_detail',
-            'pallet.part.fticket.invoice_pallet_detail.invoice_parts',
             'pallet.part.fticket.invoice_pallet_detail.invoice_parts.ledger.whs',
             'pallet.part.fticket.invoice_pallet_detail.invoice_parts.ledger.part',
-            // 'pallet.location',
             'title'
         )->where('id', $invoice->id)->first();
         LogActivity::addToLog('แสดงข้อมูล Invoice(' . $invoice->id . ')');

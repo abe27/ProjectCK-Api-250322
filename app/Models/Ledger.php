@@ -30,6 +30,10 @@ class Ledger extends Model
         'is_active',
     ];
 
+    public function carton() {
+        return $this->hasOne(Carton::class, 'ledger_id', 'id');
+    }
+
     public function part_type() {
         return $this->hasOne(PartType::class, 'id', 'part_type_id');
     }
@@ -66,4 +70,7 @@ class Ledger extends Model
         return $this->hasOne(Unit::class, 'id', 'unit_id');
     }
 
+    public function stock() {
+        return $this->hasOne(Stock::class, 'ledger_id', 'id');
+    }
 }

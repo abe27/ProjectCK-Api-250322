@@ -26,4 +26,8 @@ class Carton extends Model
     public function receive_detail() {
         return $this->hasOne(ReceiveDetail::class, 'id', 'ledgers');
     }
+
+    public function shelve() {
+        return $this->hasMany(Shelve::class, 'carton_id', 'id');
+    }
 }
