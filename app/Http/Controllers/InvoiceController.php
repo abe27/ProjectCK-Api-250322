@@ -303,7 +303,12 @@ class InvoiceController extends Controller
             'items.ledger.unit',
             'items.ledger.stock',
             'items.ledger.carton.shelve.location',
-        )->find($order->id);
+        )
+        ->find($order->id);
+        // ->whereHas('items.ledger.carton.shelve.location', function ($q) {
+        //     $q->whereNotIn('name', ['S-PLOUT','S-XXX']);
+        // })
+        // ->where('id', $order->id)->get();
         LogActivity::addToLog('แสดงข้อมูล Invoice Joblist(' . $order->id . ')');
         return response()->json([
             'success' => true,

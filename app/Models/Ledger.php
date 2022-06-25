@@ -6,6 +6,7 @@ use App\Traits\Nanoids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\DB;
 use Laravel\Sanctum\HasApiTokens;
 
 class Ledger extends Model
@@ -31,7 +32,7 @@ class Ledger extends Model
     ];
 
     public function carton() {
-        return $this->hasOne(Carton::class, 'ledger_id', 'id');
+        return $this->hasOne(Carton::class, 'ledger_id', 'id')->where('qty', '>', '0');
     }
 
     public function part_type() {

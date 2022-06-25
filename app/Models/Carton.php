@@ -28,6 +28,6 @@ class Carton extends Model
     }
 
     public function shelve() {
-        return $this->hasMany(Shelve::class, 'carton_id', 'id');
+        return $this->hasOne(Shelve::class, 'carton_id', 'id');
     }
 }
