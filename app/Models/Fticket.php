@@ -15,7 +15,9 @@ class Fticket extends Model
     protected $fillable = [
         'seq',
         'invoice_pallet_detail_id',
+        'carton_id',
         'fticket_no',
+        'pl_out_no',
         'description',
         'is_printed',
         'is_scanned',
