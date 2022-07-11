@@ -27,6 +27,8 @@ class Invoice extends Model
         'references_id',
         'is_completed',
         'invoice_status',
+        'is_resend',
+        'is_send_gedi',
         'is_sync_to_system',
         'is_active',
     ];
